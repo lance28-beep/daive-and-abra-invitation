@@ -389,6 +389,9 @@ export function Details() {
                     <span className="text-xs sm:text-sm font-[family-name:var(--font-crimson)] font-medium text-[#0A3629]/70">Warm Gold</span>
                   </div>
                 </div>
+                <p className="mt-5 text-xs sm:text-sm md:text-base font-[family-name:var(--font-crimson)] text-[#0A3629]/80 leading-relaxed">
+                  We kindly request guests to wear earth tones. Please avoid printed outfits.
+                </p>
               </div>
             </div>
           </div>
