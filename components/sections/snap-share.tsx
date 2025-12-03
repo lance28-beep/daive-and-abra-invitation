@@ -17,6 +17,7 @@ import { QRCodeCanvas } from "qrcode.react";
 
 export function SnapShare() {
   const [copiedHashtag, setCopiedHashtag] = useState(false);
+  const [copiedDriveLink, setCopiedDriveLink] = useState(false);
   const [scrollY, setScrollY] = useState(0);
   const [isMobile, setIsMobile] = useState(false);
 
@@ -24,6 +25,8 @@ export function SnapShare() {
     typeof window !== "undefined"
       ? window.location.href
       : "https://example.com";
+  const driveLink =
+    "https://drive.google.com/drive/folders/1SRO7vmE4OwSqQadbyp62iaqrs-TPDGGH?usp=sharing";
   const hashtags = ["#AnJENaAngForeverNiJAYR"];  
   const shareText = `Join us in celebrating Jay-R & Jen's special day! Check out their wedding website: ${websiteUrl} ${hashtags.join(" ")} 💕`;
 
@@ -48,6 +51,16 @@ export function SnapShare() {
       setTimeout(() => setCopiedHashtag(false), 2000);
     } catch (err) {
       console.error("Failed to copy: ", err);
+    }
+  };
+
+  const copyDriveLink = async () => {
+    try {
+      await navigator.clipboard.writeText(driveLink);
+      setCopiedDriveLink(true);
+      setTimeout(() => setCopiedDriveLink(false), 2000);
+    } catch (err) {
+      console.error("Failed to copy Drive link: ", err);
     }
   };
 
@@ -79,6 +92,21 @@ export function SnapShare() {
     link.download = "wedding-qr.png";
     link.href = canvas.toDataURL("image/png");
     link.click();
+  };
+
+  const downloadDriveQRCode = () => {
+    const canvas = document.getElementById(
+      "drive-qr",
+    ) as HTMLCanvasElement | null;
+    if (!canvas) return;
+    const link = document.createElement("a");
+    link.download = "wedding-drive-qr.png";
+    link.href = canvas.toDataURL("image/png");
+    link.click();
+  };
+
+  const openDrive = () => {
+    window.open(driveLink, "_blank", "noopener,noreferrer");
   };
 
   const fadeInUp = {
@@ -135,58 +163,124 @@ export function SnapShare() {
           initial="initial"
           animate="animate"
         >
-          {/* Hashtags Card */}
+          {/* Left Column: Hashtags + Drive Upload */}
           <motion.div
-            className="relative group"
+            className="space-y-4 sm:space-y-6 md:space-y-8"
             variants={fadeInUp}
-            whileHover={{ y: -2 }}
-            transition={{ duration: 0.3 }}
           >
-            <div className="absolute -inset-1 bg-gradient-to-br from-[#0A3629]/20 to-[#126555]/10 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-lg" />
+            {/* Hashtags Card */}
+            <div className="relative group">
+              <div className="absolute -inset-1 bg-gradient-to-br from-[#0A3629]/20 to-[#126555]/10 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-lg" />
 
-            <div className="relative bg-white backdrop-blur-sm rounded-xl sm:rounded-2xl p-4 sm:p-6 md:p-8 border-2 border-[#0A3629]/30 shadow-xl hover:shadow-2xl transition-all duration-300 hover:border-[#0A3629]/50">
-              <div className="text-center space-y-4 sm:space-y-5 md:space-y-6">
-                {/* Camera Icon */}
-                <div className="relative inline-flex items-center justify-center">
-                  <div className="absolute inset-0 bg-[#0A3629]/10 rounded-full blur-xl scale-150 animate-pulse"></div>
-                  <div className="relative w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 bg-[#0A3629] rounded-full flex items-center justify-center shadow-lg">
-                    <Camera className="h-6 w-6 sm:h-7 sm:w-7 md:h-8 md:w-8 text-white" />
+              <div className="relative bg-white backdrop-blur-sm rounded-xl sm:rounded-2xl p-4 sm:p-6 md:p-8 border-2 border-[#0A3629]/30 shadow-xl hover:shadow-2xl transition-all duration-300 hover:border-[#0A3629]/50">
+                <div className="text-center space-y-4 sm:space-y-5 md:space-y-6">
+                  {/* Camera Icon */}
+                  <div className="relative inline-flex items-center justify-center">
+                    <div className="absolute inset-0 bg-[#0A3629]/10 rounded-full blur-xl scale-150 animate-pulse"></div>
+                    <div className="relative w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 bg-[#0A3629] rounded-full flex items-center justify-center shadow-lg">
+                      <Camera className="h-6 w-6 sm:h-7 sm:w-7 md:h-8 md:w-8 text-white" />
+                    </div>
+                  </div>
+
+                  <div>
+                    <h3 className="text-lg sm:text-xl md:text-2xl font-[family-name:var(--font-crimson)] font-semibold text-[#1A1A1A] mb-2 sm:mb-3">
+                      Official Hashtags
+                    </h3>
+                    <p className="text-xs sm:text-sm md:text-base font-[family-name:var(--font-crimson)] text-[#1A1A1A]/70 mb-4 sm:mb-5 md:mb-6">
+                      Tag your photos and videos with our hashtags to share your
+                      memories
+                    </p>
+                  </div>
+
+                  {/* Hashtags */}
+                  <div className="space-y-3 sm:space-y-4">
+                    {hashtags.map((hashtag) => (
+                      <div
+                        key={hashtag}
+                        className="flex items-center justify-center gap-2.5 sm:gap-3 bg-[#F9F8F4]/20 px-3 sm:px-4 md:px-6 py-2.5 sm:py-3 md:py-4 rounded-lg sm:rounded-xl border border-[#0A3629]/20 hover:border-[#0A3629]/40 transition-all duration-300 hover:shadow-md"
+                      >
+                        <span className="text-sm sm:text-base md:text-xl font-[family-name:var(--font-crimson)] font-semibold text-[#1A1A1A] break-all sm:break-normal tracking-wide">
+                          {hashtag}
+                        </span>
+                        <button
+                          onClick={() => copyToClipboard(hashtag)}
+                          className="p-1.5 sm:p-2 rounded-full bg-white hover:bg-[#0A3629]/10 transition-colors duration-200 shadow-sm flex-shrink-0 border border-[#0A3629]/20"
+                          title="Copy hashtag"
+                        >
+                          {copiedHashtag ? (
+                            <Check className="w-3.5 h-3.5 sm:w-4 sm:h-4 md:w-5 md:h-5 text-green-600" />
+                          ) : (
+                            <Copy className="w-3.5 h-3.5 sm:w-4 sm:h-4 md:w-5 md:h-5 text-[#0A3629]" />
+                          )}
+                        </button>
+                      </div>
+                    ))}
                   </div>
                 </div>
+              </div>
+            </div>
 
-                <div>
-                  <h3 className="text-lg sm:text-xl md:text-2xl font-[family-name:var(--font-crimson)] font-semibold text-[#1A1A1A] mb-2 sm:mb-3">
-                    Official Hashtags
-                  </h3>
-                  <p className="text-xs sm:text-sm md:text-base font-[family-name:var(--font-crimson)] text-[#1A1A1A]/70 mb-4 sm:mb-5 md:mb-6">
-                    Tag your photos and videos with our hashtags to share your
-                    memories
-                  </p>
-                </div>
+            {/* Google Drive Upload Card */}
+            <div className="relative group">
+              <div className="absolute -inset-1 bg-gradient-to-br from-[#1A1A1A]/20 to-[#0A3629]/10 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-lg" />
 
-                {/* Hashtags */}
-                <div className="space-y-3 sm:space-y-4">
-                  {hashtags.map((hashtag) => (
-                    <div
-                      key={hashtag}
-                      className="flex items-center justify-center gap-2.5 sm:gap-3 bg-[#F9F8F4]/20 px-3 sm:px-4 md:px-6 py-2.5 sm:py-3 md:py-4 rounded-lg sm:rounded-xl border border-[#0A3629]/20 hover:border-[#0A3629]/40 transition-all duration-300 hover:shadow-md"
-                    >
-                      <span className="text-sm sm:text-base md:text-xl font-[family-name:var(--font-crimson)] font-semibold text-[#1A1A1A] break-all sm:break-normal tracking-wide">
-                        {hashtag}
-                      </span>
+              <div className="relative bg-white backdrop-blur-sm rounded-xl sm:rounded-2xl p-4 sm:p-6 md:p-8 border-2 border-[#1A1A1A]/30 shadow-xl hover:shadow-2xl transition-all duration-300 hover:border-[#0A3629]/50">
+                <div className="text-center space-y-4 sm:space-y-5 md:space-y-6">
+                  <div>
+                    <h3 className="text-lg sm:text-xl md:text-2xl font-[family-name:var(--font-crimson)] font-semibold text-[#1A1A1A] mb-2 sm:mb-3">
+                      Upload Your Photos & Videos
+                    </h3>
+                    <p className="text-xs sm:text-sm md:text-base font-[family-name:var(--font-crimson)] text-[#1A1A1A]/70">
+                      Help us capture our special day! Scan the QR or use the actions below to drop your clips into our shared Drive.
+                    </p>
+                  </div>
+
+                  <div className="flex flex-col items-center gap-3 sm:gap-4">
+                    <div className="inline-flex flex-col items-center bg-[#F9F8F4]/20 p-3 sm:p-4 md:p-5 rounded-lg sm:rounded-xl border border-[#0A3629]/20">
+                      <div className="mb-3 sm:mb-4 p-2 sm:p-3 rounded-lg sm:rounded-xl bg-white shadow-md border border-[#0A3629]/10">
+                        <QRCodeCanvas
+                          id="drive-qr"
+                          value={driveLink}
+                          size={isMobile ? 112 : 160}
+                          includeMargin
+                          className="bg-white"
+                        />
+                      </div>
+                      <p className="text-[10px] sm:text-xs md:text-sm font-[family-name:var(--font-crimson)] text-[#1A1A1A]/70">
+                        📱 Scan with your camera app
+                      </p>
+                    </div>
+
+                    <div className="w-full flex flex-col sm:flex-row gap-2 sm:gap-3 md:gap-4">
                       <button
-                        onClick={() => copyToClipboard(hashtag)}
-                        className="p-1.5 sm:p-2 rounded-full bg-white hover:bg-[#0A3629]/10 transition-colors duration-200 shadow-sm flex-shrink-0 border border-[#0A3629]/20"
-                        title="Copy hashtag"
+                        onClick={copyDriveLink}
+                        className="flex-1 inline-flex items-center justify-center gap-1.5 sm:gap-2 px-3 sm:px-4 md:px-5 py-2 sm:py-2.5 md:py-3 bg-white border-2 border-[#0A3629]/30 hover:border-[#0A3629]/50 hover:bg-[#F9F8F4]/40 rounded-lg text-[10px] sm:text-xs md:text-sm font-[family-name:var(--font-crimson)] font-semibold text-[#0A3629] transition-all duration-200 hover:scale-[1.02] active:scale-[0.98]"
                       >
-                        {copiedHashtag ? (
+                        {copiedDriveLink ? (
                           <Check className="w-3.5 h-3.5 sm:w-4 sm:h-4 md:w-5 md:h-5 text-green-600" />
                         ) : (
-                          <Copy className="w-3.5 h-3.5 sm:w-4 sm:h-4 md:w-5 md:h-5 text-[#0A3629]" />
+                          <Copy className="w-3.5 h-3.5 sm:w-4 sm:h-4 md:w-5 md:h-5" />
                         )}
+                        <span>{copiedDriveLink ? "Copied!" : "Copy Link"}</span>
+                      </button>
+
+                      <button
+                        onClick={downloadDriveQRCode}
+                        className="flex-1 inline-flex items-center justify-center gap-1.5 sm:gap-2 px-3 sm:px-4 md:px-5 py-2 sm:py-2.5 md:py-3 bg-[#0A3629] hover:bg-[#126555] rounded-lg text-[10px] sm:text-xs md:text-sm font-[family-name:var(--font-crimson)] font-semibold text-white transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] shadow-md hover:shadow-lg"
+                      >
+                        <Download className="w-3.5 h-3.5 sm:w-4 sm:h-4 md:w-5 md:h-5" />
+                        <span>Download QR</span>
+                      </button>
+
+                      <button
+                        onClick={openDrive}
+                        className="flex-1 inline-flex items-center justify-center gap-1.5 sm:gap-2 px-3 sm:px-4 md:px-5 py-2 sm:py-2.5 md:py-3 bg-[#126555] hover:bg-[#0A3629] rounded-lg text-[10px] sm:text-xs md:text-sm font-[family-name:var(--font-crimson)] font-semibold text-white transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] shadow-md hover:shadow-lg"
+                      >
+                        <Share2 className="w-3.5 h-3.5 sm:w-4 sm:h-4 md:w-5 md:h-5" />
+                        <span>Open Drive</span>
                       </button>
                     </div>
-                  ))}
+                  </div>
                 </div>
               </div>
             </div>
