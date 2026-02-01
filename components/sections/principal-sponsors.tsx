@@ -11,25 +11,6 @@ interface PrincipalSponsor {
 }
 
 export function PrincipalSponsors() {
-  // Helper component for elegant section titles
-  const SectionTitle = ({
-    children,
-    align = "center",
-    className = "",
-  }: {
-    children: React.ReactNode
-    align?: "left" | "center" | "right"
-    className?: string
-  }) => {
-    const textAlign =
-      align === "right" ? "text-right" : align === "left" ? "text-left" : "text-center"
-    return (
-      <h3 className={`text-xs sm:text-sm md:text-base lg:text-lg font-[family-name:var(--font-crimson)] font-semibold uppercase text-zinc-300 mb-2 sm:mb-3 md:mb-4 tracking-[0.1em] sm:tracking-[0.12em] ${textAlign} ${className}`}>
-        {children}
-      </h3>
-    )
-  }
-
   // Helper component for name items with alignment
   const NameItem = ({ name, align = "center" }: { name: string, align?: "left" | "center" | "right" }) => {
     const containerAlign =
@@ -97,13 +78,13 @@ export function PrincipalSponsors() {
           <div className="h-[1px] w-12 sm:w-16 md:w-24 bg-gradient-to-r from-transparent via-zinc-500 to-transparent" />
         </div>
         <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-[family-name:var(--font-crimson)] font-normal text-zinc-100 mb-3 sm:mb-4 md:mb-6 uppercase tracking-[0.1em] sm:tracking-[0.12em] md:tracking-[0.15em]">
-          Principal Sponsors
+          Godparents of Marriage
         </h2>
         <div className="flex items-center justify-center gap-2 sm:gap-3 mb-3 sm:mb-4">
           <div className="h-[1px] w-12 sm:w-16 md:w-24 bg-gradient-to-r from-transparent via-zinc-500 to-transparent" />
         </div>
-        <p className="text-sm sm:text-base md:text-lg font-[family-name:var(--font-crimson)] text-zinc-400 font-light max-w-xl mx-auto leading-relaxed tracking-wide px-2 sm:px-4">
-          Our Beloved Godparents
+        <p className="text-sm sm:text-base md:text-lg font-[family-name:var(--font-crimson)] text-zinc-400 font-light max-w-2xl mx-auto leading-relaxed tracking-wide px-2 sm:px-4">
+          With hearts full of gratitude, we honor our Godparents of Marriage, who will stand beside us as guiding figures, offering wisdom, prayers, and love as we begin this journey together.
         </p>
       </div>
 
@@ -172,10 +153,6 @@ export function PrincipalSponsors() {
                 </div>
               ) : (
                 <div className="mb-3 sm:mb-5 md:mb-7 lg:mb-9">
-                  <div className="grid grid-cols-1 min-[350px]:grid-cols-2 gap-x-1.5 sm:gap-x-2 md:gap-x-3 mb-2 sm:mb-2.5 md:mb-3.5">
-                    <SectionTitle align="right" className="pr-2 sm:pr-3 md:pr-4">Male Principal Sponsors</SectionTitle>
-                    <SectionTitle align="left" className="pl-2 sm:pl-3 md:pl-4">Female Principal Sponsors</SectionTitle>
-                  </div>
                   <div className="grid grid-cols-1 min-[350px]:grid-cols-2 gap-x-1.5 sm:gap-x-2 md:gap-x-3 gap-y-1 sm:gap-y-1.5 md:gap-y-2 items-stretch">
                     {sponsorPairs.map((pair, idx) => (
                       <React.Fragment key={`sponsor-pair-${idx}`}>

@@ -6,16 +6,16 @@ import Image from "next/image"
 interface TimelineEvent {
   time: string
   event: string
-  image: string
+  image?: string
+  Icon?: React.ComponentType<{ className?: string }>
 }
 
 const timelineEvents: TimelineEvent[] = [
-  { time: "4:00 PM", event: "Ceremony", image: "/TimelineImage/Ceremony.png" },
-  { time: "5:00 PM", event: "Photo Taking", image: "/TimelineImage/PhotoTaking.png" },
-  { time: "5:30 PM", event: "Cocktail Hour", image: "/TimelineImage/CocktailHour.png" },
-  { time: "6:00 PM", event: "Start of the Program", image: "/TimelineImage/StartoftheProgram.png" },
-  { time: "7:00 PM", event: "Dinner Time", image: "/TimelineImage/DinnerTime.png" },
-  { time: "9:00 PM", event: "After Party", image: "/TimelineImage/AfterParty.png" },
+  { time: "4:00 PM", event: "Guest Arrival & Welcome", image: "/TimelineImage/arrivalimage.png" },
+  { time: "4:30 PM", event: "Ceremony Begins", image: "/TimelineImage/WeddingCeremony.png" },
+  { time: "5:30 PM", event: "Cocktail Hour & Fellowship", image: "/TimelineImage/Cocktail2.png" },
+  { time: "6:30 PM", event: "Dinner & Celebration", image: "/TimelineImage/DinnerTime.png" },
+  { time: "8:00 PM", event: "Closing Blessings & Fond Farewell", image: "/TimelineImage/ext.png"  },
 ]
 
 export function WeddingTimeline() {
@@ -27,7 +27,7 @@ export function WeddingTimeline() {
       {/* Section Header - same as Entourage */}
       <div className="relative z-10 text-center mb-6 sm:mb-10 md:mb-12 px-3 sm:px-4 md:px-6">
         <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-[family-name:var(--font-crimson)] font-normal text-zinc-100 mb-3 sm:mb-4 md:mb-6 uppercase tracking-[0.1em] sm:tracking-[0.12em] md:tracking-[0.15em]">
-          Wedding Timeline
+          Wedding Program Flow
         </h2>
 
         <p className="text-sm sm:text-base md:text-lg font-[family-name:var(--font-crimson)] text-zinc-400 font-light max-w-xl mx-auto leading-relaxed tracking-wide px-2 sm:px-4">
@@ -81,14 +81,18 @@ export function WeddingTimeline() {
                   {timelineEvents.map((item, index) => (
                     <div key={index} className="relative">
                       <div className="flex items-start gap-3 sm:gap-4 md:gap-6 lg:gap-8 xl:gap-10">
-                        <div className="flex-shrink-0 relative z-10">
-                          <Image
-                            src={item.image}
-                            alt={item.event}
-                            width={96}
-                            height={96}
-                            className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 lg:w-32 lg:h-32 xl:w-36 xl:h-36 object-contain brightness-0 invert"
-                          />
+                        <div className="flex-shrink-0 relative z-10 flex items-center justify-center w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 lg:w-32 lg:h-32 xl:w-36 xl:h-36">
+                          {item.Icon ? (
+                            <item.Icon className="w-full h-full text-zinc-300" />
+                          ) : item.image ? (
+                            <Image
+                              src={item.image}
+                              alt={item.event}
+                              width={96}
+                              height={96}
+                              className="w-full h-full object-contain brightness-0 invert"
+                            />
+                          ) : null}
                         </div>
 
                         <div className="flex-1 pt-1 sm:pt-2 md:pt-3 lg:pt-4">
@@ -120,33 +124,21 @@ export function WeddingTimeline() {
                 <div className="h-px w-12 sm:w-16 md:w-20 bg-zinc-500/40" />
               </div>
 
-              {/* Reminder Message - dark inset card */}
+              {/* Thank you message - quote style */}
               <div className="relative rounded-lg sm:rounded-xl border border-[rgba(255,255,255,0.08)] bg-black/40 p-5 sm:p-6 md:p-8 lg:p-10 xl:p-12">
-                <div className="space-y-3 sm:space-y-4 md:space-y-5 lg:space-y-6 xl:space-y-7">
-                  <p className="text-sm sm:text-base md:text-lg lg:text-xl font-[family-name:var(--font-crimson)] text-zinc-300 leading-relaxed text-center">
-                    It took us a full year to plan this wedding, and we truly hope it&apos;s an evening everyone enjoys.
-                  </p>
-
-                  <p className="text-sm sm:text-base md:text-lg lg:text-xl font-[family-name:var(--font-crimson)] text-zinc-300 leading-relaxed text-center">
-                    We kindly ask our guests to stay with us until the end of the program, as we&apos;ve planned something special and meaningful to conclude the celebration. If you do need to leave earlier, we would absolutely love the chance to personally thank you and say goodbye before you go—perhaps after the same-day video is played.
-                  </p>
-
-                  <p className="text-sm sm:text-base md:text-lg lg:text-xl font-[family-name:var(--font-crimson)] text-zinc-300 leading-relaxed text-center">
-                    Your presence means so much to us, and we&apos;re incredibly grateful to be celebrating this moment together.
-                  </p>
-
-                  {/* Closing message */}
-                  <div className="pt-3 sm:pt-4 md:pt-6">
-                    <div className="flex items-center justify-center gap-2 sm:gap-3 md:gap-4 mb-3 sm:mb-4">
-                      <div className="h-px w-8 sm:w-12 md:w-16 bg-zinc-500/40" />
-                      <Heart className="w-3 h-3 sm:w-4 sm:h-4 md:w-5 md:h-5 text-zinc-500" fill="currentColor" />
-                      <div className="h-px w-8 sm:w-12 md:w-16 bg-zinc-500/40" />
-                    </div>
-                    <p className="text-base sm:text-lg md:text-xl lg:text-2xl font-[family-name:var(--font-ephesis)] text-zinc-100 text-center italic">
-                      Don&apos;t eat and run
-                    </p>
+                <h4 className="text-base sm:text-lg md:text-xl font-[family-name:var(--font-crimson)] font-semibold text-zinc-200 mb-4 sm:mb-5 md:mb-6 text-center uppercase tracking-[0.12em]">
+                  Thank you message
+                </h4>
+                <blockquote className="relative max-w-md mx-auto text-center">
+                  <span className="absolute -left-1 -top-2 sm:-top-3 text-4xl sm:text-5xl md:text-6xl font-[family-name:var(--font-ephesis)] text-zinc-500/60 leading-none select-none" aria-hidden>&ldquo;</span>
+                  <div className="space-y-0.5 sm:space-y-1 font-[family-name:var(--font-crimson)] font-light text-zinc-100 text-sm sm:text-base md:text-lg leading-snug tracking-wide">
+                    <p className="italic">With grateful hearts we give praise,</p>
+                    <p className="italic">for God&apos;s love that lights our days.</p>
+                    <p className="italic">Your presence is a blessing true,</p>
+                    <p className="italic">a gift from Him, and from you, too.</p>
                   </div>
-                </div>
+                  <span className="absolute -right-1 -bottom-2 sm:-bottom-3 text-4xl sm:text-5xl md:text-6xl font-[family-name:var(--font-ephesis)] text-zinc-500/60 leading-none select-none" aria-hidden>&rdquo;</span>
+                </blockquote>
               </div>
             </div>
           </div>

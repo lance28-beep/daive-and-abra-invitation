@@ -137,28 +137,30 @@ export function Hero() {
             </p>
           </div>
 
-          {/* Fine divider before location */}
+          {/* Fine divider before invitation message */}
           <div className="mt-6 sm:mt-7 md:mt-8 mb-6 sm:mb-7 flex justify-center">
             <div className="h-px w-24 sm:w-32 md:w-40 bg-gradient-to-r from-transparent via-zinc-600 to-transparent" />
           </div>
 
-          {/* Location block */}
-          <div className="space-y-2 sm:space-y-3 md:space-y-3.5 mb-6 sm:mb-8">
-            <p className="text-[10px] sm:text-xs md:text-sm font-[family-name:var(--font-crimson)] tracking-[0.3em] text-zinc-500 uppercase">
-              Ceremony &amp; Reception
+          {/* Invitation message */}
+          <div className="space-y-4 sm:space-y-5 md:space-y-6 max-w-md mx-auto">
+            <p className="text-sm sm:text-base md:text-lg font-[family-name:var(--font-crimson)] text-zinc-200 leading-relaxed italic">
+              With hearts full of love and joy,
+              we invite you to join us for an intimate celebration
+              as we unite our lives in marriage,
+              placing God at the center of our union.
             </p>
-            <p className="text-xs sm:text-sm md:text-base font-[family-name:var(--font-crimson)] tracking-[0.2em] text-zinc-100 uppercase">
-              Twin Lakes Tagaytay, Glass House
+            <p className="text-sm sm:text-base md:text-lg font-[family-name:var(--font-crimson)] text-zinc-200 leading-relaxed italic">
+              By His grace our paths have been woven together,
+              and in His presence we vow to walk side by side,
+              guided by faith, love, and devotion.
             </p>
-            <p className="text-[10px] sm:text-xs md:text-sm font-[family-name:var(--font-crimson)] tracking-[0.16em] text-zinc-400 uppercase">
-              Tagaytay, Philippines
+            <p className="text-sm sm:text-base md:text-lg font-[family-name:var(--font-crimson)] text-zinc-200 leading-relaxed italic">
+              Your presence will be a blessing,
+              adding warmth to a day that is both
+              a celebration of love and a testimony of His goodness.
             </p>
           </div>
-
-          {/* Script "Reception to follow" */}
-          <p className="text-lg sm:text-xl md:text-[1.4rem] font-[family-name:var(--font-ephesis)] text-zinc-200 italic">
-            Reception to follow
-          </p>
           </div>
         </div>
       </div>

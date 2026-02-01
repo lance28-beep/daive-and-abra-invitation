@@ -64,7 +64,6 @@ export default function Home() {
               {appState === AppState.DETAILS && <Navbar />}
               <MainHero />
               <Countdown />
-              <Messages />
               <Details />
               <WeddingTimeline />
               <Entourage />
@@ -73,6 +72,7 @@ export default function Home() {
               <BookOfGuests />
               <Registry />
               <FAQ />
+              <Messages />
               <SnapShare />
               <Footer />
             </div>

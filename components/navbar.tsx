@@ -8,7 +8,6 @@ import StaggeredMenu from "./StaggeredMenu";
 const navLinks = [
   { href: "#home", label: "Home" },
   { href: "#countdown", label: "Countdown" },
-  { href: "#messages", label: "Messages" },
   { href: "#details", label: "Details" },
   { href: "#timeline", label: "Timeline" },
   { href: "#entourage", label: "Entourage" },
@@ -16,6 +15,7 @@ const navLinks = [
   { href: "#guest-list", label: "RSVP" },
   { href: "#registry", label: "Registry" },
   { href: "#faq", label: "FAQ" },
+  { href: "#messages", label: "Messages" },
 ];
 
 export function Navbar() {
@@ -134,7 +134,6 @@ export function Navbar() {
               items={menuItems}
               socialItems={[]}
               displaySocials={false}
-              displayItemNumbering={true}
               menuButtonColor="#e4e4e7"
               openMenuButtonColor="#fafafa"
               changeMenuColorOnOpen={true}

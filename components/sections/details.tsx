@@ -1,13 +1,28 @@
 "use client"
 
 import { Section } from "@/components/section"
-import { Shirt, Copy, Check, Navigation, MapPin } from "lucide-react"
-import { useState } from "react"
+import { Shirt, Copy, Check, Navigation, MapPin, Gift, Mail } from "lucide-react"
+import { useState, useEffect } from "react"
 import Image from "next/image"
 import { QRCodeSVG } from "qrcode.react"
 
+const VENUE_IMAGES = [
+  "/Details/TwinLakesTagaytayGlassHouse.jpg",
+  "/Details/TwinLakesTagaytayGlassHouse2.png",
+] as const
+const VENUE_IMAGE_INTERVAL_MS = 3000
+
 export function Details() {
   const [copiedItems, setCopiedItems] = useState<Set<string>>(new Set())
+  const [venueImageIndex, setVenueImageIndex] = useState(0)
+
+  // Rotate ceremony venue images every 3 seconds with smooth crossfade
+  useEffect(() => {
+    const id = setInterval(() => {
+      setVenueImageIndex((i) => (i + 1) % VENUE_IMAGES.length)
+    }, VENUE_IMAGE_INTERVAL_MS)
+    return () => clearInterval(id)
+  }, [])
 
   const copyToClipboard = async (text: string, itemId: string) => {
     try {
@@ -90,20 +105,25 @@ export function Details() {
               }}
             />
             <div className="absolute inset-[1px] rounded-xl sm:rounded-2xl border border-[rgba(255,255,255,0.08)] group-hover:border-[rgba(255,255,255,0.15)] transition-colors z-0" />
-            {/* Venue Image */}
+            {/* Venue Image - crossfade between two images every 3s */}
             <div className="relative w-full h-48 sm:h-56 md:h-64 lg:h-72 xl:h-80 overflow-hidden">
-              <Image
-                src="/Details/TwinLakesTagaytayGlassHouse.jpg"
-                alt="Twin Lakes Tagaytay, Glass House"
-                fill
-                className="object-cover transition-transform duration-700 group-hover:scale-105"
-                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 90vw, 1280px"
-                priority
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
+              {VENUE_IMAGES.map((src, i) => (
+                <Image
+                  key={src}
+                  src={src}
+                  alt="Twin Lakes Tagaytay, Glass House"
+                  fill
+                  className={`object-cover transition-all duration-700 ease-in-out group-hover:scale-105 ${
+                    i === venueImageIndex ? "opacity-100 z-[1]" : "opacity-0 z-0"
+                  }`}
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 90vw, 1280px"
+                  priority={i === 0}
+                />
+              ))}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent z-[2] pointer-events-none" />
               
-              {/* Venue name overlay */}
-              <div className="absolute bottom-3 left-3 sm:bottom-4 sm:left-4 md:bottom-6 md:left-6 right-3 sm:right-4 md:right-6">
+              {/* Venue name overlay - fixed above images so text stays stable during transition */}
+              <div className="absolute bottom-3 left-3 sm:bottom-4 sm:left-4 md:bottom-6 md:left-6 right-3 sm:right-4 md:right-6 z-10 isolate pointer-events-none">
                 <p className="text-sm sm:text-base md:text-lg font-[family-name:var(--font-ephesis)] text-zinc-300 mb-1 sm:mb-2 drop-shadow-lg">
                   Ceremony & Reception
                 </p>
@@ -118,44 +138,6 @@ export function Details() {
 
             {/* Event Details Content */}
             <div className="relative z-10 p-3 sm:p-5 md:p-7 lg:p-9">
-              {/* Date Section */}
-              <div className="text-center mb-5 sm:mb-8 md:mb-10">
-                {/* Day name */}
-                <p className="text-[10px] sm:text-xs md:text-sm font-[family-name:var(--font-crimson)] font-semibold text-zinc-400 uppercase tracking-[0.2em] mb-2 sm:mb-3">
-                  Sunday
-                </p>
-                
-                {/* Month - Script style */}
-                <div className="mb-2 sm:mb-4">
-                  <p className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-[family-name:var(--font-ephesis)] text-zinc-200 leading-none">
-                    March
-                  </p>
-                </div>
-                
-                {/* Day and Year */}
-                <div className="flex items-center justify-center gap-2 sm:gap-3 md:gap-4 mb-4 sm:mb-6 md:mb-7">
-                  <p className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-[family-name:var(--font-crimson)] font-normal text-zinc-50 leading-none">
-                    15
-                  </p>
-                  <div className="h-10 sm:h-12 md:h-16 lg:h-20 w-[2px] bg-gradient-to-b from-zinc-600 via-zinc-500 to-zinc-600" />
-                  <p className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-[family-name:var(--font-crimson)] font-light text-zinc-200 leading-none">
-                    2026
-                  </p>
-                </div>
-
-                {/* Decorative line */}
-                <div className="flex items-center justify-center gap-2 sm:gap-3 mb-3 sm:mb-4">
-                  <div className="h-[1px] w-8 sm:w-10 md:w-14 bg-gradient-to-r from-transparent via-zinc-500 to-zinc-500" />
-                  <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-zinc-500 rounded-full" />
-                  <div className="h-[1px] w-8 sm:w-10 md:w-14 bg-gradient-to-l from-transparent via-zinc-500 to-zinc-500" />
-                </div>
-
-                {/* Time */}
-                <p className="text-sm sm:text-base md:text-lg lg:text-xl font-[family-name:var(--font-crimson)] font-semibold text-zinc-200 tracking-wide">
-                  4:00 PM
-                </p>
-              </div>
-
               {/* Location Details */}
               <div className="bg-zinc-900/50 rounded-xl p-3 sm:p-4 md:p-5 mb-4 sm:mb-6 border border-white/10">
                 <div className="flex items-start gap-2 sm:gap-3 md:gap-4">
@@ -240,6 +222,21 @@ export function Details() {
           </p>
         </div>
 
+        {/* Attire Image - white container */}
+        <div className="flex justify-center mb-8 sm:mb-10 md:mb-12">
+          <div className="w-full max-w-2xl rounded-xl sm:rounded-2xl overflow-hidden bg-white p-4 sm:p-5 md:p-6 shadow-lg border border-white/80">
+            <div className="relative w-full aspect-[4/3] sm:aspect-[3/2] rounded-lg overflow-hidden bg-white">
+              <Image
+                src="/Details/Attire.png"
+                alt="Attire guidelines - elegant black dress code"
+                fill
+                className="object-contain"
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 90vw, 672px"
+              />
+            </div>
+          </div>
+        </div>
+
         {/* Attire Cards */}
         <div className="space-y-5 sm:space-y-6 md:space-y-8">
           {/* Guest Attire */}
@@ -267,13 +264,23 @@ export function Details() {
                 </h4>
                 
                 {/* Guest Dress Code Text */}
-                <div className="text-center mb-7 sm:mb-8 md:mb-10">
-                  <p className="text-base sm:text-lg md:text-xl font-[family-name:var(--font-crimson)] text-zinc-200 leading-relaxed mb-4">
-                    <span className="font-semibold">Gentlemen:</span> Black slacks or formal black wear—black suit, pants and tie
-                  </p>
-                  <p className="text-base sm:text-lg md:text-xl font-[family-name:var(--font-crimson)] text-zinc-200 leading-relaxed">
-                    <span className="font-semibold">Ladies:</span> Elegant black (silky or glittery black are welcome)
-                  </p>
+                <div className="space-y-6 sm:space-y-7 md:space-y-8 mb-7 sm:mb-8 md:mb-10">
+                  <div>
+                    <p className="text-base sm:text-lg font-[family-name:var(--font-crimson)] font-semibold text-zinc-200 mb-2 sm:mb-3 uppercase tracking-wide">
+                      For Gentlemen
+                    </p>
+                    <p className="text-sm sm:text-base md:text-lg font-[family-name:var(--font-crimson)] text-zinc-300 leading-relaxed">
+                      We invite you to dress in classic black — suits and tie are most preferred. If you want a simpler look, a black long‑sleeved shirt is also a comfortable option.
+                    </p>
+                  </div>
+                  <div>
+                    <p className="text-base sm:text-lg font-[family-name:var(--font-crimson)] font-semibold text-zinc-200 mb-2 sm:mb-3 uppercase tracking-wide">
+                      For Ladies
+                    </p>
+                    <p className="text-sm sm:text-base md:text-lg font-[family-name:var(--font-crimson)] text-zinc-300 leading-relaxed">
+                      Grace the celebration in elegant black — whether glittery, silky, or simply refined. Choose the style that makes you feel radiant and comfortable as you celebrate with us.
+                    </p>
+                  </div>
                 </div>
 
                 {/* Decorative divider */}
@@ -378,32 +385,39 @@ export function Details() {
               
               {/* Reminders List */}
               <div className="space-y-5 sm:space-y-6 md:space-y-7">
-                {/* Attendance Limited */}
+                {/* Celebration Details */}
                 <div className="bg-zinc-900/50 rounded-xl p-5 sm:p-6 md:p-7 border border-white/10">
                   <p className="text-sm sm:text-base md:text-lg font-[family-name:var(--font-crimson)] text-zinc-200 leading-relaxed">
-                    <span className="font-semibold">Invitation Only:</span> As we celebrate this moment with our closest loved ones, we kindly ask that attendance be limited to those named on the invitation.
+                    We kindly request that the celebration remain intimate, so we can share this special day with our closest loved ones.
                   </p>
                 </div>
 
-                {/* No Boxed Gifts */}
+                {/* Invitation Only - icon + message */}
                 <div className="bg-zinc-900/50 rounded-xl p-5 sm:p-6 md:p-7 border border-white/10">
-                  <p className="text-sm sm:text-base md:text-lg font-[family-name:var(--font-crimson)] text-zinc-200 leading-relaxed">
-                    <span className="font-semibold">Gift Policy:</span> We kindly ask for no boxed gifts. Monetary gifts are welcome but never expected.
-                  </p>
+                  <div className="flex items-start gap-3 sm:gap-4">
+                    <Mail className="w-5 h-5 sm:w-6 sm:h-6 text-zinc-300 mt-0.5 flex-shrink-0" aria-hidden />
+                    <p className="text-sm sm:text-base md:text-lg font-[family-name:var(--font-crimson)] text-zinc-200 leading-relaxed">
+                      As we celebrate this moment with our closest loved ones, we kindly ask that attendance be limited to those named on the invitation.
+                    </p>
+                  </div>
                 </div>
 
-                {/* Adults Only */}
+                {/* Gifts - icon + message */}
                 <div className="bg-zinc-900/50 rounded-xl p-5 sm:p-6 md:p-7 border border-white/10">
-                  <p className="text-sm sm:text-base md:text-lg font-[family-name:var(--font-crimson)] text-zinc-200 leading-relaxed">
-                    <span className="font-semibold">Adults-Only Event:</span> We love your little ones, but to keep the celebration intimate, we kindly request an adults-only event. (Children in our family and the entourage are the exception)
-                  </p>
-                </div>
-
-                {/* No Photos */}
-                <div className="bg-zinc-900/50 rounded-xl p-5 sm:p-6 md:p-7 border border-white/10">
-                  <p className="text-sm sm:text-base md:text-lg font-[family-name:var(--font-crimson)] text-zinc-200 leading-relaxed">
-                    <span className="font-semibold">Photo Policy:</span> We'd love for everyone to be fully present. Please avoid posting photos during the celebration or ahead of time—our photographers will take care of the memories.
-                  </p>
+                  <div className="flex items-start gap-3 sm:gap-4">
+                    <Gift className="w-5 h-5 sm:w-6 sm:h-6 text-zinc-300 mt-0.5 flex-shrink-0" aria-hidden />
+                    <div className="space-y-2 sm:space-y-3">
+                      <p className="text-sm sm:text-base md:text-lg font-[family-name:var(--font-crimson)] text-zinc-200 leading-relaxed">
+                        Your presence is the greatest gift of all.
+                      </p>
+                      <p className="text-sm sm:text-base md:text-lg font-[family-name:var(--font-crimson)] text-zinc-200 leading-relaxed">
+                        If you wish to bless us further, monetary gifts are welcome but never expected.
+                      </p>
+                      <p className="text-sm sm:text-base md:text-lg font-[family-name:var(--font-crimson)] text-zinc-200 leading-relaxed">
+                        What matters most is celebrating this joyful day together.
+                      </p>
+                    </div>
+                  </div>
                 </div>
               </div>
 
