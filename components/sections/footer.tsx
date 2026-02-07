@@ -1,64 +1,11 @@
 "use client";
 
-import { useState, useEffect } from "react";
 import { motion } from "motion/react";
 import Image from "next/image";
-import {
-  Instagram,
-  Twitter,
-  Facebook,
-  MapPin,
-  Calendar,
-  Clock,
-  Heart,
-  Music2,
-} from "lucide-react";
+import { MapPin, Calendar } from "lucide-react";
 
 export function Footer() {
   const year = new Date().getFullYear();
-
-  const quotes = [
-    "In every love story, there's a moment when two hearts become one, and ours is just beginning.",
-    "Two souls, one heart—forever entwined in the journey of love and faith together.",
-    "Love is not about finding the perfect person, but learning to see an imperfect person perfectly.",
-  ];
-
-  const [currentQuoteIndex, setCurrentQuoteIndex] = useState(0);
-  const [displayedText, setDisplayedText] = useState("");
-  const [isDeleting, setIsDeleting] = useState(false);
-  const [isPaused, setIsPaused] = useState(false);
-
-  useEffect(() => {
-    if (isPaused) {
-      const pauseTimeout = setTimeout(() => {
-        setIsPaused(false);
-      }, 3000);
-      return () => clearTimeout(pauseTimeout);
-    }
-
-    if (isDeleting) {
-      if (displayedText.length > 0) {
-        const deleteTimeout = setTimeout(() => {
-          setDisplayedText(displayedText.slice(0, -1));
-        }, 30);
-        return () => clearTimeout(deleteTimeout);
-      } else {
-        setIsDeleting(false);
-        setCurrentQuoteIndex((prev) => (prev + 1) % quotes.length);
-      }
-    } else {
-      const currentQuote = quotes[currentQuoteIndex];
-      if (displayedText.length < currentQuote.length) {
-        const typeTimeout = setTimeout(() => {
-          setDisplayedText(currentQuote.slice(0, displayedText.length + 1));
-        }, 50);
-        return () => clearTimeout(typeTimeout);
-      } else {
-        setIsPaused(true);
-        setIsDeleting(true);
-      }
-    }
-  }, [displayedText, isDeleting, isPaused, currentQuoteIndex, quotes]);
 
   const fadeInUp = {
     initial: { opacity: 0, y: 60 },
@@ -71,19 +18,6 @@ export function Footer() {
       transition: { staggerChildren: 0.2 },
     },
   };
-
-  const nav = [
-    { label: "Home", href: "#home" },
-    { label: "Countdown", href: "#countdown" },
-    { label: "Messages", href: "#messages" },
-    { label: "Details", href: "#details" },
-    { label: "Entourage", href: "#entourage" },
-    { label: "Sponsors", href: "#sponsors" },
-    { label: "RSVP", href: "#guest-list" },
-    { label: "Registry", href: "#registry" },
-    { label: "FAQ", href: "#faq" },
-    { label: "Snap & Share", href: "#snap-share" },
-  ] as const;
 
   return (
     <footer
@@ -159,13 +93,13 @@ export function Footer() {
         </motion.div>
 
         <motion.div
-          className="grid grid-cols-1 lg:grid-cols-4 gap-10 mb-12"
+          className="flex justify-center mb-12"
           variants={staggerChildren}
           initial="initial"
           animate="animate"
         >
           {/* Couple Info – aligned with hero */}
-          <motion.div className="lg:col-span-2" variants={fadeInUp}>
+          {/* <motion.div className="max-w-md" variants={fadeInUp}>
             <div className="mb-8">
               <div className="mb-6">
                 <Image
@@ -190,153 +124,7 @@ export function Footer() {
                 </div>
               </div>
             </div>
-
-            <motion.div
-              className="rounded-2xl p-6 border border-white/10 bg-zinc-900/50 shadow-lg hover:shadow-xl transition-all duration-300"
-              style={{
-                boxShadow:
-                  "0 0 0 1px rgba(0,0,0,0.3), 0 4px 24px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.05)",
-              }}
-              whileHover={{ scale: 1.02 }}
-              transition={{ duration: 0.3 }}
-            >
-              <blockquote className="font-[family-name:var(--font-crimson)] text-zinc-300 font-medium italic text-base sm:text-lg leading-relaxed min-h-[80px]">
-                "{displayedText}
-                <span className="inline-block w-0.5 h-6 bg-zinc-400 ml-1 animate-pulse">
-                  |
-                </span>
-                "
-              </blockquote>
-              <div className="flex items-center gap-2 mt-4">
-                <div className="w-2 h-2 bg-zinc-500 rounded-full" />
-                <div className="w-2 h-2 bg-zinc-600 rounded-full" />
-                <div className="w-2 h-2 bg-zinc-500 rounded-full" />
-              </div>
-            </motion.div>
-          </motion.div>
-
-          {/* Event Details quick tiles */}
-          <motion.div className="space-y-6" variants={fadeInUp}>
-            <motion.div
-              className="rounded-2xl p-6 border border-white/10 bg-zinc-900/50 hover:border-white/20 shadow-lg hover:shadow-xl transition-all duration-300"
-              style={{
-                boxShadow:
-                  "0 0 0 1px rgba(0,0,0,0.3), 0 4px 24px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.05)",
-              }}
-              whileHover={{ y: -5 }}
-            >
-              <div className="flex items-center gap-3 mb-4">
-                <div className="w-10 h-10 bg-zinc-800 rounded-full flex items-center justify-center border border-white/10">
-                  <Clock className="w-5 h-5 text-zinc-200" />
-                </div>
-                <h4 className="font-[family-name:var(--font-crimson)] font-bold text-lg sm:text-xl text-zinc-200">
-                  Ceremony
-                </h4>
-              </div>
-              <div className="space-y-3 font-[family-name:var(--font-crimson)] text-zinc-400 font-medium text-sm sm:text-base">
-                <div className="flex items-center gap-3">
-                  <MapPin className="w-4 h-4 text-zinc-500" />
-                  <span>Twin Lakes Tagaytay, Glass House</span>
-                </div>
-                <div className="flex items-center gap-3">
-                  <Clock className="w-4 h-4 text-zinc-500" />
-                  <span>4:00 PM</span>
-                </div>
-              </div>
-            </motion.div>
-
-            <motion.div
-              className="rounded-2xl p-6 border border-white/10 bg-zinc-900/50 hover:border-white/20 shadow-lg hover:shadow-xl transition-all duration-300"
-              style={{
-                boxShadow:
-                  "0 0 0 1px rgba(0,0,0,0.3), 0 4px 24px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.05)",
-              }}
-              whileHover={{ y: -5 }}
-            >
-              <div className="flex items-center gap-3 mb-4">
-                <div className="w-10 h-10 bg-zinc-800 rounded-full flex items-center justify-center border border-white/10">
-                  <Heart className="w-5 h-5 text-zinc-200" />
-                </div>
-                <h4 className="font-[family-name:var(--font-crimson)] font-bold text-lg sm:text-xl text-zinc-200">
-                  Reception
-                </h4>
-              </div>
-              <div className="space-y-3 font-[family-name:var(--font-crimson)] text-zinc-400 font-medium text-sm sm:text-base">
-                <div className="flex items-center gap-3">
-                  <MapPin className="w-4 h-4 text-zinc-500" />
-                  <span>Twin Lakes Tagaytay, Glass House</span>
-                </div>
-                <div className="flex items-center gap-3">
-                  <Clock className="w-4 h-4 text-zinc-500" />
-                  <span>To follow</span>
-                </div>
-              </div>
-            </motion.div>
-          </motion.div>
-
-          {/* Contact + Quick Links */}
-          <motion.div className="space-y-8" variants={fadeInUp}>
-            <div>
-              <h4 className="font-[family-name:var(--font-crimson)] font-bold text-lg sm:text-xl mb-6 flex items-center gap-3 text-zinc-100">
-                <div className="w-2 h-8 bg-zinc-500 rounded-full" /> Follow Us
-              </h4>
-              <div className="flex items-center gap-3 flex-wrap">
-                <a
-                  href="https://www.facebook.com/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center h-11 w-11 rounded-full bg-zinc-800 border border-white/10 hover:border-white/20 hover:bg-zinc-700 transition-all hover:scale-110"
-                  aria-label="Facebook"
-                >
-                  <Facebook className="w-5 h-5 text-zinc-200" />
-                </a>
-                <a
-                  href="https://www.instagram.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center h-11 w-11 rounded-full bg-zinc-800 border border-white/10 hover:border-white/20 hover:bg-zinc-700 transition-all hover:scale-110"
-                  aria-label="Instagram"
-                >
-                  <Instagram className="w-5 h-5 text-zinc-200" />
-                </a>
-                <a
-                  href="https://www.tiktok.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center h-11 w-11 rounded-full bg-zinc-800 border border-white/10 hover:border-white/20 hover:bg-zinc-700 transition-all hover:scale-110"
-                  aria-label="TikTok"
-                >
-                  <Music2 className="w-5 h-5 text-zinc-200" />
-                </a>
-                <a
-                  href="https://www.twitter.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center h-11 w-11 rounded-full bg-zinc-800 border border-white/10 hover:border-white/20 hover:bg-zinc-700 transition-all hover:scale-110"
-                  aria-label="Twitter"
-                >
-                  <Twitter className="w-5 h-5 text-zinc-200" />
-                </a>
-              </div>
-            </div>
-
-            <div>
-              <h5 className="font-[family-name:var(--font-crimson)] font-bold text-base sm:text-lg mb-4 text-zinc-100">
-                Quick Links
-              </h5>
-              <div className="space-y-2">
-                {nav.map((item) => (
-                  <a
-                    key={item.href}
-                    href={item.href}
-                    className="block text-zinc-300 font-medium hover:text-zinc-100 transition-colors duration-200 font-[family-name:var(--font-crimson)] text-sm sm:text-base hover:pl-2"
-                  >
-                    {item.label}
-                  </a>
-                ))}
-              </div>
-            </div>
-          </motion.div>
+          </motion.div> */}
         </motion.div>
 
         {/* Bottom Row */}

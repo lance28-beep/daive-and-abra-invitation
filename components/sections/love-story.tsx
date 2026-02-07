@@ -18,19 +18,22 @@ export function LoveStory() {
         <h2 className="text-center text-lg sm:text-xl md:text-2xl lg:text-3xl font-[family-name:var(--font-crimson)] font-normal text-zinc-100 mb-3 sm:mb-4 tracking-[0.16em] sm:tracking-[0.2em] uppercase">
           A Love Story Anchored in Grace
         </h2>
-        <p className="text-center text-xs sm:text-sm md:text-base font-[family-name:var(--font-crimson)] text-zinc-400 font-light mb-6 sm:mb-8 md:mb-10 leading-relaxed tracking-wide">
+        <p className="text-center text-xs sm:text-sm md:text-base font-[family-name:var(--font-crimson)] text-zinc-400 font-light mb-6 sm:mb-8 leading-relaxed tracking-wide">
           A story of grace, resilience, and a love strengthened through every season.
         </p>
 
-        <div className="space-y-4 sm:space-y-5 md:space-y-6">
+        {/* Subtle divider between header and story */}
+        <div className="flex items-center justify-center gap-3 mb-8 sm:mb-10 md:mb-12">
+          <span className="h-px w-12 sm:w-16 bg-gradient-to-r from-transparent to-zinc-600" />
+          <span className="w-1.5 h-1.5 rounded-full bg-zinc-500/60" />
+          <span className="h-px w-12 sm:w-16 bg-gradient-to-l from-transparent to-zinc-600" />
+        </div>
+
+        <div className="max-w-2xl mx-auto space-y-6 sm:space-y-7 md:space-y-8">
           {paragraphs.map((paragraph, index) => (
             <p
               key={index}
-              className={`text-[13px] sm:text-sm md:text-base leading-relaxed text-zinc-200 font-[family-name:var(--font-crimson)] text-pretty font-light ${
-                index === 0
-                  ? "md:first-letter:text-5xl md:first-letter:font-[family-name:var(--font-crimson)] md:first-letter:text-zinc-100 md:first-letter:mr-2 md:first-letter:float-left md:first-letter:leading-none"
-                  : ""
-              }`}
+              className="text-[13px] sm:text-sm md:text-base leading-loose sm:leading-loose text-zinc-300 font-[family-name:var(--font-crimson)] text-pretty font-light text-center tracking-[0.02em]"
             >
               {paragraph}
             </p>
