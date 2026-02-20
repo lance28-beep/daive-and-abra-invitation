@@ -21,10 +21,9 @@ export function Countdown() {
 
   useEffect(() => {
     const calculateTimeLeft = () => {
-      // Target: March 15, 2026 at 4:00 PM GMT+8
-      // Compute using UTC to avoid timezone parsing inconsistencies across browsers
-      // 4:00 PM GMT+8 == 08:00 AM UTC
-      const targetDate = Date.UTC(2026, 2, 15, 8, 0, 0) // March is month 2 (0-indexed)
+      // Target: June 19, 2026 at 3:00 PM GMT+8
+      // 3:00 PM GMT+8 == 07:00 AM UTC
+      const targetDate = Date.UTC(2026, 5, 19, 7, 0, 0) // June is month 5 (0-indexed)
       const now = new Date().getTime()
       const difference = targetDate - now
 
@@ -53,33 +52,20 @@ export function Countdown() {
 
   const CountdownUnit = ({ value, label }: { value: number; label: string }) => (
     <div className="flex flex-col items-center gap-2 sm:gap-3">
-      {/* Premium black card with elegant gradients */}
       <div className="relative group">
-        {/* Subtle glow on hover */}
-        <div className="absolute -inset-0.5 bg-gradient-to-br from-white/10 to-transparent rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-md" />
-        
-        {/* Main card - premium black with gradients */}
-        <div 
+        <div className="absolute -inset-0.5 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-md" style={{ background: "linear-gradient(135deg, rgba(245,216,176,0.12) 0%, transparent 60%)" }} />
+        <div
           className="relative rounded-lg sm:rounded-xl px-2.5 py-3 sm:px-4 sm:py-4 md:px-5 md:py-5 lg:px-6 lg:py-6 transition-all duration-300 min-w-[60px] sm:min-w-[70px] md:min-w-[85px] lg:min-w-[95px] overflow-hidden"
           style={{
-            background: 'linear-gradient(135deg, #000000 0%, #0a0a0a 50%, #050505 100%)',
-            boxShadow: '0 0 0 1px rgba(0,0,0,0.5), 0 4px 16px rgba(0,0,0,0.4), 0 8px 32px rgba(0,0,0,0.6), inset 0 1px 0 rgba(255,255,255,0.05)',
+            background: "linear-gradient(135deg, #45301F 0%, #875F2C 50%, #45301F 100%)",
+            boxShadow: "0 0 0 1px rgba(163,151,106,0.3), 0 4px 16px rgba(69,48,31,0.4), inset 0 1px 0 rgba(245,216,176,0.06)",
           }}
         >
-          {/* Gradient overlays */}
-          <div className="absolute inset-0 bg-gradient-to-br from-black via-[#0a0a0a] to-[#050505]" />
-          <div 
-            className="absolute inset-0 opacity-60"
-            style={{
-              background: 'radial-gradient(circle at center, rgba(255,255,255,0.02) 0%, transparent 70%)',
-            }}
+          <div className="absolute inset-0 rounded-lg sm:rounded-xl border border-[rgba(163,151,106,0.35)]" />
+          <div
+            className="absolute inset-0 opacity-50 rounded-lg sm:rounded-xl"
+            style={{ background: "radial-gradient(circle at center, rgba(245,216,176,0.04) 0%, transparent 70%)" }}
           />
-          <div className="absolute inset-0 bg-gradient-to-br from-transparent via-[rgba(255,255,255,0.01)] to-transparent opacity-50" />
-          
-          {/* Elegant border */}
-          <div className="absolute inset-0 rounded-lg sm:rounded-xl border border-[rgba(255,255,255,0.1)]" />
-          
-          {/* Counter - smaller for mobile */}
           <div className="relative z-10 flex items-center justify-center">
             <Counter
               value={value}
@@ -87,20 +73,19 @@ export function Countdown() {
               fontSize={28}
               padding={4}
               gap={2}
-              textColor="#f4f4f5"
-              fontWeight={700}
+              textColor="#F5D8B0"
+              fontWeight={400}
               borderRadius={6}
               horizontalPadding={3}
               gradientHeight={8}
-              gradientFrom="rgba(255,255,255,0.08)"
+              gradientFrom="rgba(69,48,31,0.4)"
               gradientTo="transparent"
+              counterStyle={{ fontFamily: "var(--font-crimson)" }}
             />
           </div>
         </div>
       </div>
-
-      {/* Compact label */}
-      <span className="text-[10px] sm:text-xs font-[family-name:var(--font-crimson)] font-semibold text-zinc-300 uppercase tracking-wide">
+      <span className="text-[10px] sm:text-xs font-[family-name:var(--font-crimson)] font-normal uppercase tracking-wide" style={{ color: "#A2976A" }}>
         {label}
       </span>
     </div>
@@ -111,18 +96,18 @@ export function Countdown() {
       id="countdown"
       className="relative py-16 sm:py-20 md:py-24 lg:py-28"
     >
-      {/* Header - More compact for mobile */}
+      {/* Header — Crimson Text 400, palette colors */}
       <div className="relative z-10 text-center mb-8 sm:mb-12 md:mb-16 px-4 sm:px-6">
         <div className="flex items-center justify-center gap-2 mb-4">
-          <div className="h-[1px] w-12 sm:w-16 md:w-24 bg-gradient-to-r from-transparent via-zinc-500 to-transparent" />
+          <div className="h-[1px] w-12 sm:w-16 md:w-24 bg-gradient-to-r from-transparent via-[#A2976A] to-transparent" />
         </div>
-        <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-[family-name:var(--font-crimson)] font-normal text-zinc-100 mb-4 sm:mb-6 uppercase tracking-[0.1em] sm:tracking-[0.12em]">
+        <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-[family-name:var(--font-crimson)] font-normal mb-4 sm:mb-6 uppercase tracking-[0.1em] sm:tracking-[0.12em]" style={{ color: "#F5D8B0" }}>
           Countdown to Our Special Day
         </h2>
         <div className="flex items-center justify-center gap-2 mb-3 sm:mb-4">
-          <div className="h-[1px] w-12 sm:w-16 md:w-24 bg-gradient-to-r from-transparent via-zinc-500 to-transparent" />
+          <div className="h-[1px] w-12 sm:w-16 md:w-24 bg-gradient-to-r from-transparent via-[#A2976A] to-transparent" />
         </div>
-        <p className="text-sm sm:text-base md:text-lg font-[family-name:var(--font-crimson)] text-zinc-400 font-light max-w-xl mx-auto leading-relaxed tracking-wide px-2">
+        <p className="text-sm sm:text-base md:text-lg font-[family-name:var(--font-crimson)] font-normal max-w-xl mx-auto leading-relaxed tracking-wide px-2" style={{ color: "#A2976A" }}>
           Every moment brings us closer to forever
         </p>
       </div>
@@ -139,73 +124,55 @@ export function Countdown() {
         {/* Wedding date presentation */}
         <div className="flex justify-center px-3 sm:px-4 md:px-6">
           <div className="max-w-xl w-full">
-              {/* Save The Date Header - More compact */}
+              {/* Save The Date — Crimson Text 400, palette */}
               <div className="text-center mb-6 sm:mb-8 md:mb-10">
-                {/* Top decorative line */}
                 <div className="flex items-center justify-center gap-2 sm:gap-3 mb-3 sm:mb-4">
-                  <div className="h-[1px] w-8 sm:w-12 md:w-16 bg-gradient-to-r from-transparent via-zinc-500 to-zinc-500" />
-                  <div className="w-1.5 h-1.5 bg-zinc-500 rounded-full" />
-                  <div className="h-[1px] w-8 sm:w-12 md:w-16 bg-gradient-to-l from-transparent via-zinc-500 to-zinc-500" />
+                  <div className="h-[1px] w-8 sm:w-12 md:w-16 bg-gradient-to-r from-transparent via-[#A2976A] to-[#A2976A]" />
+                  <div className="w-1.5 h-1.5 rounded-full" style={{ backgroundColor: "#A2976A" }} />
+                  <div className="h-[1px] w-8 sm:w-12 md:w-16 bg-gradient-to-l from-transparent via-[#A2976A] to-[#A2976A]" />
                 </div>
-                
-                {/* Save The Date text - Better readability */}
-                <p className="text-[10px] sm:text-xs md:text-sm font-[family-name:var(--font-crimson)] font-bold text-zinc-200 uppercase tracking-[0.25em] sm:tracking-[0.3em] mb-3 sm:mb-4">
+                <p className="text-[10px] sm:text-xs md:text-sm font-[family-name:var(--font-crimson)] font-normal uppercase tracking-[0.25em] sm:tracking-[0.3em] mb-3 sm:mb-4" style={{ color: "#F5D8B0" }}>
                   Save The Date
                 </p>
-                
-                {/* Bottom decorative line */}
                 <div className="flex items-center justify-center gap-2 sm:gap-3">
-                  <div className="h-[1px] w-8 sm:w-12 md:w-16 bg-gradient-to-r from-transparent via-zinc-500 to-zinc-500" />
-                  <div className="w-1.5 h-1.5 bg-zinc-500 rounded-full" />
-                  <div className="h-[1px] w-8 sm:w-12 md:w-16 bg-gradient-to-l from-transparent via-zinc-500 to-zinc-500" />
+                  <div className="h-[1px] w-8 sm:w-12 md:w-16 bg-gradient-to-r from-transparent via-[#A2976A] to-[#A2976A]" />
+                  <div className="w-1.5 h-1.5 rounded-full" style={{ backgroundColor: "#A2976A" }} />
+                  <div className="h-[1px] w-8 sm:w-12 md:w-16 bg-gradient-to-l from-transparent via-[#A2976A] to-[#A2976A]" />
                 </div>
               </div>
 
-              {/* Date Section - More compact and readable */}
+              {/* Date Section — Crimson Text 400, palette */}
               <div className="text-center mb-6 sm:mb-8 md:mb-10">
-                {/* Month - Script style, smaller for mobile */}
                 <div className="mb-3 sm:mb-4 md:mb-5">
-                  <p className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-[family-name:var(--font-ephesis)] text-zinc-100 leading-none">
-                    March
+                  <p className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-[family-name:var(--font-crimson)] font-normal leading-none" style={{ color: "#F5D8B0" }}>
+                    June
                   </p>
                 </div>
-                
-                {/* Day and Year - Horizontal layout with divider, more compact */}
                 <div className="flex items-center justify-center gap-3 sm:gap-4 md:gap-5 mb-5 sm:mb-6">
-                  {/* Day - Large and bold but scaled for mobile */}
-                  <p className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-[family-name:var(--font-crimson)] font-normal text-zinc-50 leading-none">
-                    15
+                  <p className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-[family-name:var(--font-crimson)] font-normal leading-none" style={{ color: "#F5D8B0" }}>
+                    19
                   </p>
-                  
-                  {/* Vertical divider - shorter */}
-                  <div className="h-10 sm:h-12 md:h-16 lg:h-20 w-[2px] bg-gradient-to-b from-zinc-600 via-zinc-500 to-zinc-600" />
-                  
-                  {/* Year - Elegant and refined, smaller for mobile */}
-                  <p className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-[family-name:var(--font-crimson)] font-normal text-zinc-100 leading-none">
+                  <div className="h-10 sm:h-12 md:h-16 lg:h-20 w-[2px] bg-gradient-to-b from-[#A2976A] via-[#F5D8B0] to-[#A2976A]" />
+                  <p className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-[family-name:var(--font-crimson)] font-normal leading-none" style={{ color: "#A2976A" }}>
                     2026
                   </p>
                 </div>
               </div>
 
-              {/* Time Section - More compact */}
+              {/* Time Section — Crimson Text 400, palette */}
               <div className="text-center">
-                {/* Top decorative line */}
                 <div className="flex items-center justify-center gap-2 sm:gap-3 mb-3 sm:mb-4">
-                  <div className="h-[1px] w-8 sm:w-12 md:w-16 bg-gradient-to-r from-transparent via-zinc-500 to-zinc-500" />
-                  <div className="w-1.5 h-1.5 bg-zinc-500 rounded-full" />
-                  <div className="h-[1px] w-8 sm:w-12 md:w-16 bg-gradient-to-l from-transparent via-zinc-500 to-zinc-500" />
+                  <div className="h-[1px] w-8 sm:w-12 md:w-16 bg-gradient-to-r from-transparent via-[#A2976A] to-[#A2976A]" />
+                  <div className="w-1.5 h-1.5 rounded-full" style={{ backgroundColor: "#A2976A" }} />
+                  <div className="h-[1px] w-8 sm:w-12 md:w-16 bg-gradient-to-l from-transparent via-[#A2976A] to-[#A2976A]" />
                 </div>
-                
-                {/* Time - Better readability */}
-                <p className="text-sm sm:text-base md:text-lg lg:text-xl font-[family-name:var(--font-crimson)] font-semibold text-zinc-200 tracking-wide mb-3 sm:mb-4">
-                  4:00 PM
+                <p className="text-sm sm:text-base md:text-lg lg:text-xl font-[family-name:var(--font-crimson)] font-normal tracking-wide mb-3 sm:mb-4" style={{ color: "#F5D8B0" }}>
+                  3:00 PM
                 </p>
-                
-                {/* Bottom decorative line */}
                 <div className="flex items-center justify-center gap-2 sm:gap-3">
-                  <div className="h-[1px] w-8 sm:w-12 md:w-16 bg-gradient-to-r from-transparent via-zinc-500 to-zinc-500" />
-                  <div className="w-1.5 h-1.5 bg-zinc-500 rounded-full" />
-                  <div className="h-[1px] w-8 sm:w-12 md:w-16 bg-gradient-to-l from-transparent via-zinc-500 to-zinc-500" />
+                  <div className="h-[1px] w-8 sm:w-12 md:w-16 bg-gradient-to-r from-transparent via-[#A2976A] to-[#A2976A]" />
+                  <div className="w-1.5 h-1.5 rounded-full" style={{ backgroundColor: "#A2976A" }} />
+                  <div className="h-[1px] w-8 sm:w-12 md:w-16 bg-gradient-to-l from-transparent via-[#A2976A] to-[#A2976A]" />
                 </div>
               </div>
           </div>

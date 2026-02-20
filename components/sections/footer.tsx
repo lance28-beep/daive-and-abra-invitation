@@ -1,8 +1,6 @@
 "use client";
 
 import { motion } from "motion/react";
-import Image from "next/image";
-import { MapPin, Calendar } from "lucide-react";
 
 export function Footer() {
   const year = new Date().getFullYear();
@@ -19,74 +17,87 @@ export function Footer() {
     },
   };
 
+  const dividerStyle = { background: "linear-gradient(to right, transparent, #A2976A, transparent)" };
+
   return (
     <footer
       className="relative z-20 mt-16 overflow-hidden"
       style={{
-        background:
-          "linear-gradient(180deg, #000000 0%, #0a0a0a 40%, #050505 100%)",
-        boxShadow: "inset 0 1px 0 rgba(255,255,255,0.05)",
+        background: "linear-gradient(180deg, #45301F 0%, #2a1f14 50%, #1a120a 100%)",
+        boxShadow: "inset 0 1px 0 rgba(245,216,176,0.06)",
       }}
     >
       <div className="relative max-w-7xl mx-auto px-4 md:px-8 py-16">
-        {/* Save The Date – aligned with hero section */}
         <motion.div
           className="flex justify-center px-4 mb-16"
           variants={fadeInUp}
         >
           <div className="max-w-xl md:max-w-2xl w-full text-center">
-            {/* Monogram – same as hero */}
             <div className="mb-8 sm:mb-9 md:mb-10 flex justify-center">
-              <Image
-                src="/monogram/monogram.png"
-                alt="Jay-R & Jennifer"
-                width={240}
-                height={240}
-                className="h-48 w-48 sm:h-56 sm:w-56 md:h-64 md:w-64 lg:h-72 lg:w-72 object-contain object-center brightness-0 invert"
+              <div
+                className="h-48 w-48 sm:h-56 sm:w-56 md:h-64 md:w-64 lg:h-72 lg:w-72 [mask-size:contain] [mask-repeat:no-repeat] [mask-position:center] [-webkit-mask-size:contain] [-webkit-mask-repeat:no-repeat] [-webkit-mask-position:center]"
+                style={{
+                  maskImage: "url(/monogram/newmonogram.png)",
+                  WebkitMaskImage: "url(/monogram/newmonogram.png)",
+                  backgroundColor: "#F5D8B0",
+                }}
+                role="img"
+                aria-label="Daive & Abra"
               />
             </div>
 
-            {/* Fine divider – hero style */}
             <div className="mb-6 sm:mb-7 md:mb-8 flex justify-center">
-              <div className="h-px w-24 sm:w-32 md:w-40 bg-gradient-to-r from-transparent via-zinc-600 to-transparent" />
+              <div className="h-px w-24 sm:w-32 md:w-40" style={dividerStyle} />
             </div>
 
-            {/* Date + time block – hero structure */}
             <div className="mb-7 sm:mb-9 md:mb-10">
-              <p className="text-[11px] sm:text-xs md:text-sm font-[family-name:var(--font-crimson)] tracking-[0.38em] text-zinc-400 uppercase mb-4 sm:mb-5">
-                March
+              <p className="text-[11px] sm:text-xs md:text-sm font-[family-name:var(--font-crimson)] tracking-[0.38em] uppercase mb-4 sm:mb-5" style={{ color: "#A2976A" }}>
+                June
               </p>
               <div className="flex items-center justify-center gap-6 sm:gap-10 md:gap-14 mb-3 sm:mb-4">
-                <p className="text-[10px] sm:text-xs md:text-sm font-[family-name:var(--font-crimson)] tracking-[0.3em] text-zinc-500 uppercase">
-                  Sunday
+                <p className="text-[10px] sm:text-xs md:text-sm font-[family-name:var(--font-crimson)] tracking-[0.3em] uppercase" style={{ color: "#A2976A" }}>
+                  Friday
                 </p>
-                <p className="text-4xl sm:text-5xl md:text-[3.25rem] font-[family-name:var(--font-crimson)] text-zinc-50 leading-none">
-                  15
+                <p className="text-4xl sm:text-5xl md:text-[3.25rem] font-[family-name:var(--font-crimson)] leading-none" style={{ color: "#F5D8B0" }}>
+                  19
                 </p>
-                <p className="text-[10px] sm:text-xs md:text-sm font-[family-name:var(--font-crimson)] tracking-[0.3em] text-zinc-500 uppercase">
-                  At 4 PM
+                <p className="text-[10px] sm:text-xs md:text-sm font-[family-name:var(--font-crimson)] tracking-[0.3em] uppercase" style={{ color: "#A2976A" }}>
+                  2026
                 </p>
               </div>
-              <p className="text-xs sm:text-sm md:text-base font-[family-name:var(--font-crimson)] tracking-[0.3em] text-zinc-400 uppercase">
-                2026
-              </p>
             </div>
 
-            {/* Fine divider – hero style */}
             <div className="mt-6 sm:mt-7 md:mt-8 mb-6 sm:mb-7 flex justify-center">
-              <div className="h-px w-24 sm:w-32 md:w-40 bg-gradient-to-r from-transparent via-zinc-600 to-transparent" />
+              <div className="h-px w-24 sm:w-32 md:w-40" style={dividerStyle} />
             </div>
 
-            {/* Location block – hero content */}
-            <div className="space-y-2 sm:space-y-3 md:space-y-3.5">
-              <p className="text-[10px] sm:text-xs md:text-sm font-[family-name:var(--font-crimson)] tracking-[0.3em] text-zinc-500 uppercase">
-                Ceremony &amp; Reception
+            {/* Ceremony */}
+            <div className="space-y-1.5 sm:space-y-2 mb-8 sm:mb-10">
+              <p className="text-[10px] sm:text-xs font-[family-name:var(--font-crimson)] tracking-[0.3em] uppercase" style={{ color: "#A2976A" }}>
+                Ceremony · 3:00 PM
               </p>
-              <p className="text-xs sm:text-sm md:text-base font-[family-name:var(--font-crimson)] tracking-[0.2em] text-zinc-100 uppercase">
-                Twin Lakes Tagaytay, Glass House
+              <p className="text-xs sm:text-sm md:text-base font-[family-name:var(--font-crimson)] tracking-[0.2em] uppercase" style={{ color: "#F5D8B0" }}>
+                St. Augustine Parish Church
               </p>
-              <p className="text-[10px] sm:text-xs md:text-sm font-[family-name:var(--font-crimson)] tracking-[0.16em] text-zinc-400 uppercase">
-                Tagaytay, Philippines
+              <p className="text-[10px] sm:text-xs font-[family-name:var(--font-crimson)] tracking-[0.16em] uppercase" style={{ color: "#A2976A" }}>
+                Paoay, Ilocos Norte, Philippines
+              </p>
+            </div>
+
+            <div className="mb-6 sm:mb-7 flex justify-center">
+              <div className="h-px w-16 sm:w-20" style={dividerStyle} />
+            </div>
+
+            {/* Reception */}
+            <div className="space-y-1.5 sm:space-y-2">
+              <p className="text-[10px] sm:text-xs font-[family-name:var(--font-crimson)] tracking-[0.3em] uppercase" style={{ color: "#A2976A" }}>
+                Reception · 5:30 PM
+              </p>
+              <p className="text-xs sm:text-sm md:text-base font-[family-name:var(--font-crimson)] tracking-[0.2em] uppercase" style={{ color: "#F5D8B0" }}>
+                Crescencia The Events Place
+              </p>
+              <p className="text-[10px] sm:text-xs font-[family-name:var(--font-crimson)] tracking-[0.16em] uppercase" style={{ color: "#A2976A" }}>
+                Young Street, Paoay, Ilocos Norte, Philippines
               </p>
             </div>
           </div>
@@ -129,38 +140,41 @@ export function Footer() {
 
         {/* Bottom Row */}
         <motion.div
-          className="border-t border-white/10 pt-8"
+          className="pt-8 border-t"
+          style={{ borderColor: "rgba(163,151,106,0.3)" }}
           variants={fadeInUp}
         >
           <div className="flex flex-col md:flex-row items-center justify-between gap-6">
             <div className="text-center md:text-left">
-              <p className="text-zinc-300 font-[family-name:var(--font-crimson)] text-sm sm:text-base font-semibold">
-                © {year} Japoi & Regine. All rights reserved.
+              <p className="font-[family-name:var(--font-crimson)] text-sm sm:text-base font-normal" style={{ color: "#F5D8B0" }}>
+                © {year} Daive & Abra. All rights reserved.
               </p>
-              <p className="text-zinc-400 font-[family-name:var(--font-crimson)] text-sm sm:text-base mt-1 font-medium">
-                Made with 💕 for our special day
+              <p className="font-[family-name:var(--font-crimson)] text-sm sm:text-base mt-1 font-normal" style={{ color: "#A2976A" }}>
+                Made with 💕 for our wedding day
               </p>
             </div>
 
             <div className="text-center md:text-right space-y-1">
-              <p className="text-zinc-400 font-[family-name:var(--font-crimson)] text-xs sm:text-sm font-medium">
+              <p className="font-[family-name:var(--font-crimson)] text-xs sm:text-sm font-normal" style={{ color: "#A2976A" }}>
                 Developed by{" "}
                 <a
                   href="https://lance28-beep.github.io/portfolio-website/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-zinc-200 hover:text-zinc-100 transition-colors duration-200 underline decoration-zinc-500 hover:decoration-zinc-300 font-semibold"
+                  className="transition-colors duration-200 underline font-normal hover:opacity-90"
+                  style={{ color: "#F5D8B0", textDecorationColor: "rgba(163,151,106,0.6)" }}
                 >
                   Lance Valle
                 </a>
               </p>
-              <p className="text-zinc-400 font-[family-name:var(--font-crimson)] text-xs sm:text-sm font-medium">
+              <p className="font-[family-name:var(--font-crimson)] text-xs sm:text-sm font-normal" style={{ color: "#A2976A" }}>
                 Want a website like this? Visit{" "}
                 <a
                   href="https://www.facebook.com/WeddingInvitationNaga"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-zinc-200 hover:text-zinc-100 transition-colors duration-200 underline decoration-zinc-500 hover:decoration-zinc-300 font-semibold"
+                  className="transition-colors duration-200 underline font-normal hover:opacity-90"
+                  style={{ color: "#F5D8B0", textDecorationColor: "rgba(163,151,106,0.6)" }}
                 >
                   Wedding Invitation Naga
                 </a>

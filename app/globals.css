@@ -5,30 +5,30 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  /* Elegant Wedding Palette - Earth Tones & Natural Elegance */
+  /* Daive & Abra Wedding Palette */
+  --wedding-rust: #C45508;
+  --wedding-brown: #643403;
+  --wedding-khaki: #A27131;
+  --wedding-beige: #D6A96F;
   --background: #F9F8F4;
-  --foreground: #0A3629;
+  --foreground: #643403;
   --card: #FFFFFF;
-  --card-foreground: #0A3629;
+  --card-foreground: #643403;
   --popover: #FFFFFF;
-  --popover-foreground: #0A3629;
-  /* Primary: deep forest green */
-  --primary: #0A3629;
+  --popover-foreground: #643403;
+  --primary: #C45508;
   --primary-foreground: #F9F8F4;
-  /* Secondary: medium sage green */
-  --secondary: #126555;
+  --secondary: #643403;
   --secondary-foreground: #F9F8F4;
-  /* Muted sage accent */
-  --muted: #688277;
-  --muted-foreground: #0A3629;
-  /* Accent: warm gold */
-  --accent: #9F8650;
-  --accent-foreground: #F9F8F4;
+  --muted: #A27131;
+  --muted-foreground: #643403;
+  --accent: #D6A96F;
+  --accent-foreground: #643403;
   --destructive: oklch(0.577 0.245 27.325);
   --destructive-foreground: oklch(0.577 0.245 27.325);
-  --border: #688277;
+  --border: #A27131;
   --input: #F9F8F4;
-  --ring: #9F8650;
+  --ring: #C45508;
   --chart-1: oklch(0.646 0.222 41.116);
   --chart-2: oklch(0.6 0.118 184.704);
   --chart-3: oklch(0.398 0.07 227.392);
@@ -92,6 +92,8 @@
   --font-ephesis: "Ephesis", cursive;
   /* Chicanos font for surnames */
   --font-chicanos: "Chicanos Personal Use", cursive;
+  /* Hello Paris for headings and couple names */
+  --font-hello-paris: "Hello Paris Sans", sans-serif;
   /* Anton font for entourage and registry sections */
   --font-anton: "Anton", sans-serif;
   --color-background: var(--background);
@@ -157,12 +159,12 @@ html {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(180deg, #688277 0%, #126555 100%);
+  background: linear-gradient(180deg, #A27131 0%, #C45508 100%);
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(180deg, #126555 0%, #0A3629 100%);
+  background: linear-gradient(180deg, #C45508 0%, #643403 100%);
 }
 
 /* Shimmer animation for countdown cards */

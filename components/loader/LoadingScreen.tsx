@@ -1,15 +1,14 @@
 "use client"
 
 import React, { useEffect, useState } from "react"
-import Image from "next/image"
 
 interface LoadingScreenProps {
   onComplete: () => void
 }
 
-// Wedding date: March 15, 2026 → 03 15 26
-const GHOST_NUMBERS = ["03", "15", "26"]
-const COUPLE_NAMES = { groom: "Japoi", bride: "Regine" }
+// Wedding date: June 19, 2026 → 06 19 26
+const GHOST_NUMBERS = ["06", "19", "26"]
+const COUPLE_NAMES = { groom: "Daive", bride: "Abra" }
 
 export const LoadingScreen: React.FC<LoadingScreenProps> = ({ onComplete }) => {
   const [fadeOut, setFadeOut] = useState(false)
@@ -62,8 +61,8 @@ export const LoadingScreen: React.FC<LoadingScreenProps> = ({ onComplete }) => {
       aria-valuemax={100}
       aria-label="Loading invitation"
     >
-      {/* Deep black matte background */}
-      <div className="absolute inset-0 bg-[#0a0a0a]" />
+      {/* Warm brown background — #45301F */}
+      <div className="absolute inset-0 bg-[#45301F]" />
 
       {/* Ghosted background numbers — right side, stacked */}
       <div
@@ -76,7 +75,8 @@ export const LoadingScreen: React.FC<LoadingScreenProps> = ({ onComplete }) => {
             className="text-[7rem] sm:text-[9rem] md:text-[11rem] lg:text-[13rem] font-bold leading-[0.85] transition-opacity duration-1000 ease-out"
             style={{
               fontFamily: "var(--font-crimson)",
-              color: "rgba(255,255,255,0.04)",
+              fontWeight: 700,
+              color: "rgba(245, 216, 176, 0.06)",
               letterSpacing: "-0.03em",
               opacity: nameVisible ? 1 : 0,
               transitionDelay: `${i * 80}ms`,
@@ -89,48 +89,61 @@ export const LoadingScreen: React.FC<LoadingScreenProps> = ({ onComplete }) => {
 
       {/* Main content — centered */}
       <div className="relative z-10 w-full max-w-lg mx-auto px-6 sm:px-8 md:px-10 text-center">
-        {/* Monogram — top */}
+        {/* Monogram — top, tinted #F5D8B0 */}
         <div
           className={`mb-8 sm:mb-10 transition-all duration-700 ease-out flex justify-center ${
             monogramVisible ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-4"
           }`}
         >
-          <Image
-            src="/monogram/monogram.png"
-            alt="Monogram"
-            width={240}
-            height={240}
-            className="h-28 w-28 sm:h-32 sm:w-32 md:h-36 md:w-36 object-contain object-center brightness-0 invert"
-            priority
+          <div
+            className="h-28 w-28 sm:h-32 sm:w-32 md:h-36 md:w-36 flex-shrink-0 object-contain object-center [mask-size:contain] [mask-repeat:no-repeat] [mask-position:center] [-webkit-mask-size:contain] [-webkit-mask-repeat:no-repeat] [-webkit-mask-position:center]"
+            style={{
+              backgroundColor: "#F5D8B0",
+              maskImage: "url(/monogram/newmonogram.png)",
+              WebkitMaskImage: "url(/monogram/newmonogram.png)",
+            }}
+            role="img"
+            aria-label="Monogram"
           />
         </div>
 
-        {/* Names — staggered entrance */}
+        {/* Names — staggered entrance — Crimson Text 700, palette colors */}
         <h1
-          className={`transition-all duration-700 ease-out mb-3 sm:mb-4 ${
-            nameVisible
-              ? "opacity-100 translate-y-0"
-              : "opacity-0 translate-y-6"
-          }`}
+          className={`transition-all duration-700 ease-out mb-3 sm:mb-4 font-bold tracking-[0.2em] uppercase`}
+          style={{ fontFamily: "var(--font-crimson)", fontWeight: 700 }}
         >
-          <span className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-[0.2em] text-zinc-100 uppercase font-[family-name:var(--font-crimson)]">
+          <span
+            className={`inline-block text-3xl sm:text-4xl md:text-5xl ${
+              nameVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
+            } transition-all duration-700 ease-out`}
+            style={{ color: "#F5D8B0" }}
+          >
             {COUPLE_NAMES.groom}
           </span>
-          <span className="text-2xl sm:text-3xl md:text-4xl mx-2 font-[family-name:var(--font-ephesis)] font-normal text-zinc-200">
+          <span
+            className="text-2xl sm:text-3xl md:text-4xl mx-2 font-normal"
+            style={{ color: "#A2976A", fontFamily: "var(--font-ephesis)" }}
+          >
             &amp;
           </span>
-          <span className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-[0.2em] text-zinc-100 uppercase font-[family-name:var(--font-crimson)]">
+          <span
+            className={`inline-block text-3xl sm:text-4xl md:text-5xl font-bold ${
+              nameVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
+            } transition-all duration-700 ease-out`}
+            style={{ color: "#F5D8B0" }}
+          >
             {COUPLE_NAMES.bride}
           </span>
         </h1>
 
-        {/* Supporting line */}
+        {/* Supporting line — Crimson Text 700 */}
         <p
-          className={`text-[10px] sm:text-xs tracking-[0.3em] text-zinc-500 uppercase mb-12 sm:mb-14 font-[family-name:var(--font-crimson)] transition-all duration-600 ease-out ${
+          className={`text-[10px] sm:text-xs tracking-[0.3em] uppercase mb-12 sm:mb-14 transition-all duration-600 ease-out ${
             supportVisible
               ? "opacity-100 translate-y-0"
               : "opacity-0 translate-y-4"
           }`}
+          style={{ fontFamily: "var(--font-crimson)", fontWeight: 700, color: "#A2976A" }}
         >
           Together with their families
         </p>
@@ -143,24 +156,29 @@ export const LoadingScreen: React.FC<LoadingScreenProps> = ({ onComplete }) => {
               : "opacity-0 translate-y-4"
           }`}
         >
-          <p className="text-xs sm:text-sm tracking-[0.22em] text-zinc-400 uppercase mb-5 sm:mb-6 font-[family-name:var(--font-crimson)]">
+          <p
+            className="text-xs sm:text-sm tracking-[0.22em] uppercase mb-5 sm:mb-6"
+            style={{ fontFamily: "var(--font-crimson)", fontWeight: 700, color: "#F5D8B0" }}
+          >
             Preparing your invitation
           </p>
 
-          {/* Progress bar — clearer track and fill */}
+          {/* Progress bar — track #875F2C, fill #F5D8B0 */}
           <div className="w-full max-w-[220px] mx-auto mb-3">
             <div
-              className="h-0.5 sm:h-1 bg-zinc-800 rounded-full overflow-hidden"
+              className="h-0.5 sm:h-1 rounded-full overflow-hidden"
+              style={{ backgroundColor: "#875F2C" }}
               role="presentation"
             >
               <div
-                className="h-full bg-zinc-100 rounded-full transition-all duration-300 ease-out min-w-[2px]"
-                style={{ width: `${Math.max(progress, 2)}%` }}
+                className="h-full rounded-full transition-all duration-300 ease-out min-w-[2px]"
+                style={{ width: `${Math.max(progress, 2)}%`, backgroundColor: "#F5D8B0" }}
               />
             </div>
           </div>
           <p
-            className="text-[10px] sm:text-xs tracking-[0.25em] text-zinc-500 font-[family-name:var(--font-crimson)] tabular-nums"
+            className="text-[10px] sm:text-xs tracking-[0.25em] tabular-nums"
+            style={{ fontFamily: "var(--font-crimson)", fontWeight: 700, color: "#A2976A" }}
             aria-live="polite"
           >
             {progress}%

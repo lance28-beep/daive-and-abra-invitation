@@ -14,6 +14,7 @@ import {
 } from "lucide-react";
 import { Section } from "@/components/section";
 import { QRCodeCanvas } from "qrcode.react";
+import Image from "next/image";
 
 export function SnapShare() {
   const [copiedHashtag, setCopiedHashtag] = useState(false);
@@ -26,9 +27,9 @@ export function SnapShare() {
       ? window.location.href
       : "https://example.com";
   const driveLink =
-    "https://drive.google.com/drive/folders/1eeB65O3s4hErKh6gzi45duovWfmIsx0R?usp=sharing";
-  const hashtags = ["#JapoiAndRegineForever"];  
-  const shareText = `Join us in celebrating Japoi & Regine's special day! Check out their wedding website: ${websiteUrl} ${hashtags.join(" ")} 💕`;
+    "https://drive.google.com/drive/folders/1XRDjgUPKZy8bszFhYORGejyeEzTpKORM?usp=sharing";
+  const hashtags = ["#AbracaDaiveEra", "#ABRAsavedDAIVEstForLast", "#AbrafoundDaivest"];
+  const shareText = `Join us in celebrating Daive & Abra's special day! Check out their wedding website: ${websiteUrl} ${hashtags.join(" ")} 💕`;
 
   useEffect(() => {
     const handleScroll = () => setScrollY(window.scrollY);
@@ -94,17 +95,6 @@ export function SnapShare() {
     link.click();
   };
 
-  const downloadDriveQRCode = () => {
-    const canvas = document.getElementById(
-      "drive-qr",
-    ) as HTMLCanvasElement | null;
-    if (!canvas) return;
-    const link = document.createElement("a");
-    link.download = "wedding-drive-qr.png";
-    link.href = canvas.toDataURL("image/png");
-    link.click();
-  };
-
   const openDrive = () => {
     window.open(driveLink, "_blank", "noopener,noreferrer");
   };
@@ -124,10 +114,8 @@ export function SnapShare() {
   };
 
   const cardStyle = {
-    background:
-      "linear-gradient(135deg, #000000 0%, #0a0a0a 50%, #050505 100%)",
-    boxShadow:
-      "0 0 0 1px rgba(0,0,0,0.5), 0 8px 32px rgba(0,0,0,0.6), 0 30px 90px rgba(0,0,0,0.95), inset 0 1px 0 rgba(255,255,255,0.05)",
+    background: "linear-gradient(135deg, #45301F 0%, #875F2C 40%, #45301F 100%)",
+    boxShadow: "0 0 0 1px rgba(163,151,106,0.25), 0 8px 32px rgba(0,0,0,0.2), inset 0 1px 0 rgba(245,216,176,0.06)",
   };
 
   return (
@@ -143,11 +131,11 @@ export function SnapShare() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
         >
-          <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-[family-name:var(--font-crimson)] font-normal text-zinc-100 mb-4 sm:mb-6 uppercase tracking-[0.12em] sm:tracking-[0.15em]">
-            Snap & Share
+          <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-[family-name:var(--font-crimson)] font-normal mb-4 sm:mb-6 uppercase tracking-[0.12em] sm:tracking-[0.15em]" style={{ color: "#F5D8B0" }}>
+            Snap & Share!
           </h2>
-          <p className="text-sm sm:text-base md:text-lg font-[family-name:var(--font-crimson)] text-zinc-400 font-light max-w-xl mx-auto leading-relaxed tracking-wide px-4">
-            Help us capture and share the magic of our special day
+          <p className="text-sm sm:text-base md:text-lg font-[family-name:var(--font-crimson)] font-light max-w-xl mx-auto leading-relaxed tracking-wide px-4" style={{ color: "#A2976A" }}>
+            Share your photos and memories with us by uploading them via the QR code above and don&apos;t forget to tag us with #AbracaDaiveEra #ABRAsavedDAIVEstForLast #AbrafoundDaivest so we can cherish them too!
           </p>
         </motion.div>
 
@@ -165,26 +153,19 @@ export function SnapShare() {
             {/* Hashtags Card */}
             <div className="relative group">
               <div
-                className="relative rounded-xl sm:rounded-2xl p-4 sm:p-6 md:p-8 overflow-hidden border border-white/10 transition-all duration-300"
-                style={cardStyle}
+                className="relative rounded-xl sm:rounded-2xl p-4 sm:p-6 md:p-8 overflow-hidden border transition-all duration-300"
+                style={{ ...cardStyle, border: "1px solid rgba(163,151,106,0.3)" }}
               >
-                <div className="absolute inset-0 bg-gradient-to-br from-black via-[#0a0a0a] to-[#050505] z-0" />
-                <div
-                  className="absolute inset-0 opacity-60 z-0"
-                  style={{
-                    background:
-                      "radial-gradient(circle at center, rgba(255,255,255,0.02) 0%, transparent 70%)",
-                  }}
-                />
+                <div className="absolute inset-0 opacity-50 rounded-xl sm:rounded-2xl z-0" style={{ background: "radial-gradient(circle at center, rgba(245,216,176,0.04) 0%, transparent 70%)" }} />
                 <div className="relative z-10 text-center space-y-4 sm:space-y-5 md:space-y-6">
-                  <div className="bg-zinc-800 p-2.5 sm:p-3 rounded-full shadow-lg border border-white/10 w-fit mx-auto">
-                    <Camera className="h-6 w-6 sm:h-7 sm:w-7 md:h-8 md:w-8 text-zinc-200" />
+                  <div className="p-2.5 sm:p-3 rounded-full shadow-lg border w-fit mx-auto" style={{ backgroundColor: "rgba(163,151,106,0.4)", borderColor: "rgba(163,151,106,0.3)" }}>
+                    <Camera className="h-6 w-6 sm:h-7 sm:w-7 md:h-8 md:w-8" style={{ color: "#F5D8B0" }} />
                   </div>
                   <div>
-                    <h3 className="text-lg sm:text-xl md:text-2xl font-[family-name:var(--font-crimson)] font-semibold text-zinc-200 mb-2 sm:mb-3">
+                    <h3 className="text-lg sm:text-xl md:text-2xl font-[family-name:var(--font-crimson)] font-normal mb-2 sm:mb-3" style={{ color: "#F5D8B0" }}>
                       Official Hashtags
                     </h3>
-                    <p className="text-xs sm:text-sm md:text-base font-[family-name:var(--font-crimson)] text-zinc-400 mb-4 sm:mb-5 md:mb-6">
+                    <p className="text-xs sm:text-sm md:text-base font-[family-name:var(--font-crimson)] mb-4 sm:mb-5 md:mb-6" style={{ color: "#A2976A" }}>
                       Tag your photos and videos with our hashtags to share your
                       memories
                     </p>
@@ -193,20 +174,22 @@ export function SnapShare() {
                     {hashtags.map((hashtag) => (
                       <div
                         key={hashtag}
-                        className="flex items-center justify-center gap-2.5 sm:gap-3 bg-zinc-800/50 px-3 sm:px-4 md:px-6 py-2.5 sm:py-3 md:py-4 rounded-lg sm:rounded-xl border border-white/10 hover:border-white/20 transition-all duration-300"
+                        className="flex items-center justify-center gap-2.5 sm:gap-3 px-3 sm:px-4 md:px-6 py-2.5 sm:py-3 md:py-4 rounded-lg sm:rounded-xl border transition-all duration-300"
+                        style={{ backgroundColor: "rgba(69,48,31,0.5)", borderColor: "rgba(163,151,106,0.35)" }}
                       >
-                        <span className="text-sm sm:text-base md:text-xl font-[family-name:var(--font-crimson)] font-semibold text-zinc-200 break-all sm:break-normal tracking-wide">
+                        <span className="text-sm sm:text-base md:text-xl font-[family-name:var(--font-crimson)] font-normal break-all sm:break-normal tracking-wide" style={{ color: "#F5D8B0" }}>
                           {hashtag}
                         </span>
                         <button
                           onClick={() => copyToClipboard(hashtag)}
-                          className="p-1.5 sm:p-2 rounded-full bg-zinc-800 hover:bg-zinc-700 border border-white/10 transition-colors duration-200 flex-shrink-0"
+                          className="p-1.5 sm:p-2 rounded-full border transition-colors duration-200 flex-shrink-0"
+                          style={{ backgroundColor: "rgba(135,95,44,0.5)", borderColor: "rgba(163,151,106,0.4)" }}
                           title="Copy hashtag"
                         >
                           {copiedHashtag ? (
-                            <Check className="w-3.5 h-3.5 sm:w-4 sm:h-4 md:w-5 md:h-5 text-emerald-400" />
+                            <Check className="w-3.5 h-3.5 sm:w-4 sm:h-4 md:w-5 md:h-5" style={{ color: "#F5D8B0" }} />
                           ) : (
-                            <Copy className="w-3.5 h-3.5 sm:w-4 sm:h-4 md:w-5 md:h-5 text-zinc-200" />
+                            <Copy className="w-3.5 h-3.5 sm:w-4 sm:h-4 md:w-5 md:h-5" style={{ color: "#A2976A" }} />
                           )}
                         </button>
                       </div>
@@ -219,63 +202,60 @@ export function SnapShare() {
             {/* Google Drive Upload Card */}
             <div className="relative group">
               <div
-                className="relative rounded-xl sm:rounded-2xl p-4 sm:p-6 md:p-8 overflow-hidden border border-white/10 transition-all duration-300"
-                style={cardStyle}
+                className="relative rounded-xl sm:rounded-2xl p-4 sm:p-6 md:p-8 overflow-hidden border transition-all duration-300"
+                style={{ ...cardStyle, border: "1px solid rgba(163,151,106,0.3)" }}
               >
-                <div className="absolute inset-0 bg-gradient-to-br from-black via-[#0a0a0a] to-[#050505] z-0" />
-                <div
-                  className="absolute inset-0 opacity-60 z-0"
-                  style={{
-                    background:
-                      "radial-gradient(circle at center, rgba(255,255,255,0.02) 0%, transparent 70%)",
-                  }}
-                />
+                <div className="absolute inset-0 opacity-50 rounded-xl sm:rounded-2xl z-0" style={{ background: "radial-gradient(circle at center, rgba(245,216,176,0.04) 0%, transparent 70%)" }} />
                 <div className="relative z-10 text-center space-y-4 sm:space-y-5 md:space-y-6">
                   <div>
-                    <h3 className="text-lg sm:text-xl md:text-2xl font-[family-name:var(--font-crimson)] font-semibold text-zinc-200 mb-2 sm:mb-3">
+                    <h3 className="text-lg sm:text-xl md:text-2xl font-[family-name:var(--font-crimson)] font-normal mb-2 sm:mb-3" style={{ color: "#F5D8B0" }}>
                       Upload Your Photos & Videos
                     </h3>
-                    <p className="text-xs sm:text-sm md:text-base font-[family-name:var(--font-crimson)] text-zinc-400">
+                    <p className="text-xs sm:text-sm md:text-base font-[family-name:var(--font-crimson)]" style={{ color: "#A2976A" }}>
                       Help us capture our special day! Scan the QR or use the actions below to drop your clips into our shared Drive.
                     </p>
                   </div>
                   <div className="flex flex-col items-center gap-3 sm:gap-4">
-                    <div className="inline-flex flex-col items-center bg-zinc-800/50 p-3 sm:p-4 md:p-5 rounded-lg sm:rounded-xl border border-white/10">
-                      <div className="mb-3 sm:mb-4 p-2 sm:p-3 rounded-lg sm:rounded-xl bg-white border border-white/20">
-                        <QRCodeCanvas
-                          id="drive-qr"
-                          value={driveLink}
-                          size={isMobile ? 112 : 160}
-                          includeMargin
-                          className="bg-white"
+                    <div className="inline-flex flex-col items-center p-3 sm:p-4 md:p-5 rounded-lg sm:rounded-xl border" style={{ backgroundColor: "rgba(69,48,31,0.5)", borderColor: "rgba(163,151,106,0.35)" }}>
+                      <div className="relative mb-3 sm:mb-4 w-[160px] h-[160px] sm:w-[180px] sm:h-[180px] md:w-[200px] md:h-[200px] rounded-lg sm:rounded-xl overflow-hidden bg-white">
+                        <Image
+                          src="/QR/googleshare.png"
+                          alt="Scan to upload photos and videos to Google Drive"
+                          fill
+                          className="object-contain"
+                          sizes="(max-width: 640px) 160px, (max-width: 768px) 180px, 200px"
                         />
                       </div>
-                      <p className="text-[10px] sm:text-xs md:text-sm font-[family-name:var(--font-crimson)] text-zinc-500">
+                      <p className="text-[10px] sm:text-xs md:text-sm font-[family-name:var(--font-crimson)]" style={{ color: "#A2976A" }}>
                         📱 Scan with your camera app
                       </p>
                     </div>
                     <div className="w-full flex flex-col sm:flex-row gap-2 sm:gap-3 md:gap-4">
                       <button
                         onClick={copyDriveLink}
-                        className="flex-1 inline-flex items-center justify-center gap-1.5 sm:gap-2 px-3 sm:px-4 md:px-5 py-2 sm:py-2.5 md:py-3 bg-zinc-800 border border-white/20 hover:border-white/30 hover:bg-zinc-700 rounded-lg text-[10px] sm:text-xs md:text-sm font-[family-name:var(--font-crimson)] font-semibold text-zinc-200 transition-all duration-200 hover:scale-[1.02] active:scale-[0.98]"
+                        className="flex-1 inline-flex items-center justify-center gap-1.5 sm:gap-2 px-3 sm:px-4 md:px-5 py-2 sm:py-2.5 md:py-3 border rounded-lg text-[10px] sm:text-xs md:text-sm font-[family-name:var(--font-crimson)] font-normal transition-all duration-200 hover:scale-[1.02] active:scale-[0.98]"
+                        style={{ backgroundColor: "#875F2C", color: "#F5D8B0", borderColor: "rgba(163,151,106,0.5)" }}
                       >
                         {copiedDriveLink ? (
-                          <Check className="w-3.5 h-3.5 sm:w-4 sm:h-4 md:w-5 md:h-5 text-emerald-400" />
+                          <Check className="w-3.5 h-3.5 sm:w-4 sm:h-4 md:w-5 md:h-5" />
                         ) : (
                           <Copy className="w-3.5 h-3.5 sm:w-4 sm:h-4 md:w-5 md:h-5" />
                         )}
                         <span>{copiedDriveLink ? "Copied!" : "Copy Link"}</span>
                       </button>
-                      <button
-                        onClick={downloadDriveQRCode}
-                        className="flex-1 inline-flex items-center justify-center gap-1.5 sm:gap-2 px-3 sm:px-4 md:px-5 py-2 sm:py-2.5 md:py-3 bg-zinc-600 hover:bg-zinc-500 rounded-lg text-[10px] sm:text-xs md:text-sm font-[family-name:var(--font-crimson)] font-semibold text-white transition-all duration-200 hover:scale-[1.02] active:scale-[0.98]"
+                      <a
+                        href="/QR/googleshare.png"
+                        download="googleshare.png"
+                        className="flex-1 inline-flex items-center justify-center gap-1.5 sm:gap-2 px-3 sm:px-4 md:px-5 py-2 sm:py-2.5 md:py-3 border rounded-lg text-[10px] sm:text-xs md:text-sm font-[family-name:var(--font-crimson)] font-normal transition-all duration-200 hover:scale-[1.02] active:scale-[0.98]"
+                        style={{ backgroundColor: "rgba(135,95,44,0.6)", color: "#F5D8B0", borderColor: "rgba(163,151,106,0.5)" }}
                       >
                         <Download className="w-3.5 h-3.5 sm:w-4 sm:h-4 md:w-5 md:h-5" />
                         <span>Download QR</span>
-                      </button>
+                      </a>
                       <button
                         onClick={openDrive}
-                        className="flex-1 inline-flex items-center justify-center gap-1.5 sm:gap-2 px-3 sm:px-4 md:px-5 py-2 sm:py-2.5 md:py-3 bg-zinc-600 hover:bg-zinc-500 rounded-lg text-[10px] sm:text-xs md:text-sm font-[family-name:var(--font-crimson)] font-semibold text-white transition-all duration-200 hover:scale-[1.02] active:scale-[0.98]"
+                        className="flex-1 inline-flex items-center justify-center gap-1.5 sm:gap-2 px-3 sm:px-4 md:px-5 py-2 sm:py-2.5 md:py-3 border rounded-lg text-[10px] sm:text-xs md:text-sm font-[family-name:var(--font-crimson)] font-normal transition-all duration-200 hover:scale-[1.02] active:scale-[0.98]"
+                        style={{ backgroundColor: "#875F2C", color: "#F5D8B0", borderColor: "rgba(163,151,106,0.5)" }}
                       >
                         <Share2 className="w-3.5 h-3.5 sm:w-4 sm:h-4 md:w-5 md:h-5" />
                         <span>Open Drive</span>
@@ -292,22 +272,15 @@ export function SnapShare() {
             {/* QR Code Card */}
             <div className="relative group">
               <div
-                className="relative rounded-xl sm:rounded-2xl p-4 sm:p-6 md:p-8 overflow-hidden border border-white/10 text-center transition-all duration-300"
-                style={cardStyle}
+                className="relative rounded-xl sm:rounded-2xl p-4 sm:p-6 md:p-8 overflow-hidden border text-center transition-all duration-300"
+                style={{ ...cardStyle, border: "1px solid rgba(163,151,106,0.3)" }}
               >
-                <div className="absolute inset-0 bg-gradient-to-br from-black via-[#0a0a0a] to-[#050505] z-0" />
-                <div
-                  className="absolute inset-0 opacity-60 z-0"
-                  style={{
-                    background:
-                      "radial-gradient(circle at center, rgba(255,255,255,0.02) 0%, transparent 70%)",
-                  }}
-                />
-                <h4 className="relative z-10 text-base sm:text-lg md:text-xl font-[family-name:var(--font-crimson)] font-semibold text-zinc-200 mb-4 sm:mb-5 md:mb-6">
+                <div className="absolute inset-0 opacity-50 rounded-xl sm:rounded-2xl z-0" style={{ background: "radial-gradient(circle at center, rgba(245,216,176,0.04) 0%, transparent 70%)" }} />
+                <h4 className="relative z-10 text-base sm:text-lg md:text-xl font-[family-name:var(--font-crimson)] font-normal mb-4 sm:mb-5 md:mb-6" style={{ color: "#F5D8B0" }}>
                   Share Our Website
                 </h4>
-                <div className="relative z-10 inline-flex flex-col items-center bg-zinc-800/50 p-3 sm:p-4 md:p-6 rounded-lg sm:rounded-xl border border-white/10 mb-3 sm:mb-4">
-                  <div className="mb-3 sm:mb-4 p-2 sm:p-3 rounded-lg sm:rounded-xl bg-white border border-white/20">
+                <div className="relative z-10 inline-flex flex-col items-center p-3 sm:p-4 md:p-6 rounded-lg sm:rounded-xl border mb-3 sm:mb-4" style={{ backgroundColor: "rgba(69,48,31,0.5)", borderColor: "rgba(163,151,106,0.35)" }}>
+                  <div className="mb-3 sm:mb-4 p-2 sm:p-3 rounded-lg sm:rounded-xl bg-white border" style={{ borderColor: "rgba(163,151,106,0.4)" }}>
                     <QRCodeCanvas
                       id="snapshare-qr"
                       value={websiteUrl}
@@ -318,13 +291,14 @@ export function SnapShare() {
                   </div>
                   <button
                     onClick={downloadQRCode}
-                    className="flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 md:px-6 py-2 sm:py-2.5 md:py-3 bg-zinc-600 hover:bg-zinc-500 text-white rounded-lg transition-all duration-200 text-[10px] sm:text-xs md:text-sm font-[family-name:var(--font-crimson)] font-semibold"
+                    className="flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 md:px-6 py-2 sm:py-2.5 md:py-3 border rounded-lg transition-all duration-200 text-[10px] sm:text-xs md:text-sm font-[family-name:var(--font-crimson)] font-normal"
+                    style={{ backgroundColor: "#875F2C", color: "#F5D8B0", borderColor: "rgba(163,151,106,0.5)" }}
                   >
-                    <Download className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-white" />
+                    <Download className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
                     <span>Download QR Code</span>
                   </button>
                 </div>
-                <p className="relative z-10 text-[10px] sm:text-xs md:text-sm font-[family-name:var(--font-crimson)] text-zinc-500">
+                <p className="relative z-10 text-[10px] sm:text-xs md:text-sm font-[family-name:var(--font-crimson)]" style={{ color: "#A2976A" }}>
                   Scan with any camera app to visit our website
                 </p>
               </div>
@@ -333,55 +307,52 @@ export function SnapShare() {
             {/* Social Media Card */}
             <div className="relative group">
               <div
-                className="relative rounded-xl sm:rounded-2xl p-4 sm:p-6 md:p-8 overflow-hidden border border-white/10 transition-all duration-300"
-                style={cardStyle}
+                className="relative rounded-xl sm:rounded-2xl p-4 sm:p-6 md:p-8 overflow-hidden border transition-all duration-300"
+                style={{ ...cardStyle, border: "1px solid rgba(163,151,106,0.3)" }}
               >
-                <div className="absolute inset-0 bg-gradient-to-br from-black via-[#0a0a0a] to-[#050505] z-0" />
-                <div
-                  className="absolute inset-0 opacity-60 z-0"
-                  style={{
-                    background:
-                      "radial-gradient(circle at center, rgba(255,255,255,0.02) 0%, transparent 70%)",
-                  }}
-                />
-                <h5 className="relative z-10 text-base sm:text-lg md:text-xl font-[family-name:var(--font-crimson)] font-semibold text-zinc-200 mb-4 sm:mb-5 md:mb-6 text-center">
+                <div className="absolute inset-0 opacity-50 rounded-xl sm:rounded-2xl z-0" style={{ background: "radial-gradient(circle at center, rgba(245,216,176,0.04) 0%, transparent 70%)" }} />
+                <h5 className="relative z-10 text-base sm:text-lg md:text-xl font-[family-name:var(--font-crimson)] font-normal mb-4 sm:mb-5 md:mb-6 text-center" style={{ color: "#F5D8B0" }}>
                   Share on Social Media
                 </h5>
 
                 <div className="relative z-10 grid grid-cols-2 gap-2.5 sm:gap-3 md:gap-4">
                   <button
                     onClick={() => shareOnSocial("instagram")}
-                    className="group flex items-center justify-center gap-1.5 sm:gap-2 bg-gradient-to-br from-pink-500 via-purple-500 to-pink-600 text-white px-2.5 sm:px-3 md:px-4 py-2.5 sm:py-3 md:py-4 rounded-lg hover:scale-105 transition-all duration-200 shadow-md hover:shadow-xl border border-white/10"
+                    className="group flex items-center justify-center gap-1.5 sm:gap-2 bg-gradient-to-br from-pink-500 via-purple-500 to-pink-600 text-white px-2.5 sm:px-3 md:px-4 py-2.5 sm:py-3 md:py-4 rounded-lg hover:scale-105 transition-all duration-200 shadow-md hover:shadow-xl border"
+                    style={{ borderColor: "rgba(163,151,106,0.3)" }}
                   >
                     <Instagram className="w-3.5 h-3.5 sm:w-4 sm:h-4 md:w-5 md:h-5 group-hover:scale-110 transition-transform text-white" />
-                    <span className="font-[family-name:var(--font-crimson)] font-semibold text-[10px] sm:text-xs md:text-sm">
+                    <span className="font-[family-name:var(--font-crimson)] font-normal text-[10px] sm:text-xs md:text-sm">
                       Instagram
                     </span>
                   </button>
                   <button
                     onClick={() => shareOnSocial("facebook")}
-                    className="group flex items-center justify-center gap-1.5 sm:gap-2 bg-gradient-to-br from-blue-500 to-blue-700 text-white px-2.5 sm:px-3 md:px-4 py-2.5 sm:py-3 md:py-4 rounded-lg hover:scale-105 transition-all duration-200 shadow-md hover:shadow-xl border border-white/10"
+                    className="group flex items-center justify-center gap-1.5 sm:gap-2 bg-gradient-to-br from-blue-500 to-blue-700 text-white px-2.5 sm:px-3 md:px-4 py-2.5 sm:py-3 md:py-4 rounded-lg hover:scale-105 transition-all duration-200 shadow-md hover:shadow-xl border"
+                    style={{ borderColor: "rgba(163,151,106,0.3)" }}
                   >
                     <Facebook className="w-3.5 h-3.5 sm:w-4 sm:h-4 md:w-5 md:h-5 group-hover:scale-110 transition-transform text-white" />
-                    <span className="font-[family-name:var(--font-crimson)] font-semibold text-[10px] sm:text-xs md:text-sm">
+                    <span className="font-[family-name:var(--font-crimson)] font-normal text-[10px] sm:text-xs md:text-sm">
                       Facebook
                     </span>
                   </button>
                   <button
                     onClick={() => shareOnSocial("tiktok")}
-                    className="group flex items-center justify-center gap-1.5 sm:gap-2 bg-gradient-to-br from-zinc-800 via-zinc-700 to-zinc-800 text-white px-2.5 sm:px-3 md:px-4 py-2.5 sm:py-3 md:py-4 rounded-lg hover:scale-105 transition-all duration-200 shadow-md hover:shadow-xl border border-white/10"
+                    className="group flex items-center justify-center gap-1.5 sm:gap-2 px-2.5 sm:px-3 md:px-4 py-2.5 sm:py-3 md:py-4 rounded-lg hover:scale-105 transition-all duration-200 shadow-md hover:shadow-xl border"
+                    style={{ backgroundColor: "rgba(69,48,31,0.8)", borderColor: "rgba(163,151,106,0.3)", color: "#F5D8B0" }}
                   >
-                    <Share2 className="w-3.5 h-3.5 sm:w-4 sm:h-4 md:w-5 md:h-5 group-hover:scale-110 transition-transform text-white" />
-                    <span className="font-[family-name:var(--font-crimson)] font-semibold text-[10px] sm:text-xs md:text-sm">
+                    <Share2 className="w-3.5 h-3.5 sm:w-4 sm:h-4 md:w-5 md:h-5 group-hover:scale-110 transition-transform" style={{ color: "#F5D8B0" }} />
+                    <span className="font-[family-name:var(--font-crimson)] font-normal text-[10px] sm:text-xs md:text-sm">
                       TikTok
                     </span>
                   </button>
                   <button
                     onClick={() => shareOnSocial("twitter")}
-                    className="group flex items-center justify-center gap-1.5 sm:gap-2 bg-gradient-to-br from-sky-400 to-blue-500 text-white px-2.5 sm:px-3 md:px-4 py-2.5 sm:py-3 md:py-4 rounded-lg hover:scale-105 transition-all duration-200 shadow-md hover:shadow-xl border border-white/10"
+                    className="group flex items-center justify-center gap-1.5 sm:gap-2 bg-gradient-to-br from-sky-400 to-blue-500 text-white px-2.5 sm:px-3 md:px-4 py-2.5 sm:py-3 md:py-4 rounded-lg hover:scale-105 transition-all duration-200 shadow-md hover:shadow-xl border"
+                    style={{ borderColor: "rgba(163,151,106,0.3)" }}
                   >
                     <Twitter className="w-3.5 h-3.5 sm:w-4 sm:h-4 md:w-5 md:h-5 group-hover:scale-110 transition-transform text-white" />
-                    <span className="font-[family-name:var(--font-crimson)] font-semibold text-[10px] sm:text-xs md:text-sm">
+                    <span className="font-[family-name:var(--font-crimson)] font-normal text-[10px] sm:text-xs md:text-sm">
                       Twitter
                     </span>
                   </button>
@@ -401,29 +372,22 @@ export function SnapShare() {
         >
           <div className="relative max-w-3xl mx-auto">
             <div
-              className="relative rounded-xl sm:rounded-2xl p-5 sm:p-7 md:p-9 lg:p-10 overflow-hidden border border-white/10 transition-all duration-300"
-              style={cardStyle}
+              className="relative rounded-xl sm:rounded-2xl p-5 sm:p-7 md:p-9 lg:p-10 overflow-hidden border transition-all duration-300"
+              style={{ ...cardStyle, border: "1px solid rgba(163,151,106,0.3)" }}
             >
-              <div className="absolute inset-0 bg-gradient-to-br from-black via-[#0a0a0a] to-[#050505] z-0" />
-              <div
-                className="absolute inset-0 opacity-60 z-0"
-                style={{
-                  background:
-                    "radial-gradient(circle at center, rgba(255,255,255,0.02) 0%, transparent 70%)",
-                }}
-              />
-              <p className="relative z-10 text-sm sm:text-base md:text-lg font-[family-name:var(--font-crimson)] text-zinc-300 leading-relaxed mb-4 sm:mb-5 md:mb-6">
+              <div className="absolute inset-0 opacity-50 rounded-xl sm:rounded-2xl z-0" style={{ background: "radial-gradient(circle at center, rgba(245,216,176,0.04) 0%, transparent 70%)" }} />
+              <p className="relative z-10 text-sm sm:text-base md:text-lg font-[family-name:var(--font-crimson)] leading-relaxed mb-4 sm:mb-5 md:mb-6" style={{ color: "rgba(245,216,176,0.95)" }}>
                 We are so excited to celebrate our love with you! See you on our
                 special day!
               </p>
               <div className="relative z-10 flex items-center justify-center gap-2.5 sm:gap-3 md:gap-4 my-4 sm:my-5 md:my-6">
-                <div className="h-px w-10 sm:w-12 md:w-16 bg-white/20" />
-                <div className="w-1 h-1 sm:w-1.5 sm:h-1.5 bg-zinc-500 rounded-full" />
-                <div className="h-px w-10 sm:w-12 md:w-16 bg-white/20" />
+                <div className="h-px w-10 sm:w-12 md:w-16" style={{ backgroundColor: "rgba(163,151,106,0.4)" }} />
+                <div className="w-1 h-1 sm:w-1.5 sm:h-1.5 rounded-full" style={{ backgroundColor: "#A2976A" }} />
+                <div className="h-px w-10 sm:w-12 md:w-16" style={{ backgroundColor: "rgba(163,151,106,0.4)" }} />
               </div>
               <div className="relative z-10 text-center">
-                <span className="block text-lg sm:text-xl md:text-2xl lg:text-3xl font-[family-name:var(--font-ephesis)] text-zinc-200 font-normal">
-                  – Japoi & Regine –
+                <span className="block text-lg sm:text-xl md:text-2xl lg:text-3xl font-[family-name:var(--font-crimson)] font-normal" style={{ color: "#F5D8B0" }}>
+                  – Daive & Abra –
                 </span>
               </div>
             </div>

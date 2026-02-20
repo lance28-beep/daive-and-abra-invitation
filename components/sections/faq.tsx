@@ -11,59 +11,39 @@ interface FAQItem {
 
 const faqItems: FAQItem[] = [
   {
-    question: "When and where is the wedding?",
+    question: "When should I RSVP by?",
     answer:
-      "Ceremony & Reception will be held on Sunday, March 15, 2026, at 4:00 PM at Twin Lakes Tagaytay, Glass House, Tagaytay, Philippines.",
+      "To help us with our planning, please RSVP to the event as soon as possible. However, the deadline is May 19, 2026. If we don't receive your RSVP by this date, we cannot make exceptions and will have to mark you as 'NO'. The official guest list will be given to our coordinator. GUESTS WHO ARE NOT IN THE GUEST LIST WILL NOT BE ACCOMMODATED AT THE RECEPTION.",
   },
   {
-    question: "What is the dress code?",
+    question: "When should I arrive?",
     answer:
-      "Guest Attire:\n• Gentlemen: Black slacks or formal black wear—black suit, pants and tie\n• Ladies: Elegant black (silky or glittery black are welcome)\n\nPrincipal Sponsors follow the same guidelines:\n• Gentlemen: Black slacks or formal black wear—black suit, pants and tie\n• Ladies: Elegant black (silky or glittery black are welcome)\n\nPlease adhere to the dress code to maintain the elegance of our celebration.",
+      "We encourage everyone to arrive before 3:00 PM, before the ceremony starts to make sure everyone is seated on time. We appreciate that all guests can attend the ceremony to witness our union. CHURCH RULES",
   },
   {
-    question: "When is the RSVP deadline?",
+    question: "Plugged in ceremony",
     answer:
-      "Please confirm your attendance by March 1, 2026. We have reserved seats for you, and we look forward to celebrating with you! Your response helps us finalize our guest list and seating arrangements.\n\n[RSVP_LINK]Click here to RSVP[/RSVP_LINK]",
+      "Capture the love using your phones and cameras, and share these special moment with us through the QR code included in this invitation.",
+  },
+  {
+    question: "Is there a dress code?",
+    answer:
+      "We kindly ask guests to wear formal attire. Please REFRAIN from wearing T-shirt, jeans, and slippers. Thank you for dressing up with us!",
   },
   {
     question: "Can I bring a plus one?",
     answer:
-      "As we celebrate this moment with our closest loved ones, we kindly ask that attendance be limited to those named on the invitation. Thank you for your understanding and cooperation!",
+      "As much as possible, we kindly ask that only the guests that are listed in the invitation to attend. However, please let us know if you'd like to bring a plus one and we'll be happy to share our thoughts.",
   },
   {
-    question: "Are children allowed?",
+    question: "Can we bring our kids?",
     answer:
-      "We love your little ones, but to keep the celebration intimate, we kindly request an adults-only event. Children in our family and the entourage are the exception. We appreciate your understanding!",
+      "Only children from our immediate family are only allowed. We encourage guests to enjoy the celebration as a special time for themselves.",
   },
   {
-    question: "What is your gift policy?",
+    question: "What time can we go home?",
     answer:
-      "We kindly ask for no boxed gifts. Monetary gifts are welcome but never expected. Your presence at our wedding is the most precious gift we could ask for! If you wish to send a monetary gift, you can scan the GCash QR code in our Gift Registry section.",
-  },
-  {
-    question: "Can I take photos during the ceremony?",
-    answer:
-      "We'd love for everyone to be fully present. Please avoid posting photos during the celebration or ahead of time—our photographers will take care of the memories. We want everyone to be in the moment with us!",
-  },
-  {
-    question: "What if I have dietary restrictions or allergies?",
-    answer:
-      "Please mention any dietary restrictions, allergies, or special meal requirements in the message field when you submit your RSVP. We want to ensure everyone is comfortable and well-fed!",
-  },
-  {
-    question: "How do I get to the venue?",
-    answer:
-      "You can use the 'Get Directions' button in the Event Details section to open Google Maps for easy navigation to Twin Lakes Tagaytay, Glass House, Tagaytay, Philippines.",
-  },
-  {
-    question: "Is there parking available?",
-    answer:
-      "Yes! Twin Lakes Tagaytay, Glass House has parking facilities. We recommend arriving 15-20 minutes early to secure a spot and get settled comfortably. Ceremony & Reception begins at 4:00 PM.",
-  },
-  {
-    question: "What should I do if I need to cancel or update my RSVP?",
-    answer:
-      "You can update your RSVP by searching for your name in the RSVP section and submitting a new response. We appreciate your timely communication!",
+      "It took us more than a year to save and plan for our wedding so that everyone would (hopefully) enjoy. The program is estimated to end at 9:00 PM. PLEASE DON'T EAT AND RUN! Stay with us until the program ends.",
   },
 ];
 
@@ -79,46 +59,33 @@ export function FAQ() {
       id="faq"
       className="relative py-16 sm:py-20 md:py-24 lg:py-28 overflow-hidden"
     >
-      {/* Section Header – aligned with details and hero */}
       <div className="relative z-10 text-center mb-8 sm:mb-12 md:mb-16 px-4 sm:px-6">
         <div className="flex items-center justify-center gap-3 mb-4 sm:mb-6">
-          <div className="h-[1px] w-16 sm:w-24 bg-gradient-to-r from-transparent via-zinc-500 to-transparent" />
+          <div className="h-[1px] w-16 sm:w-24" style={{ background: "linear-gradient(to right, transparent, #A2976A, transparent)" }} />
         </div>
-        <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-[family-name:var(--font-crimson)] font-normal text-zinc-100 mb-4 sm:mb-6 uppercase tracking-[0.12em] sm:tracking-[0.15em]">
+        <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-[family-name:var(--font-crimson)] font-normal mb-4 sm:mb-6 uppercase tracking-[0.12em] sm:tracking-[0.15em]" style={{ color: "#F5D8B0" }}>
           Frequently Asked Questions
         </h2>
         <div className="flex items-center justify-center gap-3 mb-4 sm:mb-6">
-          <div className="h-[1px] w-16 sm:w-24 bg-gradient-to-r from-transparent via-zinc-500 to-transparent" />
+          <div className="h-[1px] w-16 sm:w-24" style={{ background: "linear-gradient(to right, transparent, #A2976A, transparent)" }} />
         </div>
-        <p className="text-sm sm:text-base md:text-lg font-[family-name:var(--font-crimson)] text-zinc-400 font-light max-w-xl mx-auto leading-relaxed tracking-wide px-4">
+        <p className="text-sm sm:text-base md:text-lg font-[family-name:var(--font-crimson)] font-light max-w-xl mx-auto leading-relaxed tracking-wide px-4" style={{ color: "#A2976A" }}>
           Everything you need to know
         </p>
       </div>
 
-      {/* FAQ content */}
       <div className="relative z-10 max-w-4xl mx-auto px-3 sm:px-4 md:px-6">
         <div className="relative group">
           <div
             className="relative rounded-xl sm:rounded-2xl p-4 sm:p-6 md:p-8 lg:p-10 transition-all duration-300 overflow-hidden"
             style={{
-              background:
-                "linear-gradient(135deg, #000000 0%, #0a0a0a 50%, #050505 100%)",
-              boxShadow:
-                "0 0 0 1px rgba(0,0,0,0.5), 0 8px 32px rgba(0,0,0,0.6), 0 30px 90px rgba(0,0,0,0.95), inset 0 1px 0 rgba(255,255,255,0.05)",
+              background: "linear-gradient(135deg, #45301F 0%, #875F2C 40%, #45301F 100%)",
+              boxShadow: "0 0 0 1px rgba(163,151,106,0.25), 0 8px 32px rgba(0,0,0,0.2), inset 0 1px 0 rgba(245,216,176,0.06)",
             }}
           >
-            {/* Gradient overlays */}
-            <div className="absolute inset-0 bg-gradient-to-br from-black via-[#0a0a0a] to-[#050505] z-0" />
-            <div
-              className="absolute inset-0 opacity-60 z-0"
-              style={{
-                background:
-                  "radial-gradient(circle at center, rgba(255,255,255,0.02) 0%, transparent 70%)",
-              }}
-            />
-            <div className="absolute inset-0 border border-white/10 rounded-xl sm:rounded-2xl z-0" />
+            <div className="absolute inset-0 opacity-50 rounded-xl sm:rounded-2xl z-0" style={{ background: "radial-gradient(circle at center, rgba(245,216,176,0.04) 0%, transparent 70%)" }} />
+            <div className="absolute inset-0 rounded-xl sm:rounded-2xl z-0" style={{ border: "1px solid rgba(163,151,106,0.3)" }} />
 
-            {/* FAQ items */}
             <div className="relative z-10 space-y-2.5 sm:space-y-3 md:space-y-4">
               {faqItems.map((item, index) => {
                 const isOpen = openIndex === index;
@@ -126,20 +93,25 @@ export function FAQ() {
                 return (
                   <div
                     key={index}
-                    className="rounded-lg sm:rounded-xl border border-white/10 bg-zinc-900/50 hover:bg-zinc-800/50 hover:border-white/20 transition-all duration-300 overflow-hidden"
+                    className="rounded-lg sm:rounded-xl border transition-all duration-300 overflow-hidden"
+                    style={{
+                      backgroundColor: "rgba(69,48,31,0.5)",
+                      borderColor: "rgba(163,151,106,0.35)",
+                    }}
                   >
                     <button
                       onClick={() => toggleItem(index)}
-                      className="group/btn w-full px-3 sm:px-4 md:px-5 py-3 sm:py-3.5 md:py-4 flex items-center justify-between text-left outline-none focus-visible:ring-2 focus-visible:ring-zinc-400 focus-visible:ring-offset-2 focus-visible:ring-offset-black transition-colors"
+                      className="group/btn w-full px-3 sm:px-4 md:px-5 py-3 sm:py-3.5 md:py-4 flex items-center justify-between text-left outline-none focus-visible:ring-2 focus-visible:ring-[#A2976A] focus-visible:ring-offset-2 focus-visible:ring-offset-[#45301F] transition-colors"
                       aria-expanded={isOpen}
                       aria-controls={contentId}
                     >
-                      <span className="font-[family-name:var(--font-crimson)] font-semibold text-zinc-200 pr-3 sm:pr-4 text-xs sm:text-sm md:text-base leading-relaxed group-hover/btn:text-zinc-100 transition-colors duration-200">
+                      <span className="font-[family-name:var(--font-crimson)] font-normal pr-3 sm:pr-4 text-xs sm:text-sm md:text-base leading-relaxed transition-colors duration-200" style={{ color: "#F5D8B0" }}>
                         {item.question}
                       </span>
                       <ChevronDown
                         size={18}
-                        className={`text-zinc-400 flex-shrink-0 transition-transform duration-300 ${isOpen ? "rotate-180" : ""} w-4 h-4 sm:w-5 sm:h-5 group-hover/btn:text-zinc-200`}
+                        className={"flex-shrink-0 transition-transform duration-300 w-4 h-4 sm:w-5 sm:h-5 " + (isOpen ? "rotate-180" : "")}
+                        style={{ color: "#A2976A" }}
                         aria-hidden
                       />
                     </button>
@@ -147,40 +119,13 @@ export function FAQ() {
                     <div
                       id={contentId}
                       role="region"
-                      className={`grid transition-all duration-300 ease-out ${
-                        isOpen
-                          ? "grid-rows-[1fr] opacity-100"
-                          : "grid-rows-[0fr] opacity-0"
-                      }`}
+                      className={"grid transition-all duration-300 ease-out " + (isOpen ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0")}
                     >
                       <div className="overflow-hidden">
-                        <div className="px-3 sm:px-4 md:px-5 py-2.5 sm:py-3 md:py-4 bg-zinc-800/30 border-t border-white/10">
-                          {item.answer.includes("[RSVP_LINK]") ? (
-                            <p className="text-zinc-400 leading-relaxed text-xs sm:text-sm md:text-base font-[family-name:var(--font-crimson)] whitespace-pre-line">
-                              {item.answer.split("[RSVP_LINK]")[0]}
-                              <a
-                                href="#guest-list"
-                                className="text-zinc-200 underline font-semibold hover:text-zinc-100 transition-colors inline-flex items-center gap-1"
-                                onClick={(e) => {
-                                  e.preventDefault();
-                                  document
-                                    .getElementById("guest-list")
-                                    ?.scrollIntoView({ behavior: "smooth" });
-                                }}
-                              >
-                                {
-                                  item.answer.match(
-                                    /\[RSVP_LINK\](.*?)\[\/RSVP_LINK\]/,
-                                  )?.[1]
-                                }
-                              </a>
-                              {item.answer.split("[/RSVP_LINK]")[1]}
-                            </p>
-                          ) : (
-                            <p className="text-zinc-400 leading-relaxed text-xs sm:text-sm md:text-base font-[family-name:var(--font-crimson)] whitespace-pre-line">
-                              {item.answer}
-                            </p>
-                          )}
+                        <div className="px-3 sm:px-4 md:px-5 py-2.5 sm:py-3 md:py-4 border-t" style={{ borderColor: "rgba(163,151,106,0.25)", backgroundColor: "rgba(69,48,31,0.3)" }}>
+                          <p className="leading-relaxed text-xs sm:text-sm md:text-base font-[family-name:var(--font-crimson)] whitespace-pre-line" style={{ color: "rgba(245,216,176,0.95)" }}>
+                            {item.answer}
+                          </p>
                         </div>
                       </div>
                     </div>

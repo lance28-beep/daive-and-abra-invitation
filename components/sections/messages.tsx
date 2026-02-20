@@ -81,67 +81,42 @@ function MessageForm({ onSuccess, onMessageSent }: MessageFormProps) {
     }
   }
 
+  const borderColor = isFocused ? "rgba(163,151,106,0.5)" : "rgba(163,151,106,0.3)"
+
   return (
     <div className="relative w-full max-w-lg mx-auto px-4 sm:px-0">
-      <div 
-        className={`relative w-full transition-all duration-300 overflow-hidden rounded-xl ${
-          isSubmitted ? 'animate-bounce' : ''
-        }`}
+      <div
+        className={"relative w-full transition-all duration-300 overflow-hidden rounded-xl " + (isSubmitted ? "animate-bounce" : "")}
         style={{
-          background: 'linear-gradient(135deg, #000000 0%, #0a0a0a 50%, #050505 100%)',
-          boxShadow: '0 0 0 1px rgba(0,0,0,0.5), 0 8px 32px rgba(0,0,0,0.6), 0 30px 90px rgba(0,0,0,0.95), inset 0 1px 0 rgba(255,255,255,0.05)',
+          background: "linear-gradient(135deg, #45301F 0%, #875F2C 40%, #45301F 100%)",
+          boxShadow: "0 0 0 1px rgba(163,151,106,0.25), 0 8px 32px rgba(0,0,0,0.2), inset 0 1px 0 rgba(245,216,176,0.06)",
         }}
       >
-        {/* Gradient overlays */}
-        <div className="absolute inset-0 bg-gradient-to-br from-black via-[#0a0a0a] to-[#050505]" />
-        <div 
-          className="absolute inset-0 opacity-60"
-          style={{
-            background: 'radial-gradient(circle at center, rgba(255,255,255,0.02) 0%, transparent 70%)',
-          }}
-        />
-        <div className="absolute inset-0 bg-gradient-to-br from-transparent via-[rgba(255,255,255,0.01)] to-transparent opacity-50" />
-        
-        {/* Elegant border */}
-        <div 
-          className="absolute inset-0 rounded-xl"
-          style={{
-            padding: '1px',
-            background: 'linear-gradient(135deg, rgba(255,255,255,0.12) 0%, rgba(255,255,255,0.05) 50%, rgba(255,255,255,0.1) 100%)',
-            WebkitMask: 'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)',
-            WebkitMaskComposite: 'xor',
-            maskComposite: 'exclude',
-          }}
-        />
-        <div className={`absolute inset-[1px] rounded-xl border transition-all duration-300 ${
-          isFocused ? 'border-[rgba(255,255,255,0.15)]' : 'border-[rgba(255,255,255,0.08)]'
-        }`} />
-        
-        {/* Success animation overlay */}
+        <div className="absolute inset-0 opacity-50 rounded-xl z-0" style={{ background: "radial-gradient(circle at center, rgba(245,216,176,0.04) 0%, transparent 70%)" }} />
+        <div className="absolute inset-0 rounded-xl z-0 transition-all duration-300" style={{ border: "1px solid " + borderColor }} />
+
         {isSubmitted && (
-          <div className="absolute inset-0 bg-gradient-to-br from-green-400/20 to-green-300/10 flex items-center justify-center z-20 pointer-events-none">
+          <div className="absolute inset-0 flex items-center justify-center z-20 pointer-events-none rounded-xl" style={{ background: "linear-gradient(135deg, rgba(69,48,31,0.9) 0%, rgba(135,95,44,0.9) 50%, rgba(69,48,31,0.9) 100%)" }}>
             <div className="flex flex-col items-center gap-2 animate-pulse">
-              <div className="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center shadow-lg">
-                <Sparkles className="h-8 w-8 text-white" fill="white" />
+              <div className="w-16 h-16 rounded-full flex items-center justify-center shadow-lg" style={{ backgroundColor: "#F5D8B0" }}>
+                <Sparkles className="h-8 w-8" style={{ color: "#45301F" }} fill="currentColor" />
               </div>
-              <p className="text-green-400 font-semibold text-lg">Sent!</p>
+              <p className="font-[family-name:var(--font-crimson)] font-normal text-lg" style={{ color: "#F5D8B0" }}>Sent!</p>
             </div>
           </div>
         )}
         
         <div className="relative z-10 p-4 sm:p-6 md:p-8">
-          {/* Header with icon */}
           <div className="text-center mb-4 sm:mb-6">
             <div className="relative inline-block mb-2 sm:mb-3">
-              <div className="absolute inset-0 bg-white/10 rounded-full blur-lg scale-150"></div>
-              <div className="relative w-9 h-9 sm:w-12 sm:h-12 bg-zinc-800 rounded-full flex items-center justify-center mx-auto shadow-lg border-2 border-white/10">
-                <MessageCircle className="h-4 w-4 sm:h-6 sm:w-6 text-zinc-200" />
+              <div className="relative w-9 h-9 sm:w-12 sm:h-12 rounded-full flex items-center justify-center mx-auto shadow-lg border" style={{ backgroundColor: "rgba(163,151,106,0.4)", borderColor: "rgba(163,151,106,0.3)" }}>
+                <MessageCircle className="h-4 w-4 sm:h-6 sm:w-6" style={{ color: "#F5D8B0" }} />
               </div>
             </div>
-            <h3 className="text-sm sm:text-base md:text-lg font-[family-name:var(--font-crimson)] font-normal text-zinc-200 mb-1.5 sm:mb-2 uppercase tracking-[0.12em]">
+            <h3 className="text-sm sm:text-base md:text-lg font-[family-name:var(--font-crimson)] font-normal mb-1.5 sm:mb-2 uppercase tracking-[0.12em]" style={{ color: "#F5D8B0" }}>
               Share Your Love
             </h3>
-            <p className="text-xs sm:text-sm text-zinc-400 font-[family-name:var(--font-crimson)] font-light tracking-wide leading-relaxed px-1">
+            <p className="text-xs sm:text-sm font-[family-name:var(--font-crimson)] font-light tracking-wide leading-relaxed px-1" style={{ color: "#A2976A" }}>
               Your message will be treasured forever
             </p>
           </div>
@@ -153,9 +128,8 @@ function MessageForm({ onSuccess, onMessageSent }: MessageFormProps) {
             onFocus={() => setIsFocused(true)}
             onBlur={() => setIsFocused(false)}
           >
-            {/* Name Field */}
             <div className="space-y-2 sm:space-y-2.5">
-              <label className="block text-xs sm:text-sm font-[family-name:var(--font-crimson)] font-semibold text-zinc-300 uppercase tracking-wider">
+              <label className="block text-xs sm:text-sm font-[family-name:var(--font-crimson)] font-normal uppercase tracking-wider" style={{ color: "#F5D8B0" }}>
                 Your Name
               </label>
               <div className="relative">
@@ -164,28 +138,26 @@ function MessageForm({ onSuccess, onMessageSent }: MessageFormProps) {
                   required
                   value={nameValue}
                   onChange={(e) => setNameValue(e.target.value)}
-                  onFocus={() => setFocusedField('name')}
+                  onFocus={() => setFocusedField("name")}
                   onBlur={() => setFocusedField(null)}
                   placeholder="Enter your name"
-                  className={`w-full border border-white/20 rounded py-2 sm:py-2.5 px-3 sm:px-4 text-sm sm:text-base font-[family-name:var(--font-crimson)] text-zinc-100 placeholder:text-zinc-500 transition-all duration-200 bg-zinc-900/50 focus:outline-none ${
-                    focusedField === 'name' 
-                      ? 'border-white/40 shadow-sm' 
-                      : 'hover:border-white/30'
-                  }`}
+                  className="w-full border-2 rounded py-2 sm:py-2.5 px-3 sm:px-4 text-sm sm:text-base font-[family-name:var(--font-crimson)] placeholder:text-white transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-[#A2976A]/30"
+                  style={{
+                    backgroundColor: "rgba(69,48,31,0.5)",
+                    borderColor: focusedField === "name" ? "rgba(163,151,106,0.5)" : "rgba(163,151,106,0.35)",
+                    color: "#F5D8B0",
+                  }}
                 />
               </div>
             </div>
 
-            {/* Message Field */}
             <div className="space-y-2 sm:space-y-2.5">
               <div className="flex items-center justify-between">
-                <label className="block text-xs sm:text-sm font-[family-name:var(--font-crimson)] font-semibold text-zinc-300 uppercase tracking-wider">
+                <label className="block text-xs sm:text-sm font-[family-name:var(--font-crimson)] font-normal uppercase tracking-wider" style={{ color: "#F5D8B0" }}>
                   Your Message
                 </label>
                 {messageValue && (
-                  <span className={`text-xs font-[family-name:var(--font-crimson)] transition-colors ${
-                    messageValue.length > 500 ? 'text-red-400' : 'text-zinc-500'
-                  }`}>
+                  <span className="text-xs font-[family-name:var(--font-crimson)] transition-colors" style={{ color: messageValue.length > 500 ? "#A2976A" : "#A2976A" }}>
                     {messageValue.length}/500
                   </span>
                 )}
@@ -200,28 +172,28 @@ function MessageForm({ onSuccess, onMessageSent }: MessageFormProps) {
                       setMessageValue(e.target.value)
                     }
                   }}
-                  onFocus={() => setFocusedField('message')}
+                  onFocus={() => setFocusedField("message")}
                   onBlur={() => setFocusedField(null)}
                   placeholder="Share your love, memories, or well wishes..."
-                  className={`w-full border border-white/20 rounded min-h-[100px] sm:min-h-[120px] text-sm sm:text-base font-[family-name:var(--font-crimson)] text-zinc-100 placeholder:text-zinc-500 transition-all duration-200 resize-none bg-zinc-900/50 py-2 sm:py-2.5 px-3 sm:px-4 focus:outline-none ${
-                    focusedField === 'message' 
-                      ? 'border-white/40 shadow-sm' 
-                      : 'hover:border-white/30'
-                  }`}
+                  className="w-full border-2 rounded min-h-[100px] sm:min-h-[120px] text-sm sm:text-base font-[family-name:var(--font-crimson)] placeholder:text-white transition-all duration-200 resize-none py-2 sm:py-2.5 px-3 sm:px-4 focus:outline-none focus:ring-2 focus:ring-[#A2976A]/30"
+                  style={{
+                    backgroundColor: "rgba(69,48,31,0.5)",
+                    borderColor: focusedField === "message" ? "rgba(163,151,106,0.5)" : "rgba(163,151,106,0.35)",
+                    color: "#F5D8B0",
+                  }}
                 />
               </div>
             </div>
 
-            {/* Submit Button */}
             <Button
               type="submit"
               disabled={isSubmitting || !nameValue.trim() || !messageValue.trim()}
-              className="w-full bg-zinc-800 hover:bg-zinc-700 active:bg-zinc-600 text-zinc-100 py-2.5 sm:py-3 px-6 sm:px-8 text-xs sm:text-sm font-[family-name:var(--font-crimson)] font-semibold shadow-md transition-all duration-300 hover:scale-105 active:scale-100 disabled:opacity-70 disabled:cursor-not-allowed disabled:transform-none border border-white/20 tracking-wider uppercase"
+              className="w-full py-2.5 sm:py-3 px-6 sm:px-8 text-xs sm:text-sm font-[family-name:var(--font-crimson)] font-normal shadow-md transition-all duration-300 hover:scale-[1.02] active:scale-100 disabled:opacity-70 disabled:cursor-not-allowed disabled:transform-none border tracking-wider uppercase"
+              style={{ backgroundColor: "#875F2C", color: "#F5D8B0", borderColor: "rgba(163,151,106,0.5)" }}
             >
-              
               {isSubmitting ? (
                 <span className="flex items-center justify-center gap-2">
-                  <svg className="animate-spin h-4 w-4 sm:h-5 sm:w-5" viewBox="0 0 24 24">
+                  <svg className="animate-spin h-4 w-4 sm:h-5 sm:w-5" viewBox="0 0 24 24" style={{ color: "#F5D8B0" }}>
                     <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" fill="none" />
                     <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
                   </svg>
@@ -229,7 +201,7 @@ function MessageForm({ onSuccess, onMessageSent }: MessageFormProps) {
                 </span>
               ) : (
                 <span className="flex items-center justify-center gap-2">
-                  <Heart className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-zinc-100" fill="currentColor" />
+                  <Heart className="h-3.5 w-3.5 sm:h-4 sm:w-4" style={{ color: "#F5D8B0" }} fill="currentColor" />
                   Send Message
                 </span>
               )}
@@ -280,22 +252,16 @@ export function Messages() {
   return (
     <Section id="messages" className="py-10 sm:py-16 md:py-20 lg:py-24">
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Header Section */}
-         <div className="text-center mb-8 sm:mb-12 md:mb-16">
-           <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-[family-name:var(--font-crimson)] font-normal text-zinc-100 mb-4 sm:mb-6 md:mb-8 text-balance uppercase tracking-[0.12em] sm:tracking-[0.15em]">
-             Love Messages
-           </h2>
-          
+        <div className="text-center mb-8 sm:mb-12 md:mb-16">
+          <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-[family-name:var(--font-crimson)] font-normal mb-4 sm:mb-6 md:mb-8 text-balance uppercase tracking-[0.12em] sm:tracking-[0.15em]" style={{ color: "#F5D8B0" }}>
+            Love Messages
+          </h2>
           <div className="max-w-4xl mx-auto">
-            <div className="relative inline-block mb-3 sm:mb-5">
-              <div className="absolute inset-0 bg-white/10 rounded-full blur-xl scale-150 animate-pulse"></div>
-            </div>
-            
-            <h3 className="text-base sm:text-lg md:text-xl font-[family-name:var(--font-ephesis)] text-zinc-200 mb-2 sm:mb-3 md:mb-4">
+            <h3 className="text-base sm:text-lg md:text-xl font-[family-name:var(--font-crimson)] mb-2 sm:mb-3 md:mb-4" style={{ color: "#F5D8B0" }}>
               Share Your Heartfelt Wishes
             </h3>
-            <p className="text-sm sm:text-base md:text-lg text-zinc-400 font-[family-name:var(--font-crimson)] font-light leading-relaxed max-w-2xl mx-auto px-2 sm:px-4 tracking-wide">
-              Your messages of love and joy will be treasured forever. 
+            <p className="text-sm sm:text-base md:text-lg font-[family-name:var(--font-crimson)] font-light leading-relaxed max-w-2xl mx-auto px-2 sm:px-4 tracking-wide" style={{ color: "#A2976A" }}>
+              Your messages of love and joy will be treasured forever.
               Share your memories, well wishes, and congratulations for the happy couple.
             </p>
           </div>
@@ -311,16 +277,13 @@ export function Messages() {
         {/* Messages Display Section */}
         <div className="relative max-w-5xl mx-auto px-4 sm:px-6">
           <div className="text-center mb-6 sm:mb-10 md:mb-14">
-            <div className="relative inline-block mb-3 sm:mb-5">
-              <div className="absolute inset-0 bg-white/10 rounded-full blur-xl scale-150"></div>
-              <div className="relative w-10 h-10 sm:w-14 sm:h-14 bg-zinc-800 rounded-full flex items-center justify-center mx-auto shadow-lg border border-white/10">
-                <Heart className="h-5 w-5 sm:h-7 sm:w-7 text-zinc-200" />
-              </div>
+            <div className="relative w-10 h-10 sm:w-14 sm:h-14 rounded-full flex items-center justify-center mx-auto shadow-lg border mb-3 sm:mb-5" style={{ backgroundColor: "rgba(163,151,106,0.4)", borderColor: "rgba(163,151,106,0.3)" }}>
+              <Heart className="h-5 w-5 sm:h-7 sm:w-7" style={{ color: "#F5D8B0" }} />
             </div>
-            <h3 className="text-base sm:text-lg md:text-xl font-[family-name:var(--font-crimson)] text-zinc-200 mb-2 sm:mb-3">
+            <h3 className="text-base sm:text-lg md:text-xl font-[family-name:var(--font-crimson)] mb-2 sm:mb-3" style={{ color: "#F5D8B0" }}>
               Messages from Loved Ones
             </h3>
-            <p className="text-sm sm:text-base md:text-lg text-zinc-400 font-[family-name:var(--font-crimson)] font-light max-w-2xl mx-auto px-2 sm:px-4 tracking-wide">
+            <p className="text-sm sm:text-base md:text-lg font-[family-name:var(--font-crimson)] font-light max-w-2xl mx-auto px-2 sm:px-4 tracking-wide" style={{ color: "#A2976A" }}>
               Read the beautiful messages shared by family and friends
             </p>
           </div>

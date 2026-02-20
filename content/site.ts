@@ -1,70 +1,66 @@
 export const siteConfig = {
   couple: {
-    bride: "Jay-R Valenzuela",
-    brideNickname: "Jay-R",
-    groom: "Jennifer Bartolome",
-    groomNickname: "Jen",
+    bride: "Abra",
+    brideNickname: "Abra",
+    groom: "Daive",
+    groomNickname: "Daive",
   },
   wedding: {
-    date: "January 24, 2026",
-    time: "9:00 AM",
-    venue: "Diocesan Shrine & Parish of Our Lady of the Abandoned",
+    date: "June 19, 2026",
+    time: "3:00 PM",
+    venue: "St. Augustine Parish Church, Paoay, Ilocos Norte",
     tagline: "are getting married!",
-    theme: "Elegant Wedding ✨",
-    motif: "Earth Tones & Natural Elegance",
+    theme: "Elegant Wedding",
+    motif: "Rust Orange, Brown, Khaki & Beige",
   },
   details: {
     rsvp: {
-      deadline: "January 10, 2026",
+      deadline: "May 19, 2026",
       contacts: "+639XXXXXXXXX | +639XXXXXXXXX",
-      names: "Jay-R & Jen"
+      names: "Daive & Abra"
     },
     policies: {
-      attendance: "As we celebrate this moment with our closest loved ones, we kindly ask that attendance be limited to those named on the invitation",
-      gifts: "We kindly ask for no boxed gifts. Monetary gifts are welcome but never expected.",
-      children: "We love your little ones, but to keep the celebration intimate, we kindly request an adults-only event. (Children in our family and the entourage are the exception)",
-      photos: "We'd love for everyone to be fully present. Please avoid posting photos during the celebration or ahead of time—our photographers will take care of the memories"
+      attendance: "As we celebrate this moment with our closest loved ones, we kindly ask that attendance be limited to those named on the invitation. Guests who are not in the guest list will not be accommodated at the reception.",
+      gifts: "Your presence is the greatest gift we could ask for. Should you wish to bless us, a monetary gift would be greatly appreciated to help us start a new chapter in our married life.",
+      children: "Only children from our immediate family are allowed. We encourage guests to enjoy the celebration as a special time for themselves.",
+      photos: "Capture the love using your phones and cameras, and share these special moments with us through the QR code included in this invitation."
     }
   },
   ceremony: {
-    location: "Diocesan Shrine & Parish of Our Lady of the Abandoned",
-    venue: "Diocesan Shrine & Parish of Our Lady of the Abandoned",
-    address: "#3 Mt. Kennedy St., Mountainview Village, San Roque, Marikina City",
-    date: "January 24, 2026",
-    day: "Saturday",
-    time: "9:00 AM",
-    entourageTime: "8:30 AM",
-    guestsTime: "9:00 AM",
+    location: "St. Augustine Parish Church",
+    venue: "St. Augustine Parish Church",
+    address: "Paoay, Ilocos Norte",
+    date: "June 19, 2026",
+    day: "Friday",
+    time: "3:00 PM",
+    entourageTime: "2:30 PM",
+    guestsTime: "3:00 PM",
   },
   reception: {
-    location: "The Grand Cobo Events Place",
-    venue: "The Grand Cobo Events Place",
-    address: "#3 Mt. Kennedy St., Mountainview Village, San Roque, Marikina City",
-    date: "January 24, 2026",
-    time: "12:00 NN",
+    location: "Crescencia The Events Place",
+    venue: "Crescencia The Events Place",
+    address: "Young Street, Paoay, Ilocos Norte",
+    date: "June 19, 2026",
+    time: "5:30 PM",
   },
   dressCode: {
-    theme: "Elegant Wedding ✨",
-    colors: ["#0A3629", "#126555", "#688277", "#9F8650", "#F9F8F4"],
-    description: "Earth tones, long gowns for ladies. Barong & black slacks or formal wear for gentlemen. No prints, please.",
-    sponsors: {
-      ladies: "Champagne or Gold long gowns",
-      gentlemen: "Barong Tagalog & Black Slacks"
-    },
-    guests: {
-      ladies: "Earth tones long gowns (no prints)",
-      gentlemen: "Barong & black slacks or formal wear"
-    },
-    note: "Dress code: Earth tones, long gowns for ladies. Barong & black slacks or formal wear for gentlemen. No prints, please."
+    theme: "Formal",
+    colors: ["#C45508", "#643403", "#A27131", "#D6A96F"],
+    description: "Kindly coordinate with our wedding palette. We would be honored to have your timeless elegance grace our celebration. Palette: #C45508 Rust Orange, #643403 Brown, #A27131 Khaki, #D6A96F Beige.",
+    note: "We kindly ask guests to wear formal attire. Please REFRAIN from wearing T-shirt, jeans, and slippers."
   },
-  narrative: `Two hearts, one love story. Jay-R and Jennifer are ready to begin their forever together. \n
+  narrative: `Daive and Abra's story began with a simple Facebook connection sometime between 2018 and 2019. What started as casual chats quickly turned into a beautiful friendship, filled with shared stories, late-night talks, and constant support through life's ups and downs.
 
-Join us as we celebrate their love and commitment to each other on this special day. \n
+Along the way, they discovered a shared sense of humor, a deep understanding of each other, and a love for life's simple joys. In a loud and busy world, they found comfort, warmth, and a safe space in one another.
 
-Together with their families, they invite you to witness the beginning of their beautiful journey as husband and wife. ❤️`,
+Built on mutual respect, genuine care, and lots of laughter, their love continues to grow with every adventure they take together. Today, they're excited to celebrate this special moment with you—grateful for the journey that brought them here and excited for all the adventures still ahead.`,
   colors: {
-    primary: "#0A3629",
-    secondary: "#126555",
+    primary: "#C45508",
+    secondary: "#643403",
+    rust: "#C45508",
+    brown: "#643403",
+    khaki: "#A27131",
+    beige: "#D6A96F",
   },
 }
 
@@ -104,11 +100,8 @@ export const entourage = [
   { role: "Groomsman", name: "Emerson Sulit" },
 
   // Secondary Sponsors
-  // Candle Sponsors
   { role: "Bridesmaid", name: "Romela Tolentino", group: "candle" },
-  // Veil Sponsors
   { role: "Bridesmaid", name: "Carla Vanessa Tabilin", group: "veil" },
-  // Cord Sponsors
   { role: "Bridesmaid", name: "Emmalyn Lipio", group: "cord" },
 
   // Flower Girls and Little Bride
@@ -124,7 +117,6 @@ export const entourage = [
 ]
 
 export const principalSponsors = [
-  // Paired from provided Male and Female Sponsors (order-based)
   { name: "Mr. Jony Balao", spouse: "Mrs. Conception Balao" },
   { name: "Mr. Cresencio Francisco", spouse: "Dr. Editha Francisco" },
   { name: "Mr. Aurelio Sab-it", spouse: "Mrs. Ester Sab-it" },
@@ -144,7 +136,6 @@ export const principalSponsors = [
   { name: "Mr. Pampilo Balajadia", spouse: "Mrs. Angelica Balajadia" },
   { name: "Mr. Alan M. Serduar", spouse: "Mrs. Oliva Serduar" },
   { name: "Mr. Miguel Franco", spouse: "Mrs. Angela Balajadia" },
-  // Remaining Female Sponsors without paired male
   { name: "Mrs. Carina C. Watanabe", spouse: "" },
   { name: "Mrs. Cecile Palilio", spouse: "" },
   { name: "Mrs. Nida Saguinsin", spouse: "" },

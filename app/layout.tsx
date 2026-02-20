@@ -23,27 +23,32 @@ const chicanos = localFont({
   variable: "--font-chicanos",
   display: "swap",
 })
+const helloParis = localFont({
+  src: "../Hello Paris-Font/Hello Paris-Font/Hello Paris Sans Bold.ttf",
+  variable: "--font-hello-paris",
+  display: "swap",
+})
 
 export const metadata: Metadata = {
-  title: "Japoi & Regine - Wedding Invitation",
+  title: "Daive & Abra - Wedding Invitation",
   description:
-    "You're invited to the wedding of Japoi & Regine! Join us on March 15, 2026 at Twin Lakes Tagaytay, Glass House. RSVP, read our love story, view our gallery, and leave a message for the couple.",
+    "You're invited to the wedding of Daive & Abra! Join us on June 19, 2026 in Paoay, Ilocos Norte, Philippines. RSVP, read our love story, view our gallery, and leave a message for the couple.",
   keywords:
-    "Japoi & Regine wedding, Filipino wedding, RSVP, wedding gallery, wedding message wall, wedding invitation, 2026 weddings, love story, guestbook, wedding registry, wedding details, wedding venues Twin Lakes Tagaytay, Glass House, #AnJAPaAngForeverNiREGINE",
+    "Daive & Abra wedding, Filipino wedding, RSVP, wedding gallery, wedding invitation, 2026 weddings, love story, Paoay Ilocos Norte, St. Augustine Parish Church, Crescencia The Events Place, #AbracaDaiveEra #ABRAsavedDAIVEstForLast #AbrafoundDaivest",
   authors: [
-    { name: "Japoi" },
-    { name: "Regine" },
+    { name: "Daive" },
+    { name: "Abra" },
   ],
-  creator: "Japoi & Regine",
-  publisher: "Japoi & Regine",
+  creator: "Daive & Abra",
+  publisher: "Daive & Abra",
   formatDetection: {
     email: false,
     address: false,
     telephone: true,
   },
-  metadataBase: new URL("https://japoi-and-regine-invitation.vercel.app/"),
+  metadataBase: new URL("https://daive-and-abra-invitation.vercel.app/"),
   alternates: {
-    canonical: "https://japoi-and-regine-invitation.vercel.app/",
+    canonical: "https://daive-and-abra-invitation.vercel.app/",
   },
   icons: {
     icon: [
@@ -65,29 +70,29 @@ export const metadata: Metadata = {
   },
   manifest: "/favicon_io/site.webmanifest",
   openGraph: {
-    title: "Japoi & Regine Wedding | March 15, 2026",
+    title: "Daive & Abra Wedding | June 19, 2026",
     description:
-      "Celebrate the union of Japoi & Regine on March 15, 2026 at Twin Lakes Tagaytay, Glass House. Discover our love story, RSVP, view the gallery, and leave your wishes!",
-    url: "https://japoi-and-regine-invitation.vercel.app/",
-    siteName: "Japoi and Regine Wedding",
+      "Celebrate the union of Daive & Abra on June 19, 2026 in Paoay, Ilocos Norte, Philippines. Discover our love story, RSVP, view the gallery, and leave your wishes!",
+    url: "https://daive-and-abra-invitation.vercel.app/",
+    siteName: "Daive and Abra Wedding",
     locale: "en_PH",
     type: "website",
     images: [
       {
-        url: "https://japoi-and-regine-invitation.vercel.app/Details/linkPreview.png",
+        url: "https://daive-and-abra-invitation.vercel.app/Details/LinkPreview.jpg",
         width: 1200,
         height: 630,
-        alt: "Japoi & Regine Wedding Invitation - March 15, 2026",
+        alt: "Daive & Abra Wedding Invitation - June 19, 2026",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Japoi & Regine Wedding Invitation",
+    title: "Daive & Abra Wedding Invitation",
     description:
-      "You're invited to the wedding of Japoi & Regine! March 15, 2026. RSVP, view our gallery, and leave a message! #AnJAPaAngForeverNiREGINE",
-    images: ["https://japoi-and-regine-invitation.vercel.app/Details/linkPreview.png"],
-    creator: "@japoiandregine",
+      "You're invited to the wedding of Daive & Abra! June 19, 2026. RSVP, view our gallery, and leave a message! #AbracaDaiveEra",
+    images: ["https://daive-and-abra-invitation.vercel.app/Details/LinkPreview.jpg"],
+    creator: "@daiveandabra",
   },
   robots: {
     index: true,
@@ -107,52 +112,49 @@ export const metadata: Metadata = {
     "application/ld+json": JSON.stringify({
       "@context": "https://schema.org",
       "@type": "Event",
-      name: "Jay-R & Jennifer Wedding",
-      startDate: "2026-01-24T09:00:00+08:00",
-      endDate: "2026-01-24T12:00:00+08:00",
+      name: "Daive & Abra Wedding",
+      startDate: "2026-06-19T15:00:00+08:00",
+      endDate: "2026-06-19T21:00:00+08:00",
       eventStatus: "https://schema.org/EventScheduled",
       eventAttendanceMode: "https://schema.org/OfflineEventAttendanceMode",
       location: [
         {
           "@type": "Place",
-          name: "Twin Lakes Tagaytay, Glass House, Tagaytay City",
+          name: "St. Augustine Parish Church, Paoay, Ilocos Norte",
           address: {
             "@type": "PostalAddress",
-            streetAddress: "#24 San Juan St., Brgy. Poblacion, Tagaytay City",
-            addressLocality: "Tagaytay City",
-            addressRegion: "Tagaytay City",
-            postalCode: "1440",
+            addressLocality: "Paoay",
+            addressRegion: "Ilocos Norte",
             addressCountry: "PH",
           },
         },
         {
           "@type": "Place",
-          name: "Twin Lakes Tagaytay, Glass House, Tagaytay City",
+          name: "Crescencia The Events Place, Paoay, Ilocos Norte",
           address: {
             "@type": "PostalAddress",
-            streetAddress: "#24 San Juan St., Brgy. Poblacion, Tagaytay City",
-            addressLocality: "Tagaytay City",
-            addressRegion: "Tagaytay City",
-            postalCode: "4120",
+            streetAddress: "Young Street",
+            addressLocality: "Paoay",
+            addressRegion: "Ilocos Norte",
             addressCountry: "PH",
           },
         },
       ],
-      image: ["https://japoi-and-regine-invitation.vercel.app/Details/linkPreview.png"],
+      image: ["https://daive-and-abra-invitation.vercel.app/Details/LinkPreview.jpg"],
       description:
-        "You're invited to the wedding of Japoi & Regine! Join us on March 15, 2026 at Twin Lakes Tagaytay, Glass House, Tagaytay City. RSVP, read our love story, view our gallery, and leave a message for the couple.",
+        "You're invited to the wedding of Daive & Abra! June 19, 2026 in Paoay, Ilocos Norte, Philippines. RSVP, read our love story, view our gallery, and leave a message for the couple.",
       organizer: {
         "@type": "Person",
-        name: "Japoi & Regine",
+        name: "Daive & Abra",
       },
       offers: {
         "@type": "Offer",
-        url: "https://japoi-and-regine-invitation.vercel.app/",
+        url: "https://daive-and-abra-invitation.vercel.app/",
         availability: "https://schema.org/InStock",
         price: "0",
         priceCurrency: "PHP",
       },
-        eventHashtag: "#AnJAPaAngForeverNiREGINE",
+      eventHashtag: "#AbracaDaiveEra",
     }),
   },
 }
@@ -165,13 +167,13 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-        <meta name="theme-color" content="#D4AF37" />
+        <meta name="theme-color" content="#C45508" />
         <link rel="icon" href="/favicon.ico" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link rel="preload" as="image" href="/mobile-background/DSCF2614-min.jpg" media="(max-width: 767px)" />
         <link rel="preload" as="image" href="/desktop-background/DSCF2444-min.jpg" media="(min-width: 768px)" />
       </head>
-      <body className={`${inter.variable} ${greatVibes.variable} ${crimsonText.variable} ${ephesis.variable} ${chicanos.variable} font-inter antialiased text-foreground`}>
+      <body className={`${inter.variable} ${greatVibes.variable} ${crimsonText.variable} ${ephesis.variable} ${chicanos.variable} ${helloParis.variable} font-inter antialiased text-foreground`}>
         {children}
         <Analytics />
       </body>

@@ -19,7 +19,7 @@ export function PrincipalSponsors() {
       align === "right" ? "text-right" : align === "left" ? "text-left" : "text-center"
     return (
       <div className={`flex flex-col ${containerAlign} justify-center py-0.5 sm:py-1 md:py-1.5 w-full`}>
-        <p className={`text-zinc-200 text-xs sm:text-sm md:text-base font-[family-name:var(--font-crimson)] font-medium leading-tight sm:leading-snug break-words ${textAlign}`}>{name}</p>
+        <p className={`text-xs sm:text-sm md:text-base font-[family-name:var(--font-crimson)] font-normal leading-tight sm:leading-snug break-words ${textAlign}`} style={{ color: "rgba(245,216,176,0.95)" }}>{name}</p>
       </div>
     )
   }
@@ -75,59 +75,48 @@ export function PrincipalSponsors() {
       {/* Header */}
       <div className="relative z-10 text-center mb-6 sm:mb-10 md:mb-12 px-3 sm:px-4 md:px-6">
         <div className="flex items-center justify-center gap-2 sm:gap-3 mb-3 sm:mb-4">
-          <div className="h-[1px] w-12 sm:w-16 md:w-24 bg-gradient-to-r from-transparent via-zinc-500 to-transparent" />
+          <div className="h-[1px] w-12 sm:w-16 md:w-24 bg-gradient-to-r from-transparent via-[#A2976A] to-transparent" />
         </div>
-        <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-[family-name:var(--font-crimson)] font-normal text-zinc-100 mb-3 sm:mb-4 md:mb-6 uppercase tracking-[0.1em] sm:tracking-[0.12em] md:tracking-[0.15em]">
+        <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-[family-name:var(--font-crimson)] font-normal mb-3 sm:mb-4 md:mb-6 uppercase tracking-[0.1em] sm:tracking-[0.12em] md:tracking-[0.15em]" style={{ color: "#F5D8B0" }}>
           Godparents of Marriage
         </h2>
         <div className="flex items-center justify-center gap-2 sm:gap-3 mb-3 sm:mb-4">
-          <div className="h-[1px] w-12 sm:w-16 md:w-24 bg-gradient-to-r from-transparent via-zinc-500 to-transparent" />
+          <div className="h-[1px] w-12 sm:w-16 md:w-24 bg-gradient-to-r from-transparent via-[#A2976A] to-transparent" />
         </div>
-        <p className="text-sm sm:text-base md:text-lg font-[family-name:var(--font-crimson)] text-zinc-400 font-light max-w-2xl mx-auto leading-relaxed tracking-wide px-2 sm:px-4">
+        <p className="text-sm sm:text-base md:text-lg font-[family-name:var(--font-crimson)] font-normal max-w-2xl mx-auto leading-relaxed tracking-wide px-2 sm:px-4" style={{ color: "#A2976A" }}>
           With hearts full of gratitude, we honor our Godparents of Marriage, who will stand beside us as guiding figures, offering wisdom, prayers, and love as we begin this journey together.
         </p>
       </div>
 
-      {/* Central Card Container */}
+      {/* Central Card Container — same as timeline/entourage */}
       <div className="relative z-10 max-w-5xl mx-auto px-3 sm:px-4 md:px-6">
-        {/* Main card with elegant styling */}
         <div className="relative group">
-          <div 
+          <div
             className="relative rounded-xl sm:rounded-2xl overflow-hidden transition-all duration-300"
             style={{
-              background: 'linear-gradient(135deg, #000000 0%, #0a0a0a 50%, #050505 100%)',
-              boxShadow: '0 0 0 1px rgba(0,0,0,0.5), 0 8px 32px rgba(0,0,0,0.6), 0 30px 90px rgba(0,0,0,0.95), inset 0 1px 0 rgba(255,255,255,0.05)',
+              background: "linear-gradient(135deg, #45301F 0%, #875F2C 40%, #45301F 100%)",
+              boxShadow: "0 0 0 1px rgba(163,151,106,0.25), 0 8px 32px rgba(0,0,0,0.2), inset 0 1px 0 rgba(245,216,176,0.06)",
             }}
           >
-            {/* Gradient overlays */}
-            <div className="absolute inset-0 bg-gradient-to-br from-black via-[#0a0a0a] to-[#050505] z-0" />
-            <div 
-              className="absolute inset-0 opacity-60 z-0"
-              style={{
-                background: 'radial-gradient(circle at center, rgba(255,255,255,0.02) 0%, transparent 70%)',
-              }}
-            />
-            <div className="absolute inset-0 bg-gradient-to-br from-transparent via-[rgba(255,255,255,0.01)] to-transparent opacity-50 z-0" />
-            
-            {/* Elegant border */}
-            <div 
+            <div className="absolute inset-0 opacity-50 z-0" style={{ background: "radial-gradient(circle at center, rgba(245,216,176,0.04) 0%, transparent 70%)" }} />
+            <div
               className="absolute inset-0 rounded-xl sm:rounded-2xl z-0"
               style={{
-                padding: '1px',
-                background: 'linear-gradient(135deg, rgba(255,255,255,0.12) 0%, rgba(255,255,255,0.05) 50%, rgba(255,255,255,0.1) 100%)',
-                WebkitMask: 'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)',
-                WebkitMaskComposite: 'xor',
-                maskComposite: 'exclude',
+                padding: "1px",
+                background: "linear-gradient(135deg, rgba(245,216,176,0.2) 0%, rgba(163,151,106,0.15) 50%, rgba(245,216,176,0.15) 100%)",
+                WebkitMask: "linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)",
+                WebkitMaskComposite: "xor",
+                maskComposite: "exclude",
               }}
             />
-            <div className="absolute inset-[1px] rounded-xl sm:rounded-2xl border border-[rgba(255,255,255,0.08)] group-hover:border-[rgba(255,255,255,0.15)] transition-colors z-0" />
+            <div className="absolute inset-[1px] rounded-xl sm:rounded-2xl border border-[rgba(163,151,106,0.3)] z-0" />
             {/* Card content */}
             <div className="relative z-10 p-4 sm:p-6 md:p-8 lg:p-10">
               {isLoading ? (
                 <div className="flex items-center justify-center py-12 sm:py-16 md:py-24">
                   <div className="flex flex-col items-center gap-3 sm:gap-4">
-                    <Loader2 className="h-8 w-8 sm:h-10 sm:w-10 md:h-12 md:w-12 animate-spin text-zinc-300" />
-                    <span className="text-zinc-400 font-[family-name:var(--font-crimson)] text-sm sm:text-base md:text-lg">
+                    <Loader2 className="h-8 w-8 sm:h-10 sm:w-10 md:h-12 md:w-12 animate-spin" style={{ color: "#A2976A" }} />
+                    <span className="font-[family-name:var(--font-crimson)] text-sm sm:text-base md:text-lg" style={{ color: "#A2976A" }}>
                       Loading sponsors...
                     </span>
                   </div>
@@ -135,10 +124,11 @@ export function PrincipalSponsors() {
               ) : error ? (
                 <div className="flex items-center justify-center py-12 sm:py-16 md:py-24">
                   <div className="text-center">
-                    <p className="text-red-400 font-[family-name:var(--font-crimson)] text-sm sm:text-base md:text-lg mb-3 sm:mb-4">{error}</p>
+                    <p className="font-[family-name:var(--font-crimson)] text-sm sm:text-base md:text-lg mb-3 sm:mb-4" style={{ color: "#F5D8B0" }}>{error}</p>
                     <button
                       onClick={fetchSponsors}
-                      className="text-zinc-300 hover:text-zinc-200 font-[family-name:var(--font-crimson)] underline transition-colors duration-300 text-sm sm:text-base"
+                      className="font-[family-name:var(--font-crimson)] underline transition-colors duration-300 text-sm sm:text-base hover:opacity-90"
+                      style={{ color: "#F5D8B0" }}
                     >
                       Try again
                     </button>
@@ -146,8 +136,8 @@ export function PrincipalSponsors() {
                 </div>
               ) : sponsorPairs.length === 0 ? (
                 <div className="text-center py-12 sm:py-16 md:py-24">
-                  <Users className="h-12 w-12 sm:h-14 sm:w-14 md:h-16 md:w-16 text-zinc-600 mx-auto mb-3 sm:mb-4" />
-                  <p className="text-zinc-400 font-[family-name:var(--font-crimson)] text-sm sm:text-base md:text-lg">
+                  <Users className="h-12 w-12 sm:h-14 sm:w-14 md:h-16 md:w-16 mx-auto mb-3 sm:mb-4" style={{ color: "#A2976A" }} />
+                  <p className="font-[family-name:var(--font-crimson)] text-sm sm:text-base md:text-lg" style={{ color: "#A2976A" }}>
                     No sponsors yet
                   </p>
                 </div>

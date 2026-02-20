@@ -2,7 +2,6 @@
 
 import { useState, useEffect, useMemo, useRef } from "react";
 import Link from "next/link";
-import Image from "next/image";
 import StaggeredMenu from "./StaggeredMenu";
 
 const navLinks = [
@@ -85,22 +84,28 @@ export function Navbar() {
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-out ${
+      className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-500 ease-out ${
         isScrolled
-          ? "bg-black/90 backdrop-blur-xl shadow-lg border-b border-white/10"
-          : "bg-black/70 backdrop-blur-lg border-b border-white/5"
+          ? "backdrop-blur-xl shadow-lg border-b"
+          : "backdrop-blur-lg border-b"
       }`}
+      style={{
+        backgroundColor: isScrolled ? "rgba(69, 48, 31, 0.92)" : "rgba(69, 48, 31, 0.78)",
+        borderColor: "rgba(163, 151, 106, 0.25)",
+      }}
     >
       <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 relative">
         <div className="flex justify-between items-center h-14 sm:h-14 md:h-14">
-          <Link href="#home" className="flex-shrink-0 group relative z-10 flex items-center">
-            <Image
-              src="/monogram/monogram.png"
-              alt="Japoi & Regine"
-              width={48}
-              height={48}
-              className="h-9 w-9 sm:h-10 sm:w-10 md:h-11 md:w-11 object-contain object-center brightness-0 invert group-hover:opacity-90 transition-opacity duration-300"
-              priority
+          <Link href="#home" className="flex-shrink-0 group relative z-10 flex items-center" aria-label="Go to Home">
+            <div
+              className="h-9 w-9 sm:h-10 sm:w-10 md:h-11 md:w-11 flex-shrink-0 [mask-size:contain] [mask-repeat:no-repeat] [mask-position:center] [-webkit-mask-size:contain] [-webkit-mask-repeat:no-repeat] [-webkit-mask-position:center] transition-opacity duration-300 group-hover:opacity-90"
+              style={{
+                backgroundColor: "#F5D8B0",
+                maskImage: "url(/monogram/newmonogram.png)",
+                WebkitMaskImage: "url(/monogram/newmonogram.png)",
+              }}
+              role="img"
+              aria-hidden
             />
           </Link>
 
@@ -111,17 +116,19 @@ export function Navbar() {
                 <Link
                   key={link.href}
                   href={link.href}
-                  className={`px-3 lg:px-4 py-1.5 text-xs lg:text-sm font-[family-name:var(--font-crimson)] font-normal tracking-wide transition-all duration-300 relative group ${
-                    isActive
-                      ? "text-zinc-100"
-                      : "text-zinc-400 hover:text-zinc-200"
+                  className={`px-3 lg:px-4 py-1.5 text-xs lg:text-sm font-[family-name:var(--font-crimson)] font-semibold tracking-wide transition-all duration-300 relative group ${
+                    isActive ? "" : "hover:opacity-90"
                   }`}
+                  style={{
+                    color: isActive ? "#F5D8B0" : "#A2976A",
+                  }}
                 >
                   {link.label}
                   <span
-                    className={`absolute bottom-0 left-0 h-[1.5px] bg-zinc-400 transition-all duration-300 ${
+                    className={`absolute bottom-0 left-0 h-[1.5px] transition-all duration-300 ${
                       isActive ? "w-full" : "w-0 group-hover:w-full"
                     }`}
+                    style={{ backgroundColor: "#F5D8B0" }}
                   />
                 </Link>
               );
@@ -134,11 +141,11 @@ export function Navbar() {
               items={menuItems}
               socialItems={[]}
               displaySocials={false}
-              menuButtonColor="#e4e4e7"
-              openMenuButtonColor="#fafafa"
+              menuButtonColor="#A2976A"
+              openMenuButtonColor="#F5D8B0"
               changeMenuColorOnOpen={true}
-              colors={["#000000", "#0a0a0a", "#171717", "#050505"]}
-              accentColor="#fafafa"
+              colors={["#45301F", "#875F2C", "#8F553D", "#45301F"]}
+              accentColor="#F5D8B0"
               isFixed={true}
               onMenuOpen={() => {}}
               onMenuClose={() => {}}
