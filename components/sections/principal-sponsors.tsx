@@ -61,9 +61,11 @@ export function PrincipalSponsors() {
     }
   }, [])
 
-  // Keep sponsors as pairs to ensure alignment
-  const sponsorPairs = useMemo(() => 
-    sponsors.filter(s => s.MalePrincipalSponsor || s.FemalePrincipalSponsor),
+  // Only MalePrincipalSponsor category, for center display
+  const maleSponsors = useMemo(() =>
+    sponsors
+      .map((s) => s.MalePrincipalSponsor?.trim())
+      .filter((name): name is string => !!name),
     [sponsors]
   )
 
@@ -134,7 +136,7 @@ export function PrincipalSponsors() {
                     </button>
                   </div>
                 </div>
-              ) : sponsorPairs.length === 0 ? (
+              ) : maleSponsors.length === 0 ? (
                 <div className="text-center py-12 sm:py-16 md:py-24">
                   <Users className="h-12 w-12 sm:h-14 sm:w-14 md:h-16 md:w-16 mx-auto mb-3 sm:mb-4" style={{ color: "#A2976A" }} />
                   <p className="font-[family-name:var(--font-crimson)] text-sm sm:text-base md:text-lg" style={{ color: "#A2976A" }}>
@@ -142,25 +144,10 @@ export function PrincipalSponsors() {
                   </p>
                 </div>
               ) : (
-                <div className="mb-3 sm:mb-5 md:mb-7 lg:mb-9">
-                  <div className="grid grid-cols-1 min-[350px]:grid-cols-2 gap-x-1.5 sm:gap-x-2 md:gap-x-3 gap-y-1 sm:gap-y-1.5 md:gap-y-2 items-stretch">
-                    {sponsorPairs.map((pair, idx) => (
-                      <React.Fragment key={`sponsor-pair-${idx}`}>
-                        <div key={`male-${idx}-${pair.MalePrincipalSponsor || 'empty'}`} className="px-2 sm:px-3 md:px-4">
-                          {pair.MalePrincipalSponsor ? (
-                            <NameItem name={pair.MalePrincipalSponsor} align="right" />
-                          ) : (
-                            <div className="py-0.5 sm:py-1 md:py-1.5" />
-                          )}
-                        </div>
-                        <div key={`female-${idx}-${pair.FemalePrincipalSponsor || 'empty'}`} className="px-2 sm:px-3 md:px-4">
-                          {pair.FemalePrincipalSponsor ? (
-                            <NameItem name={pair.FemalePrincipalSponsor} align="left" />
-                          ) : (
-                            <div className="py-0.5 sm:py-1 md:py-1.5" />
-                          )}
-                        </div>
-                      </React.Fragment>
+                <div className="mb-3 sm:mb-5 md:mb-7 lg:mb-9 flex justify-center">
+                  <div className="flex flex-col items-center justify-center gap-1 sm:gap-1.5 md:gap-2 max-w-sm">
+                    {maleSponsors.map((name, idx) => (
+                      <NameItem key={`male-${idx}-${name}`} name={name} align="center" />
                     ))}
                   </div>
                 </div>

@@ -16,13 +16,15 @@ const ROLE_CATEGORY_ORDER = [
   "Parents of the Groom",
   "Parents of the Bride",
   "Best Man",
-  "Maid/Matron of Honor",
+  "Maid of Honor",
   "Candle Sponsors",
   "Veil Sponsors",
   "Cord Sponsors",
   "Groomsmen",
   "Bridesmaids",
   "Flower Girls",
+  "Flower Girl & Boy",
+  "Ring Bearer",
   "Ring/Coin Bearers",
 ];
 
@@ -409,13 +411,13 @@ export function Entourage() {
                       return null;
                     }
 
-                    // Special handling for Maid/Matron of Honor and Best Man - combine into single two-column layout
+                    // Special handling for Maid of Honor and Best Man - combine into single two-column layout
                     if (
-                      category === "Maid/Matron of Honor" ||
+                      category === "Maid of Honor" ||
                       category === "Best Man"
                     ) {
                       // Get both honor attendant groups
-                      const maidOfHonor = grouped["Maid/Matron of Honor"] || [];
+                      const maidOfHonor = grouped["Maid of Honor"] || [];
                       const bestMan = grouped["Best Man"] || [];
 
                       // Only render once (when processing "Best Man")
@@ -431,7 +433,7 @@ export function Entourage() {
                             )}
                             <TwoColumnLayout
                               leftTitle="Best Man"
-                              rightTitle="Maid/Matron of Honor"
+                              rightTitle="Maid of Honor"
                             >
                               {(() => {
                                 const maxLen = Math.max(
@@ -479,7 +481,7 @@ export function Entourage() {
                           </div>
                         );
                       }
-                      // Skip rendering for "Maid/Matron of Honor" since it's already rendered above
+                      // Skip rendering for "Maid of Honor" since it's already rendered above
                       return null;
                     }
 
@@ -648,7 +650,7 @@ export function Entourage() {
                           {(() => {
                             const SINGLE_COLUMN_SECTIONS = new Set([
                               "Best Man",
-                              "Maid/Matron of Honor",
+                              "Maid of Honor",
                               "Ring Bearer",
                               "Coin Bearer",
                               "Bible Bearer",

@@ -122,9 +122,7 @@ export function Details() {
                         {ceremonyVenueDetail}
                       </p>
                     )}
-                    <p className="text-[10px] sm:text-xs md:text-sm font-[family-name:var(--font-crimson)] leading-relaxed" style={{ color: "rgba(245,216,176,0.8)" }}>
-                      {ceremonyAddress}
-                    </p>
+
                   </div>
                   <div className="flex flex-col items-center gap-1.5 sm:gap-2 flex-shrink-0">
                     <div className="p-1.5 sm:p-2 md:p-2.5 rounded-lg border shadow-sm" style={{ background: "#F5D8B0", borderColor: "rgba(163,151,106,0.4)" }}>
@@ -221,9 +219,7 @@ export function Details() {
                         {receptionVenueDetail}
                       </p>
                     )}
-                    <p className="text-[10px] sm:text-xs md:text-sm font-[family-name:var(--font-crimson)] leading-relaxed" style={{ color: "rgba(245,216,176,0.8)" }}>
-                      {receptionAddress}
-                    </p>
+         
                   </div>
                   <div className="flex flex-col items-center gap-1.5 sm:gap-2 flex-shrink-0">
                     <div className="p-1.5 sm:p-2 md:p-2.5 rounded-lg border shadow-sm" style={{ background: "#F5D8B0", borderColor: "rgba(163,151,106,0.4)" }}>
