@@ -17,14 +17,14 @@ export function Footer() {
     },
   };
 
-  const dividerStyle = { background: "linear-gradient(to right, transparent, #A2976A, transparent)" };
+  const dividerStyle = { background: "linear-gradient(to right, transparent, #A67C52, transparent)" };
 
   return (
     <footer
       className="relative z-20 mt-16 overflow-hidden"
       style={{
-        background: "linear-gradient(180deg, #45301F 0%, #2a1f14 50%, #1a120a 100%)",
-        boxShadow: "inset 0 1px 0 rgba(245,216,176,0.06)",
+        background: "linear-gradient(180deg, #FDF8F1 0%, #F5E7D3 45%, #FDF8F1 100%)",
+        boxShadow: "inset 0 1px 0 rgba(166,124,82,0.25)",
       }}
     >
       <div className="relative max-w-7xl mx-auto px-4 md:px-8 py-16">
@@ -39,7 +39,7 @@ export function Footer() {
                 style={{
                   maskImage: "url(/monogram/newmonogram.png)",
                   WebkitMaskImage: "url(/monogram/newmonogram.png)",
-                  backgroundColor: "#F5D8B0",
+                  backgroundColor: "#7A4E2E",
                 }}
                 role="img"
                 aria-label="Daive & Abra"
@@ -51,18 +51,15 @@ export function Footer() {
             </div>
 
             <div className="mb-7 sm:mb-9 md:mb-10">
-              <p className="text-[11px] sm:text-xs md:text-sm font-[family-name:var(--font-crimson)] tracking-[0.38em] uppercase mb-4 sm:mb-5" style={{ color: "#A2976A" }}>
+              <p className="text-[11px] sm:text-xs md:text-sm font-[family-name:var(--font-crimson)] tracking-[0.38em] uppercase mb-4 sm:mb-5" style={{ color: "#A67C52" }}>
                 June
               </p>
-              <div className="flex items-center justify-center gap-6 sm:gap-10 md:gap-14 mb-3 sm:mb-4">
-                <p className="text-[10px] sm:text-xs md:text-sm font-[family-name:var(--font-crimson)] tracking-[0.3em] uppercase" style={{ color: "#A2976A" }}>
-                  Friday
-                </p>
-                <p className="text-4xl sm:text-5xl md:text-[3.25rem] font-[family-name:var(--font-crimson)] leading-none" style={{ color: "#F5D8B0" }}>
+              <div className="flex flex-col items-center justify-center gap-2 sm:gap-3 md:gap-4 mb-3 sm:mb-4">
+                <p className="text-4xl sm:text-5xl md:text-[3.25rem] font-[family-name:var(--font-crimson)] leading-none tracking-[0.15em]" style={{ color: "#7A4E2E" }}>
                   19
                 </p>
-                <p className="text-[10px] sm:text-xs md:text-sm font-[family-name:var(--font-crimson)] tracking-[0.3em] uppercase" style={{ color: "#A2976A" }}>
-                  2026
+                <p className="text-[10px] sm:text-xs md:text-sm font-[family-name:var(--font-crimson)] tracking-[0.3em] uppercase" style={{ color: "#A67C52" }}>
+                  Friday · 2026
                 </p>
               </div>
             </div>
@@ -73,13 +70,13 @@ export function Footer() {
 
             {/* Ceremony */}
             <div className="space-y-1.5 sm:space-y-2 mb-8 sm:mb-10">
-              <p className="text-[10px] sm:text-xs font-[family-name:var(--font-crimson)] tracking-[0.3em] uppercase" style={{ color: "#A2976A" }}>
+              <p className="text-[10px] sm:text-xs font-[family-name:var(--font-crimson)] tracking-[0.3em] uppercase" style={{ color: "#A67C52" }}>
                 Ceremony · 3:00 PM
               </p>
-              <p className="text-xs sm:text-sm md:text-base font-[family-name:var(--font-crimson)] tracking-[0.2em] uppercase" style={{ color: "#F5D8B0" }}>
+              <p className="text-xs sm:text-sm md:text-base font-[family-name:var(--font-crimson)] tracking-[0.2em] uppercase" style={{ color: "#7A4E2E" }}>
                 St. Augustine Parish Church
               </p>
-              <p className="text-[10px] sm:text-xs font-[family-name:var(--font-crimson)] tracking-[0.16em] uppercase" style={{ color: "#A2976A" }}>
+              <p className="text-[10px] sm:text-xs font-[family-name:var(--font-crimson)] tracking-[0.16em] uppercase" style={{ color: "#A67C52" }}>
                 Paoay, Ilocos Norte, Philippines
               </p>
             </div>
@@ -90,13 +87,13 @@ export function Footer() {
 
             {/* Reception */}
             <div className="space-y-1.5 sm:space-y-2">
-              <p className="text-[10px] sm:text-xs font-[family-name:var(--font-crimson)] tracking-[0.3em] uppercase" style={{ color: "#A2976A" }}>
+              <p className="text-[10px] sm:text-xs font-[family-name:var(--font-crimson)] tracking-[0.3em] uppercase" style={{ color: "#A67C52" }}>
                 Reception · 5:30 PM
               </p>
-              <p className="text-xs sm:text-sm md:text-base font-[family-name:var(--font-crimson)] tracking-[0.2em] uppercase" style={{ color: "#F5D8B0" }}>
+              <p className="text-xs sm:text-sm md:text-base font-[family-name:var(--font-crimson)] tracking-[0.2em] uppercase" style={{ color: "#7A4E2E" }}>
                 Crescencia The Events Place
               </p>
-              <p className="text-[10px] sm:text-xs font-[family-name:var(--font-crimson)] tracking-[0.16em] uppercase" style={{ color: "#A2976A" }}>
+              <p className="text-[10px] sm:text-xs font-[family-name:var(--font-crimson)] tracking-[0.16em] uppercase" style={{ color: "#A67C52" }}>
                 Young Street, Paoay, Ilocos Norte, Philippines
               </p>
             </div>
@@ -141,40 +138,40 @@ export function Footer() {
         {/* Bottom Row */}
         <motion.div
           className="pt-8 border-t"
-          style={{ borderColor: "rgba(163,151,106,0.3)" }}
+          style={{ borderColor: "rgba(166,124,82,0.3)" }}
           variants={fadeInUp}
         >
           <div className="flex flex-col md:flex-row items-center justify-between gap-6">
             <div className="text-center md:text-left">
-              <p className="font-[family-name:var(--font-crimson)] text-sm sm:text-base font-normal" style={{ color: "#F5D8B0" }}>
+              <p className="font-[family-name:var(--font-crimson)] text-sm sm:text-base font-normal" style={{ color: "#7A4E2E" }}>
                 © {year} Daive & Abra. All rights reserved.
               </p>
-              <p className="font-[family-name:var(--font-crimson)] text-sm sm:text-base mt-1 font-normal" style={{ color: "#A2976A" }}>
+              <p className="font-[family-name:var(--font-crimson)] text-sm sm:text-base mt-1 font-normal" style={{ color: "#A67C52" }}>
                 Made with 💕 for our wedding day
               </p>
             </div>
 
             <div className="text-center md:text-right space-y-1">
-              <p className="font-[family-name:var(--font-crimson)] text-xs sm:text-sm font-normal" style={{ color: "#A2976A" }}>
+              <p className="font-[family-name:var(--font-crimson)] text-xs sm:text-sm font-normal" style={{ color: "#A67C52" }}>
                 Developed by{" "}
                 <a
                   href="https://lance28-beep.github.io/portfolio-website/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="transition-colors duration-200 underline font-normal hover:opacity-90"
-                  style={{ color: "#F5D8B0", textDecorationColor: "rgba(163,151,106,0.6)" }}
+                  style={{ color: "#7A4E2E", textDecorationColor: "rgba(166,124,82,0.6)" }}
                 >
                   Lance Valle
                 </a>
               </p>
-              <p className="font-[family-name:var(--font-crimson)] text-xs sm:text-sm font-normal" style={{ color: "#A2976A" }}>
+              <p className="font-[family-name:var(--font-crimson)] text-xs sm:text-sm font-normal" style={{ color: "#A67C52" }}>
                 Want a website like this? Visit{" "}
                 <a
                   href="https://www.facebook.com/WeddingInvitationNaga"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="transition-colors duration-200 underline font-normal hover:opacity-90"
-                  style={{ color: "#F5D8B0", textDecorationColor: "rgba(163,151,106,0.6)" }}
+                  style={{ color: "#7A4E2E", textDecorationColor: "rgba(166,124,82,0.6)" }}
                 >
                   Wedding Invitation Naga
                 </a>

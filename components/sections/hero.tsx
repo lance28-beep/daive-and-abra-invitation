@@ -18,18 +18,20 @@ export function Hero() {
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
           }`}
           style={{
-            background: 'linear-gradient(135deg, #45301F 0%, #875F2C 40%, #45301F 100%)',
-            boxShadow: '0 0 0 1px rgba(163,151,106,0.2), 0 8px 32px rgba(69,48,31,0.5), 0 30px 90px rgba(0,0,0,0.25), inset 0 1px 0 rgba(245,216,176,0.06)',
+            background: "linear-gradient(135deg, #F5E7D3 0%, #FDF8F1 40%, #F5E7D3 100%)",
+            boxShadow:
+              "0 0 0 1px rgba(166,124,82,0.22), 0 8px 26px rgba(0,0,0,0.12), 0 24px 60px rgba(0,0,0,0.16), inset 0 1px 0 rgba(255,255,255,0.65)",
           }}
         >
-          {/* Base gradient — LoadingScreen palette */}
-          <div className="absolute inset-0 bg-gradient-to-br from-[#45301F] via-[#875F2C] to-[#45301F]" />
+          {/* Base gradient — light palette */}
+          <div className="absolute inset-0 bg-gradient-to-br from-[#F5E7D3] via-[#FDF8F1] to-[#F5E7D3]" />
           
           {/* Subtle radial gradient for depth */}
           <div 
             className="absolute inset-0 opacity-50"
             style={{
-              background: 'radial-gradient(circle at center, rgba(245,216,176,0.04) 0%, transparent 70%)',
+              background:
+                "radial-gradient(circle at center, rgba(122,78,46,0.06) 0%, transparent 70%)",
             }}
           />
           
@@ -37,87 +39,88 @@ export function Hero() {
           <div 
             className="absolute inset-0 rounded-[22px] sm:rounded-[26px] md:rounded-[30px]"
             style={{
-              padding: '1px',
-              background: 'linear-gradient(135deg, rgba(245,216,176,0.2) 0%, rgba(163,151,106,0.15) 50%, rgba(245,216,176,0.15) 100%)',
-              WebkitMask: 'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)',
-              WebkitMaskComposite: 'xor',
-              maskComposite: 'exclude',
+              padding: "1px",
+              background:
+                "linear-gradient(135deg, rgba(122,78,46,0.22) 0%, rgba(166,124,82,0.18) 50%, rgba(122,78,46,0.18) 100%)",
+              WebkitMask: "linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)",
+              WebkitMaskComposite: "xor",
+              maskComposite: "exclude",
             }}
           />
           
           {/* Inner border for refinement */}
-          <div className="absolute inset-[1px] rounded-[21px] sm:rounded-[25px] md:rounded-[29px] border border-[rgba(163,151,106,0.25)]" />
+          <div className="absolute inset-[1px] rounded-[21px] sm:rounded-[25px] md:rounded-[29px] border border-[rgba(166,124,82,0.28)]" />
           
           {/* Content wrapper */}
           <div className="relative z-10">
-          {/* Monogram — tinted #F5D8B0 */}
+          {/* Monogram — darker accent on light background */}
           <div className="mb-8 sm:mb-9 md:mb-10 flex justify-center">
             <div
               className="h-36 w-36 sm:h-40 sm:w-40 md:h-44 md:w-44 lg:h-48 lg:w-48 flex-shrink-0 [mask-size:contain] [mask-repeat:no-repeat] [mask-position:center] [-webkit-mask-size:contain] [-webkit-mask-repeat:no-repeat] [-webkit-mask-position:center]"
-              style={{
-                backgroundColor: "#F5D8B0",
-                maskImage: "url(/monogram/newmonogram.png)",
-                WebkitMaskImage: "url(/monogram/newmonogram.png)",
-              }}
+            style={{
+              backgroundColor: "#7A4E2E",
+              maskImage: "url(/monogram/newmonogram.png)",
+              WebkitMaskImage: "url(/monogram/newmonogram.png)",
+            }}
               role="img"
               aria-label="Daive & Abra"
             />
           </div>
 
           {/* Small intro text — Crimson Text 400 */}
-          <p className="text-[10px] sm:text-xs md:text-sm font-[family-name:var(--font-crimson)] font-normal tracking-[0.32em] uppercase mb-4 sm:mb-5" style={{ color: "#A2976A" }}>
+          <p className="text-[10px] sm:text-xs md:text-sm font-[family-name:var(--font-crimson)] font-normal tracking-[0.32em] uppercase mb-4 sm:mb-5" style={{ color: "#A67C52" }}>
             Together with their families
           </p>
 
           {/* Names block — Crimson Text 400 */}
           <div className="space-y-4 sm:space-y-5 md:space-y-6 mb-4 sm:mb-5 md:mb-6">
             <div className="space-y-1">
-              <p className="text-3xl sm:text-4xl md:text-[3rem] leading-none font-[family-name:var(--font-crimson)] font-normal tracking-[0.15em] uppercase" style={{ color: "#F5D8B0" }}>
+              <p className="text-3xl sm:text-4xl md:text-[3rem] leading-none font-[family-name:var(--font-crimson)] font-normal tracking-[0.15em] uppercase" style={{ color: "#7A4E2E" }}>
                 Daive
               </p>
             </div>
-            <p className="text-[10px] sm:text-xs tracking-[0.3em] font-[family-name:var(--font-crimson)] font-normal uppercase" style={{ color: "#A2976A" }}>
+            <p className="text-[10px] sm:text-xs tracking-[0.3em] font-[family-name:var(--font-crimson)] font-normal uppercase" style={{ color: "#A67C52" }}>
               and
             </p>
             <div className="space-y-1">
-              <p className="text-3xl sm:text-4xl md:text-[3rem] leading-none font-[family-name:var(--font-crimson)] font-normal tracking-[0.15em] uppercase" style={{ color: "#F5D8B0" }}>
+              <p className="text-3xl sm:text-4xl md:text-[3rem] leading-none font-[family-name:var(--font-crimson)] font-normal tracking-[0.15em] uppercase" style={{ color: "#7A4E2E" }}>
                 Abra
               </p>
             </div>
           </div>
 
           {/* Date & location — Crimson Text 400 */}
-          <p className="text-xs sm:text-sm font-[family-name:var(--font-crimson)] font-normal tracking-[0.2em] uppercase mb-2" style={{ color: "#F5D8B0" }}>
+          <p className="text-xs sm:text-sm font-[family-name:var(--font-crimson)] font-normal tracking-[0.2em] uppercase mb-2" style={{ color: "#7A4E2E" }}>
             June 19, 2026
           </p>
-          <p className="text-[10px] sm:text-xs font-[family-name:var(--font-crimson)] font-normal tracking-[0.2em] mb-6 sm:mb-7" style={{ color: "#A2976A" }}>
+          <p className="text-[10px] sm:text-xs font-[family-name:var(--font-crimson)] font-normal tracking-[0.2em] mb-6 sm:mb-7" style={{ color: "#A67C52" }}>
             Paoay, Ilocos Norte, Philippines
           </p>
 
           {/* Invite line — Crimson Text 400 */}
-          <p className="text-[10px] sm:text-xs md:text-sm font-[family-name:var(--font-crimson)] font-normal tracking-[0.32em] uppercase mb-6 sm:mb-7" style={{ color: "#F5D8B0" }}>
+          <p className="text-[10px] sm:text-xs md:text-sm font-[family-name:var(--font-crimson)] font-normal tracking-[0.32em] uppercase mb-6 sm:mb-7" style={{ color: "#7A4E2E" }}>
             warmly invite you to celebrate their marriage
           </p>
 
           {/* Fine divider before invitation message */}
           <div className="mt-6 sm:mt-7 md:mt-8 mb-6 sm:mb-7 flex justify-center">
-            <div className="h-px w-24 sm:w-32 md:w-40 bg-gradient-to-r from-transparent via-[#A2976A] to-transparent" />
+            <div className="h-px w-24 sm:w-32 md:w-40 bg-gradient-to-r from-transparent via-[#A67C52] to-transparent" />
           </div>
 
           {/* Invitation message — Crimson Text 400 */}
           <div className="space-y-4 sm:space-y-5 md:space-y-6 max-w-md mx-auto">
-            <p className="text-sm sm:text-base md:text-lg font-[family-name:var(--font-crimson)] font-normal leading-relaxed italic" style={{ color: "#F5D8B0" }}>
+            <p className="text-sm sm:text-base md:text-lg font-[family-name:var(--font-crimson)] font-normal leading-relaxed italic" style={{ color: "#7A4E2E" }}>
               With hearts full of love and joy,
               we invite you to join us for an intimate celebration
               as we unite our lives in marriage,
               placing God at the center of our union.
             </p>
-            <p className="text-sm sm:text-base md:text-lg font-[family-name:var(--font-crimson)] font-normal leading-relaxed italic" style={{ color: "rgba(245,216,176,0.92)" }}>
+            <p className="text-sm sm:text-base md:text-lg font-[family-name:var(--font-crimson)] font-normal leading-relaxed italic" style={{ color: "rgba(122,78,46,0.85)" }}>
               By His grace our paths have been woven together,
               and in His presence we vow to walk side by side,
               guided by faith, love, and devotion.
             </p>
-            <p className="text-sm sm:text-base md:text-lg font-[family-name:var(--font-crimson)] font-normal leading-relaxed italic" style={{ color: "#F5D8B0" }}>
+            <p className="text-sm sm:text-base md:text-lg font-[family-name:var(--font-crimson)] font-normal leading-relaxed italic" style={{ color: "#7A4E2E" }}>
               Your presence will be a blessing,
               adding warmth to a day that is both
               a celebration of love and a testimony of His goodness.

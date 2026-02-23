@@ -34,7 +34,7 @@ const BackgroundMusic = () => {
   return (
     <audio
       ref={audioRef}
-      src="/background_music/Imagine 'Goodness Of God X Oceans' as a wedding entrance.mp3"
+      src="/background_music/La Vie en Rose.mp3"
       loop
       preload="auto"
       playsInline

@@ -90,8 +90,8 @@ export function Navbar() {
           : "backdrop-blur-lg border-b"
       }`}
       style={{
-        backgroundColor: isScrolled ? "rgba(69, 48, 31, 0.92)" : "rgba(69, 48, 31, 0.78)",
-        borderColor: "rgba(163, 151, 106, 0.25)",
+        backgroundColor: isScrolled ? "rgba(245, 231, 211, 0.96)" : "rgba(245, 231, 211, 0.9)",
+        borderColor: "rgba(166, 124, 82, 0.25)",
       }}
     >
       <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 relative">
@@ -100,7 +100,7 @@ export function Navbar() {
             <div
               className="h-9 w-9 sm:h-10 sm:w-10 md:h-11 md:w-11 flex-shrink-0 [mask-size:contain] [mask-repeat:no-repeat] [mask-position:center] [-webkit-mask-size:contain] [-webkit-mask-repeat:no-repeat] [-webkit-mask-position:center] transition-opacity duration-300 group-hover:opacity-90"
               style={{
-                backgroundColor: "#F5D8B0",
+                backgroundColor: "#7A4E2E",
                 maskImage: "url(/monogram/newmonogram.png)",
                 WebkitMaskImage: "url(/monogram/newmonogram.png)",
               }}
@@ -120,7 +120,7 @@ export function Navbar() {
                     isActive ? "" : "hover:opacity-90"
                   }`}
                   style={{
-                    color: isActive ? "#F5D8B0" : "#A2976A",
+                    color: isActive ? "#7A4E2E" : "#A67C52",
                   }}
                 >
                   {link.label}
@@ -128,7 +128,7 @@ export function Navbar() {
                     className={`absolute bottom-0 left-0 h-[1.5px] transition-all duration-300 ${
                       isActive ? "w-full" : "w-0 group-hover:w-full"
                     }`}
-                    style={{ backgroundColor: "#F5D8B0" }}
+                    style={{ backgroundColor: "#7A4E2E" }}
                   />
                 </Link>
               );
@@ -142,10 +142,10 @@ export function Navbar() {
               socialItems={[]}
               displaySocials={false}
               menuButtonColor="#A2976A"
-              openMenuButtonColor="#F5D8B0"
+              openMenuButtonColor="#7A4E2E"
               changeMenuColorOnOpen={true}
-              colors={["#45301F", "#875F2C", "#8F553D", "#45301F"]}
-              accentColor="#F5D8B0"
+              colors={["#F5E7D3", "#E4CCB0", "#F5E7D3", "#E4CCB0"]}
+              accentColor="#7A4E2E"
               isFixed={true}
               onMenuOpen={() => {}}
               onMenuClose={() => {}}

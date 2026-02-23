@@ -8,9 +8,6 @@ interface HeroProps {
   visible: boolean
 }
 
-const BACKGROUND_VIDEO_SRC =
-  "/background_music/No Copyright Video, Background, Green Screen, Motion Graphics, Animated Background, Copyright Free - ChuChu Singh (1080p, h264).mp4"
-
 export function Hero({ onOpen, visible }: HeroProps) {
   const [contentVisible, setContentVisible] = useState(false)
 
@@ -29,18 +26,15 @@ export function Hero({ onOpen, visible }: HeroProps) {
       }`}
       aria-hidden={!visible}
     >
-      {/* Background video — loop, muted for autoplay */}
+      {/* Background image */}
       <div className="absolute inset-0 z-0">
-        <video
-          autoPlay
-          loop
-          muted
-          playsInline
+        <Image
+          src="/Details/herobackroud.jpg"
+          alt="Daive & Abra wedding background"
+          fill
+          priority
           className="absolute inset-0 w-full h-full object-cover"
-          aria-hidden
-        >
-          <source src={encodeURI(BACKGROUND_VIDEO_SRC)} type="video/mp4" />
-        </video>
+        />
         {/* Gradient overlays for text readability — aligned with LoadingScreen palette */}
         <div
           className="absolute inset-0 pointer-events-none"

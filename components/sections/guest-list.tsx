@@ -293,14 +293,14 @@ export function GuestList() {
     >
       {/* Section Header */}
       <div className="relative z-10 text-center mb-8 sm:mb-12 md:mb-16 px-4 sm:px-6">
-        <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-[family-name:var(--font-crimson)] font-normal mb-4 sm:mb-6 uppercase tracking-[0.12em] sm:tracking-[0.15em]" style={{ color: "#F5D8B0" }}>
+        <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-[family-name:var(--font-crimson)] font-normal mb-4 sm:mb-6 uppercase tracking-[0.12em] sm:tracking-[0.15em]" style={{ color: "#F5E7D3" }}>
           RSVP
         </h2>
         <div className="space-y-3 sm:space-y-4">
-          <p className="text-sm sm:text-base md:text-lg font-[family-name:var(--font-crimson)] font-normal max-w-xl mx-auto leading-relaxed tracking-wide px-4" style={{ color: "#A2976A" }}>
+          <p className="text-sm sm:text-base md:text-lg font-[family-name:var(--font-crimson)] font-normal max-w-xl mx-auto leading-relaxed tracking-wide px-4" style={{ color: "#F5E7D3" }}>
             Please search for your name below to confirm your attendance and help us prepare for this special celebration
           </p>
-          <p className="text-xs sm:text-sm md:text-base font-[family-name:var(--font-crimson)] font-normal max-w-xl mx-auto leading-relaxed tracking-wide px-4" style={{ color: "rgba(245,216,176,0.9)" }}>
+          <p className="text-xs sm:text-sm md:text-base font-[family-name:var(--font-crimson)] font-normal max-w-xl mx-auto leading-relaxed tracking-wide px-4" style={{ color: "#F5E7D3" }}>
             RSVP deadline: May 19, 2026
           </p>
         </div>
@@ -312,51 +312,51 @@ export function GuestList() {
           <div
             className="relative rounded-xl sm:rounded-2xl overflow-visible transition-all duration-300"
             style={{
-              background: "linear-gradient(135deg, #45301F 0%, #875F2C 40%, #45301F 100%)",
-              boxShadow: "0 0 0 1px rgba(163,151,106,0.25), 0 8px 32px rgba(0,0,0,0.2), inset 0 1px 0 rgba(245,216,176,0.06)",
+              background: "linear-gradient(135deg, #FDF8F1 0%, #F5E7D3 40%, #FDF8F1 100%)",
+              boxShadow: "0 0 0 1px rgba(166,124,82,0.22), 0 8px 24px rgba(0,0,0,0.12), inset 0 1px 0 rgba(255,255,255,0.7)",
               overflow: "visible",
             }}
           >
-            <div className="absolute inset-0 opacity-50 z-0 rounded-xl sm:rounded-2xl" style={{ background: "radial-gradient(circle at center, rgba(245,216,176,0.04) 0%, transparent 70%)" }} />
+            <div className="absolute inset-0 opacity-50 z-0 rounded-xl sm:rounded-2xl" style={{ background: "radial-gradient(circle at center, rgba(122,78,46,0.06) 0%, transparent 70%)" }} />
             <div
               className="absolute inset-0 rounded-xl sm:rounded-2xl z-0"
               style={{
                 padding: "1px",
-                background: "linear-gradient(135deg, rgba(245,216,176,0.2) 0%, rgba(163,151,106,0.15) 50%, rgba(245,216,176,0.15) 100%)",
+                background: "linear-gradient(135deg, rgba(122,78,46,0.22) 0%, rgba(166,124,82,0.18) 50%, rgba(122,78,46,0.18) 100%)",
                 WebkitMask: "linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)",
                 WebkitMaskComposite: "xor",
                 maskComposite: "exclude",
               }}
             />
-            <div className="absolute inset-[1px] rounded-xl sm:rounded-2xl border border-[rgba(163,151,106,0.3)] z-0" />
+            <div className="absolute inset-[1px] rounded-xl sm:rounded-2xl border border-[rgba(166,124,82,0.3)] z-0" />
             <div className="relative z-10 p-4 sm:p-6 md:p-8 lg:p-10">
               <div className="relative z-10 space-y-4 sm:space-y-5">
                 <div className="flex items-center gap-2.5 sm:gap-3">
-                  <div className="p-1.5 sm:p-2 rounded-xl shadow-lg border" style={{ backgroundColor: "rgba(69,48,31,0.6)", borderColor: "rgba(163,151,106,0.3)" }}>
-                    <Search className="h-4 w-4 sm:h-5 sm:w-5" style={{ color: "#F5D8B0" }} />
+                  <div className="p-1.5 sm:p-2 rounded-xl shadow-lg border" style={{ backgroundColor: "rgba(245,231,211,0.95)", borderColor: "rgba(166,124,82,0.4)" }}>
+                    <Search className="h-4 w-4 sm:h-5 sm:w-5" style={{ color: "#7A4E2E" }} />
                   </div>
                   <div>
-                    <label className="block text-sm sm:text-base md:text-lg font-normal font-[family-name:var(--font-crimson)] mb-0.5 sm:mb-1" style={{ color: "#F5D8B0" }}>
+                    <label className="block text-sm sm:text-base md:text-lg font-normal font-[family-name:var(--font-crimson)] mb-0.5 sm:mb-1" style={{ color: "#7A4E2E" }}>
                       Find Your Name
                     </label>
-                    <p className="text-[10px] sm:text-xs font-[family-name:var(--font-crimson)]" style={{ color: "#A2976A" }}>
+                    <p className="text-[10px] sm:text-xs font-[family-name:var(--font-crimson)]" style={{ color: "#A67C52" }}>
                       Type as you search to see instant results
                     </p>
                   </div>
                 </div>
                 <div ref={searchRef} className="relative overflow-visible" style={{ zIndex: 50 }}>
                   <div className="relative">
-                    <Search className="absolute left-3 sm:left-5 top-1/2 -translate-y-1/2 h-4 w-4 sm:h-5 sm:w-5 pointer-events-none" style={{ color: "#A2976A" }} />
+                    <Search className="absolute left-3 sm:left-5 top-1/2 -translate-y-1/2 h-4 w-4 sm:h-5 sm:w-5 pointer-events-none" style={{ color: "#A67C52" }} />
                     <input
                       type="text"
                       value={searchQuery}
                       onChange={(e) => setSearchQuery(e.target.value)}
                       placeholder="Type your name..."
-                      className="w-full pl-9 sm:pl-12 pr-3 sm:pr-5 py-2.5 sm:py-3.5 md:py-4 border-2 rounded-lg sm:rounded-xl text-sm sm:text-base md:text-lg font-[family-name:var(--font-crimson)] transition-all duration-300 focus:ring-4 shadow-inner focus:shadow-lg"
+                      className="w-full pl-9 sm:pl-12 pr-3 sm:pr-5 py-2.5 sm:py-3.5 md:py-4 border-2 rounded-lg sm:rounded-xl text-sm sm:text-base md:text-lg font-[family-name:var(--font-crimson)] transition-all duration-300 focus:ring-4 shadow-inner focus:shadow-lg placeholder:text-[#C2A381]"
                       style={{
-                        backgroundColor: "rgba(69,48,31,0.5)",
-                        borderColor: "rgba(163,151,106,0.35)",
-                        color: "#F5D8B0",
+                        backgroundColor: "rgba(255,255,255,0.95)",
+                        borderColor: "rgba(166,124,82,0.35)",
+                        color: "#7A4E2E",
                       }}
                     />
                   </div>
@@ -367,8 +367,8 @@ export function GuestList() {
                         position: "absolute",
                         top: "100%",
                         zIndex: 50,
-                        backgroundColor: "rgba(69,48,31,0.98)",
-                        border: "1px solid rgba(163,151,106,0.4)",
+                        backgroundColor: "rgba(245,231,211,0.98)",
+                        border: "1px solid rgba(166,124,82,0.45)",
                       }}
                     >
                       <div className="relative">
@@ -380,21 +380,21 @@ export function GuestList() {
                             style={{ borderColor: "rgba(163,151,106,0.25)" }}
                           >
                             <div className="relative flex-shrink-0">
-                              <div className="p-1.5 sm:p-2 rounded-full shadow-md transition-all duration-300 border" style={{ backgroundColor: "rgba(135,95,44,0.5)", borderColor: "rgba(163,151,106,0.3)" }}>
-                                <User className="h-3.5 w-3.5 sm:h-4 sm:w-4" style={{ color: "#F5D8B0" }} />
+                              <div className="p-1.5 sm:p-2 rounded-full shadow-md transition-all duration-300 border" style={{ backgroundColor: "rgba(245,231,211,0.95)", borderColor: "rgba(166,124,82,0.4)" }}>
+                                <User className="h-3.5 w-3.5 sm:h-4 sm:w-4" style={{ color: "#7A4E2E" }} />
                               </div>
                             </div>
                             <div className="flex-1 min-w-0">
-                              <div className="font-normal text-sm sm:text-base font-[family-name:var(--font-crimson)] transition-colors duration-200 truncate group-hover:opacity-95" style={{ color: "#F5D8B0" }}>
+                              <div className="font-normal text-sm sm:text-base font-[family-name:var(--font-crimson)] transition-colors duration-200 truncate group-hover:opacity-95" style={{ color: "#7A4E2E" }}>
                                 {guest.Name}
                               </div>
                               {guest.Email && guest.Email !== "Pending" && (
-                                <div className="text-[10px] sm:text-xs font-[family-name:var(--font-crimson)] truncate mt-0.5" style={{ color: "#A2976A" }}>
+                                <div className="text-[10px] sm:text-xs font-[family-name:var(--font-crimson)] truncate mt-0.5" style={{ color: "#A67C52" }}>
                                   {guest.Email}
                                 </div>
                               )}
                             </div>
-                            <div className="flex-shrink-0 group-hover:translate-x-1 transition-all duration-200" style={{ color: "#A2976A" }}>
+                            <div className="flex-shrink-0 group-hover:translate-x-1 transition-all duration-200" style={{ color: "#A67C52" }}>
                               <svg className="w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                               </svg>
@@ -411,20 +411,20 @@ export function GuestList() {
                         position: "absolute",
                         top: "100%",
                         zIndex: 50,
-                        backgroundColor: "rgba(69,48,31,0.98)",
-                        border: "1px solid rgba(163,151,106,0.4)",
+                        backgroundColor: "rgba(245,231,211,0.98)",
+                        border: "1px solid rgba(166,124,82,0.45)",
                       }}
                     >
                       <div className="p-4 sm:p-5">
                         <div className="flex items-start gap-3 sm:gap-4 mb-3 sm:mb-4">
-                          <div className="p-1.5 sm:p-2 rounded-xl flex-shrink-0 shadow-md border" style={{ backgroundColor: "rgba(135,95,44,0.5)", borderColor: "rgba(163,151,106,0.3)" }}>
-                            <UserPlus className="h-4 w-4 sm:h-5 sm:w-5" style={{ color: "#F5D8B0" }} />
+                          <div className="p-1.5 sm:p-2 rounded-xl flex-shrink-0 shadow-md border" style={{ backgroundColor: "rgba(245,231,211,0.95)", borderColor: "rgba(166,124,82,0.4)" }}>
+                            <UserPlus className="h-4 w-4 sm:h-5 sm:w-5" style={{ color: "#7A4E2E" }} />
                           </div>
                           <div className="flex-1">
-                            <h4 className="font-normal text-sm sm:text-base font-[family-name:var(--font-crimson)] mb-1" style={{ color: "#F5D8B0" }}>
+                            <h4 className="font-normal text-sm sm:text-base font-[family-name:var(--font-crimson)] mb-1" style={{ color: "#7A4E2E" }}>
                               Not finding your name?
                             </h4>
-                            <p className="text-xs sm:text-sm font-[family-name:var(--font-crimson)] leading-relaxed" style={{ color: "#A2976A" }}>
+                            <p className="text-xs sm:text-sm font-[family-name:var(--font-crimson)] leading-relaxed" style={{ color: "#A67C52" }}>
                               We'd love to have you with us! Send a request to join the celebration.
                             </p>
                           </div>
@@ -435,7 +435,7 @@ export function GuestList() {
                             setShowRequestModal(true);
                           }}
                           className="w-full py-2.5 sm:py-3 rounded-xl text-sm sm:text-base font-[family-name:var(--font-crimson)] font-normal shadow-lg transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] border"
-                          style={{ backgroundColor: "#875F2C", color: "#F5D8B0", borderColor: "rgba(163,151,106,0.5)" }}
+                          style={{ backgroundColor: "#7A4E2E", color: "#F5E7D3", borderColor: "rgba(166,124,82,0.6)" }}
                         >
                           <UserPlus className="h-3 w-3 sm:h-4 sm:w-4 mr-2 inline" />
                           Request to Join

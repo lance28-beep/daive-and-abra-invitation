@@ -73,10 +73,10 @@ export default function Home() {
               <Entourage />
               <PrincipalSponsors />
               <GuestList />
-              <BookOfGuests />
+              {/* <BookOfGuests /> */}
               <Registry />
               <FAQ />
-              <SnapShare />
+              {/* <SnapShare /> */}
               <Footer />
             </div>
           </div>
