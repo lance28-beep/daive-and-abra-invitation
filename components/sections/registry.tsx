@@ -31,8 +31,8 @@ export function Registry() {
             <div className="absolute inset-0 rounded-xl sm:rounded-2xl z-0" style={{ border: "1px solid rgba(166,124,82,0.3)" }} />
 
             <div className="relative z-10 flex flex-col items-center space-y-6 sm:space-y-8 md:space-y-10">
-              <div className="p-2.5 sm:p-3 rounded-full shadow-lg border" style={{ backgroundColor: "rgba(122,78,46,0.1)", borderColor: "rgba(166,124,82,0.4)" }}>
-                <Heart className="h-6 w-6 sm:h-7 sm:w-7 md:h-8 md:w-8" style={{ color: "#F5E7D3" }} />
+              <div className="p-2.5 sm:p-3 rounded-full shadow-lg border" style={{ backgroundColor: "rgba(122,78,46,0.1)", borderColor: "rgba(226, 119, 12, 0.4)" }}>
+                <Heart className="h-6 w-6 sm:h-7 sm:w-7 md:h-8 md:w-8" style={{ color: "#E2770C" }} />
               </div>
 
               <div className="text-center max-w-2xl">

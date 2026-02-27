@@ -28,7 +28,7 @@ export function SnapShare() {
       : "https://example.com";
   const driveLink =
     "https://drive.google.com/drive/folders/1XRDjgUPKZy8bszFhYORGejyeEzTpKORM?usp=sharing";
-  const hashtags = ["#AbracaDaiveEra", "#ABRAsavedDAIVEstForLast", "#AbrafoundDaivest"];
+  const hashtags = ["#AbracaDaiveEra", "#ABRAsavedDAIVEstForLast"];
   const shareText = `Join us in celebrating Daive & Abra's special day! Check out their wedding website: ${websiteUrl} ${hashtags.join(" ")} 💕`;
 
   useEffect(() => {
@@ -270,7 +270,7 @@ export function SnapShare() {
           {/* QR Code & Social Media */}
           <motion.div className="space-y-4 sm:space-y-6 md:space-y-8" variants={fadeInUp}>
             {/* QR Code Card */}
-            <div className="relative group">
+            {/* <div className="relative group">
               <div
                 className="relative rounded-xl sm:rounded-2xl p-4 sm:p-6 md:p-8 overflow-hidden border text-center transition-all duration-300"
                 style={{ ...cardStyle, border: "1px solid rgba(163,151,106,0.3)" }}
@@ -302,10 +302,10 @@ export function SnapShare() {
                   Scan with any camera app to visit our website
                 </p>
               </div>
-            </div>
+            </div> */}
 
             {/* Social Media Card */}
-            <div className="relative group">
+            {/* <div className="relative group">
               <div
                 className="relative rounded-xl sm:rounded-2xl p-4 sm:p-6 md:p-8 overflow-hidden border transition-all duration-300"
                 style={{ ...cardStyle, border: "1px solid rgba(163,151,106,0.3)" }}
@@ -358,7 +358,7 @@ export function SnapShare() {
                   </button>
                 </div>
               </div>
-            </div>
+            </div> */}
           </motion.div>
         </motion.div>
 

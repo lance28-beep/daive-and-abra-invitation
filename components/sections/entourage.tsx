@@ -33,6 +33,39 @@ export function Entourage() {
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
+  const renderTwoColumnRows = (members: EntourageMember[]) => {
+    const half = Math.ceil(members.length / 2);
+    const left = members.slice(0, half);
+    const right = members.slice(half);
+    const maxLen = Math.max(left.length, right.length);
+    const rows: React.ReactNode[] = [];
+
+    for (let i = 0; i < maxLen; i++) {
+      const l = left[i];
+      const r = right[i];
+      rows.push(
+        <React.Fragment key={`two-col-row-${i}`}>
+          <div className="px-2 sm:px-3 md:px-4">
+            {l ? (
+              <NameItem member={l} align="right" />
+            ) : (
+              <div className="py-0.5 sm:py-1 md:py-1.5" />
+            )}
+          </div>
+          <div className="px-2 sm:px-3 md:px-4">
+            {r ? (
+              <NameItem member={r} align="left" />
+            ) : (
+              <div className="py-0.5 sm:py-1 md:py-1.5" />
+            )}
+          </div>
+        </React.Fragment>,
+      );
+    }
+
+    return rows;
+  };
+
   const fetchEntourage = async () => {
     setIsLoading(true);
     try {
@@ -559,78 +592,30 @@ export function Entourage() {
                       return null;
                     }
 
-                    // Special handling for Candle/Veil Sponsors sections - combine into single two-column layout
+                    // Candle / Veil / Cord Sponsors:
+                    // Centered category label, then two-column names.
                     if (
                       category === "Candle Sponsors" ||
-                      category === "Veil Sponsors"
+                      category === "Veil Sponsors" ||
+                      category === "Cord Sponsors"
                     ) {
-                      // Get both sponsor groups
-                      const candleSponsors = grouped["Candle Sponsors"] || [];
-                      const veilSponsors = grouped["Veil Sponsors"] || [];
-
-                      // Only render once (when processing "Candle Sponsors")
-                      if (category === "Candle Sponsors") {
-                        return (
-                          <div key="Sponsors">
-                            {categoryIndex > 0 && (
-                              <div className="flex items-center justify-center gap-3 sm:gap-4 py-4 sm:py-5 mb-6 sm:mb-7 md:mb-9">
-                                <div className="h-px w-12 sm:w-16 md:w-20 bg-[#A2976A]/50" />
-                                <div className="w-1.5 h-1.5 rounded-full bg-[#A2976A]" />
-                                <div className="h-px w-12 sm:w-16 md:w-20 bg-[#A2976A]/50" />
-                              </div>
-                            )}
-                            <TwoColumnLayout
-                              leftTitle="Candle Sponsors"
-                              rightTitle="Veil Sponsors"
-                            >
-                              {(() => {
-                                const maxLen = Math.max(
-                                  candleSponsors.length,
-                                  veilSponsors.length,
-                                );
-                                const rows = [];
-                                for (let i = 0; i < maxLen; i++) {
-                                  const left = candleSponsors[i];
-                                  const right = veilSponsors[i];
-                                  rows.push(
-                                    <React.Fragment key={`sponsors-row-${i}`}>
-                                      <div
-                                        key={`candle-cell-${i}`}
-                                        className="px-2 sm:px-3 md:px-4"
-                                      >
-                                        {left ? (
-                                          <NameItem
-                                            member={left}
-                                            align="right"
-                                          />
-                                        ) : (
-                                          <div className="py-0.5 sm:py-1 md:py-1.5" />
-                                        )}
-                                      </div>
-                                      <div
-                                        key={`veil-cell-${i}`}
-                                        className="px-2 sm:px-3 md:px-4"
-                                      >
-                                        {right ? (
-                                          <NameItem
-                                            member={right}
-                                            align="left"
-                                          />
-                                        ) : (
-                                          <div className="py-0.5 sm:py-1 md:py-1.5" />
-                                        )}
-                                      </div>
-                                    </React.Fragment>,
-                                  );
-                                }
-                                return rows;
-                              })()}
-                            </TwoColumnLayout>
-                          </div>
-                        );
-                      }
-                      // Skip rendering for "Veil Sponsors" since it's already rendered above
-                      return null;
+                      return (
+                        <div key={category}>
+                          {categoryIndex > 0 && (
+                            <div className="flex items-center justify-center gap-3 sm:gap-4 py-4 sm:py-5 mb-6 sm:mb-7 md:mb-9">
+                              <div className="h-px w-12 sm:w-16 md:w-20 bg-[#A2976A]/50" />
+                              <div className="w-1.5 h-1.5 rounded-full bg-[#A2976A]" />
+                              <div className="h-px w-12 sm:w-16 md:w-20 bg-[#A2976A]/50" />
+                            </div>
+                          )}
+                          <TwoColumnLayout
+                            singleTitle={category}
+                            centerContent={true}
+                          >
+                            {renderTwoColumnRows(members)}
+                          </TwoColumnLayout>
+                        </div>
+                      );
                     }
 
                     // Default: single title, centered content
@@ -656,24 +641,6 @@ export function Entourage() {
                               "Bible Bearer",
                               "Presider",
                             ]);
-                            // Special rule: Cord Sponsors with exactly 2 names should be displayed as two columns meeting at center
-                            if (
-                              category === "Cord Sponsors" &&
-                              members.length === 2
-                            ) {
-                              const left = members[0];
-                              const right = members[1];
-                              return (
-                                <>
-                                  <div className="px-2 sm:px-3 md:px-4">
-                                    <NameItem member={left} align="right" />
-                                  </div>
-                                  <div className="px-2 sm:px-3 md:px-4">
-                                    <NameItem member={right} align="left" />
-                                  </div>
-                                </>
-                              );
-                            }
                             if (
                               SINGLE_COLUMN_SECTIONS.has(category) ||
                               members.length <= 2

@@ -295,7 +295,19 @@ export function Details() {
                 Kindly coordinate with our wedding palette. We would be honored to have your timeless elegance grace our celebration.
               </p>
 
-              <div className="flex items-center justify-center gap-3 sm:gap-4 mb-4">
+              <div className="mt-4 sm:mt-6 flex justify-center">
+                <div className="relative w-full max-w-md sm:max-w-lg md:max-w-xl aspect-[4/5] rounded-xl overflow-hidden border" style={{ borderColor: "rgba(166,124,82,0.35)" }}>
+                  <Image
+                    src="/Details/Attirenew.png"
+                    alt="Attire guide for the wedding"
+                    fill
+                    className="object-contain bg-[#FDF8F1]"
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 80vw, 640px"
+                    priority={false}
+                  />
+                </div>
+              </div>
+              <div className="flex items-center justify-center gap-3 sm:gap-4 mt-6 sm:mt-8 mb-4">
                 <div className="h-px w-8 sm:w-12 bg-[#A67C52]/50" />
                 <div className="w-1.5 h-1.5 rounded-full bg-[#A67C52]" />
                 <div className="h-px w-8 sm:w-12 bg-[#A67C52]/50" />

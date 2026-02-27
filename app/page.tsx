@@ -67,7 +67,7 @@ export default function Home() {
               <MainHero />
               <Countdown />
               <LoveStory />
-              <Messages />
+
               <Details />
               <WeddingTimeline />
               <Entourage />
@@ -75,8 +75,9 @@ export default function Home() {
               <GuestList />
               {/* <BookOfGuests /> */}
               <Registry />
+              <Messages />
               <FAQ />
-              {/* <SnapShare /> */}
+              <SnapShare />
               <Footer />
             </div>
           </div>

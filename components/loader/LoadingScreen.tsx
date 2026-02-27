@@ -6,8 +6,6 @@ interface LoadingScreenProps {
   onComplete: () => void
 }
 
-// Wedding date: June 19, 2026 → 06 19 26
-const GHOST_NUMBERS = ["06", "19", "26"]
 const COUPLE_NAMES = { groom: "Daive", bride: "Abra" }
 
 export const LoadingScreen: React.FC<LoadingScreenProps> = ({ onComplete }) => {
@@ -63,29 +61,6 @@ export const LoadingScreen: React.FC<LoadingScreenProps> = ({ onComplete }) => {
     >
       {/* Light warm background */}
       <div className="absolute inset-0 bg-[#F5E7D3]" />
-
-      {/* Ghosted background numbers — right side, stacked */}
-      <div
-        className="absolute inset-0 pointer-events-none flex flex-col items-end justify-center pr-6 sm:pr-10 md:pr-14 lg:pr-20 gap-0 select-none"
-        aria-hidden
-      >
-        {GHOST_NUMBERS.map((num, i) => (
-          <span
-            key={num}
-            className="text-[7rem] sm:text-[9rem] md:text-[11rem] lg:text-[13rem] font-bold leading-[0.85] transition-opacity duration-1000 ease-out"
-            style={{
-              fontFamily: "var(--font-crimson)",
-              fontWeight: 700,
-              color: "rgba(120, 78, 46, 0.06)",
-              letterSpacing: "-0.03em",
-              opacity: nameVisible ? 1 : 0,
-              transitionDelay: `${i * 80}ms`,
-            }}
-          >
-            {num}
-          </span>
-        ))}
-      </div>
 
       {/* Main content — centered */}
       <div className="relative z-10 w-full max-w-lg mx-auto px-6 sm:px-8 md:px-10 text-center">

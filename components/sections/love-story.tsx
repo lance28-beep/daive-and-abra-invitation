@@ -1,6 +1,7 @@
- "use client"
+"use client"
 
 import { Section } from "@/components/section"
+import Image from "next/image"
 
 export function LoveStory() {
   const paragraphs = [
@@ -52,13 +53,23 @@ export function LoveStory() {
           Every moment brings us closer to forever
         </p>
 
-        <div className="flex items-center justify-center gap-3 mb-8 sm:mb-10 md:mb-12">
+        <div className="flex items-center justify-center gap-3 mb-6 sm:mb-8 md:mb-10">
           <span className="h-px w-12 sm:w-20 bg-gradient-to-r from-transparent via-[#A67C52] to-[#A67C52]" />
           <span className="w-1.5 h-1.5 rounded-full" style={{ backgroundColor: "#A67C52" }} />
           <span className="h-px w-12 sm:w-20 bg-gradient-to-l from-transparent via-[#A67C52] to-[#A67C52]" />
         </div>
 
-        {/* Story paragraphs — no container */}
+        <div className="mb-8 sm:mb-10 md:mb-12 flex justify-center">
+          <Image
+            src="/Details/lovestory.png"
+            alt="Daive & Abra love story artwork"
+            width={960}
+            height={540}
+            className="w-full max-w-md sm:max-w-lg md:max-w-xl h-auto"
+          />
+        </div>
+
+        {/* Story paragraphs */}
         <div className="max-w-2xl mx-auto space-y-6 sm:space-y-7 md:space-y-8">
           {paragraphs.map((paragraph, index) => (
             <p

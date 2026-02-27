@@ -13,12 +13,12 @@ const faqItems: FAQItem[] = [
   {
     question: "When should I RSVP by?",
     answer:
-      "To help us with our planning, please RSVP to the event as soon as possible. However, the deadline is May 19, 2026. If we don't receive your RSVP by this date, we cannot make exceptions and will have to mark you as 'NO'. The official guest list will be given to our coordinator.",
+      "To help us with our planning, please RSVP as soon as possible. Kindly confirm your attendance no later than May 19, 2026. If we do not receive your response by this date, we will regretfully mark you as 'NO' and will not be able to accomodate late confirmations. Our final guest list will be submitted to our coordinator. -heartfelt"
   },
-  {
+      {
     question: "When should I arrive?",
     answer:
-      "We encourage everyone to arrive before 3:00 PM, before the ceremony starts to make sure everyone is seated on time. We appreciate that all guests can attend the ceremony to witness our union.",
+    " We kindly encourage everyone to arrive before 3:00 PM to ensure that all guests are seated before the ceremony begins. We would truly appreciate your presence at the ceremony as we exchange our vows and begin our life together."
   },
   {
     question: "Plugged in ceremony",
@@ -28,22 +28,22 @@ const faqItems: FAQItem[] = [
   {
     question: "Is there a dress code?",
     answer:
-      "We kindly ask guests to wear formal attire. Please REFRAIN from wearing T-shirt, jeans, and slippers. Thank you for dressing up with us!",
+      "We kindly request that guests wear formal attiree. Please refrain from wearing T-shirts, jeans, or slippers. Thank you for dressing up and celebrating with use!",
   },
   {
     question: "Can I bring a plus one?",
     answer:
-      "As much as possible, we kindly ask that only the guests that are listed in the invitation to attend. However, please let us know if you'd like to bring a plus one and we'll be happy to share our thoughts.",
+      "As much ass possible, we kindly ask that only the guests listed on the invitation attend. However, if you would like to bring a plus one, please let us know and we'll be happy to share our thoughts.",
   },
   {
     question: "Can we bring our kids?",
     answer:
-      "Only children from our immediate family are only allowed. We encourage guests to enjoy the celebration as a special time for themselves.",
+      "While we love your little ones, only children from our immediate family will be attending. We encourage our guests to enjoy the celebration as a special time for themselves.",
   },
   {
     question: "What time can we go home?",
     answer:
-      "It took us more than a year to save and plan for our wedding so that everyone would (hopefully) enjoy. The program is estimated to end at 9:00 PM. PLEASE DON'T EAT AND RUN! Stay with us until the program ends.",
+      "It took us more than a year of saving and planning to prepare this special day, and we truly hope everyone enjoys it. The program is expected to end at 9:00 PM, and we would be so grateful if you could stays and celebrate with us until the very end. Your presence means the world to us.",
   },
 ];
 
