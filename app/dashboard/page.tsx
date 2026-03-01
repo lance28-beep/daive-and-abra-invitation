@@ -879,7 +879,7 @@ export default function DashboardPage() {
                 <Lock className="h-10 w-10 text-[#0A3629]" />
               </div>
               <div className="text-xs tracking-[0.25em] uppercase font-[family-name:var(--font-crimson)] font-semibold text-[#0A3629]/60 mb-2">Welcome 
-              Japoi & Regine</div>
+              Daive & Abra</div>
               <h1 className="text-3xl font-[family-name:var(--font-crimson)] font-bold text-[#0A3629] mb-2">
                 Wedding Dashboard
               </h1>

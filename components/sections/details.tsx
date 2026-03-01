@@ -298,7 +298,7 @@ export function Details() {
               <div className="mt-4 sm:mt-6 flex justify-center">
                 <div className="relative w-full max-w-md sm:max-w-lg md:max-w-xl aspect-[4/5] rounded-xl overflow-hidden border" style={{ borderColor: "rgba(166,124,82,0.35)" }}>
                   <Image
-                    src="/Details/Attirenew.png"
+                    src="/Details/atture.png"
                     alt="Attire guide for the wedding"
                     fill
                     className="object-contain bg-[#FDF8F1]"
