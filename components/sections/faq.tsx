@@ -28,7 +28,7 @@ const faqItems: FAQItem[] = [
   {
     question: "Is there a dress code?",
     answer:
-      "We kindly request that guests wear formal attiree. Please refrain from wearing T-shirts, jeans, or slippers. Thank you for dressing up and celebrating with use!",
+      "We kindly request that guests wear formal attiree. Please refrain from wearing T-shirts, jeans, or slippers. Thank you for dressing up and celebrating with us!",
   },
   {
     question: "Can I bring a plus one?",
@@ -43,7 +43,7 @@ const faqItems: FAQItem[] = [
   {
     question: "What time can we go home?",
     answer:
-      "It took us more than a year of saving and planning to prepare this special day, and we truly hope everyone enjoys it. The program is expected to end at 9:00 PM, and we would be so grateful if you could stays and celebrate with us until the very end. Your presence means the world to us.",
+      "It took us more than a year of saving and planning to prepare this special day, and we truly hope everyone enjoys it. The program is expected to end at 9:00 PM, and we would be so grateful if you could stay and celebrate with us until the very end. Your presence means the world to us.",
   },
 ];
 
